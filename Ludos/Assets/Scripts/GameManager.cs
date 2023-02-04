@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     float _jumpForce = 8.3f;
     float _leftMovement = -1f;
     float _rightMovement = 1f;
-    float _upMovement = 1.2f;
+    float _speedMovement = 1.2f;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         if (_player.isGrounded)
         {
             _player.isGrounded = false;
-            _player.GetComponent<Rigidbody2D>().velocity = new Vector2(_leftMovement * _upMovement,_jumpForce);
+            _player.GetComponent<Rigidbody2D>().velocity = new Vector2(_leftMovement * _speedMovement,_jumpForce);
             //_player.transform.Translate(_leftMovement,_jumpForce,0f);
         }
     }
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         if (_player.isGrounded)
         {
             _player.isGrounded = false;
-            _player.GetComponent<Rigidbody2D>().velocity = new Vector2(_rightMovement * _upMovement, _jumpForce);
+            _player.GetComponent<Rigidbody2D>().velocity = new Vector2(_player.transform.position.x, _jumpForce);
             //_player.transform.Translate(_rightMovement, _jumpForce, 0f);
         }
     }
