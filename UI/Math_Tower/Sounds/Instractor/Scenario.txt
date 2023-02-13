@@ -1,0 +1,19 @@
+Hello friends, in this game we will learn some mathematics symbols.
+First symbol is plus.
+we will use plus to count the number of ducks.
+Here we have one duck plus one duck to get the result we will use our hand, put one finger on the left hand and one on the right hand then recount and finaly the result is two.
+see its very easy method.
+Second symbol is minus.
+we will use the same method we used in the plus symbol, we have three duck minus one duck to get the result we will use our hand, put three fingers on the left hand and one on the right hand then subtract them and recount and finaly the result is two.
+Third symbol is Grater than.
+we use greater than symbols can be used to compare two numbers. small numbers mean light weight and large numbers are havy numbers. So, in this example 4>1 four is more havy than one so its greater than it.
+Fourth symbol is Smaller than.
+its the inverse of the greater than symbol we want the light weight number not the heavy one.
+
+
+
+
+
+
+
+
