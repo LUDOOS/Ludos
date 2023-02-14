@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GROUND
   - PLAYER
+  - BARRIER
+  - FALL
   layers:
   - Default
   - TransparentFX
@@ -48,4 +50,7 @@ TagManager:
     locked: 0
   - name: FOREGROUND
     uniqueID: 3574787729
+    locked: 0
+  - name: ANSWER
+    uniqueID: 3932503077
     locked: 0

@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Barrier : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "PLAYER")
+        if (collision.gameObject.tag == "FALL")
         {
-            this.gameObject.transform.localScale += new Vector3(3f, 0, 0);
+            Destroy(collision.gameObject);
         }
     }
 }
