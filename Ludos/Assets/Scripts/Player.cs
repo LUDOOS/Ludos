@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     float _jumpForce = 8.3f;
     Rigidbody2D rb;
     SpriteRenderer sr;
+    Animator animator;
     UiManager uiManager;
     [SerializeField] private GameObject wrongBarrier1;
     [SerializeField] private GameObject wrongBarrier2;
@@ -19,6 +20,20 @@ public class Player : MonoBehaviour
         uiManager = GameObject.Find("Canvas").GetComponent<UiManager>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+    }
+
+    IEnumerator walkAnimate()
+    {
+        animator.SetBool("Walk",true);
+        yield return new WaitForSeconds(0.8f);
+        animator.SetBool("Walk", false);
+    }
+    IEnumerator jumpAnimate()
+    {
+        animator.SetBool("Jump", true);
+        yield return new WaitForSeconds(0.8f);
+        animator.SetBool("Jump", false);
     }
 
     public void leftMove()
@@ -26,7 +41,8 @@ public class Player : MonoBehaviour
         if (isGrounded)
         {
              rb.velocity = new Vector2(-_movement, rb.velocity.y);
-            //sr.flipX = true;
+            StartCoroutine(walkAnimate());
+            sr.flipX = true;
         }
        
     }
@@ -36,7 +52,8 @@ public class Player : MonoBehaviour
         if (isGrounded)
         {
             rb.velocity = new Vector2(_movement, rb.velocity.y);
-            //sr.flipX = true;
+            StartCoroutine(walkAnimate());
+            sr.flipX = false;
         }
 
     }
@@ -45,6 +62,7 @@ public class Player : MonoBehaviour
         if (isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x,_jumpForce);
+            StartCoroutine(jumpAnimate());
             isGrounded = false;
         }
        
@@ -87,6 +105,10 @@ public class Player : MonoBehaviour
             {
                 _barrier.GetComponent<Animator>().Play("ScalingToLeft");
                 Destroy(wrongBarrier3);
+                yield return new WaitForSeconds(0.7f);
+                uiManager.textBackground.gameObject.SetActive(false);
+                yield return new WaitForSeconds(0.3f);
+                uiManager.congrates.gameObject.SetActive(true);
             }
         }
         else if(_barrier.name == "1" || _barrier.name == "4" || _barrier.name == "6")

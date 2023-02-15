@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 573cc27dc4a577b49bba0139d6415ca5
+guid: 7c1b7b4056fc930429994cbf529ada45
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,112 +127,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: mario-jump_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 6
-        width: 85
-        height: 169
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 701cc98178eb9b445a42ef7621257279
-      internalID: 1789328103
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mario-jump_1
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 6
-        width: 90
-        height: 169
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae4d02fa906c61241930a837a2f63b02
-      internalID: -2009416756
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mario-jump_2
-      rect:
-        serializedVersion: 2
-        x: 187
-        y: 6
-        width: 97
-        height: 169
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34fd0af94df75434e8323451e0004e60
-      internalID: 1174946891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mario-jump_3
-      rect:
-        serializedVersion: 2
-        x: 290
-        y: 6
-        width: 108
-        height: 169
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb7bd6a3f86160e48a62ef95abb8f252
-      internalID: -1800797447
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mario-jump_4
-      rect:
-        serializedVersion: 2
-        x: 404
-        y: 0
-        width: 96
-        height: 175
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 508e99eeeec37f94ca41b4fe49033458
-      internalID: -99895017
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -243,12 +138,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      mario-jump_0: 1789328103
-      mario-jump_2: 1174946891
-      mario-jump_3: -1800797447
-      mario-jump_1: -2009416756
-      mario-jump_4: -99895017
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
