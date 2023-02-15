@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     SpriteRenderer sr;
     Animator animator;
     UiManager uiManager;
+    Scene scene;
     [SerializeField] private GameObject wrongBarrier1;
     [SerializeField] private GameObject wrongBarrier2;
     [SerializeField] private GameObject wrongBarrier3;
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        scene = SceneManager.GetActiveScene();
     }
 
     IEnumerator walkAnimate()
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         animator.SetBool("Walk", false);
     }
+
     IEnumerator jumpAnimate()
     {
         animator.SetBool("Jump", true);
@@ -57,6 +61,7 @@ public class Player : MonoBehaviour
         }
 
     }
+
     public void jump() 
     {
         if (isGrounded)
@@ -80,11 +85,8 @@ public class Player : MonoBehaviour
     IEnumerator barrier(Collision2D collision)
     {
         GameObject _barrier = collision.gameObject;
-        //if (_barrier.GetComponent<Animator>() != null) {
-        //    _barrier.GetComponent<Animator>().SetBool("Idle", true);
-        //}
-        
-           if (_barrier.name == "2" || _barrier.name == "5" || _barrier.name == "8")
+
+        if (_barrier.name == "2" || _barrier.name == "5" || _barrier.name == "8")
         {
             GameObject _barrierChild = _barrier.transform.GetChild(0).gameObject;
             _barrierChild.SetActive(false);
@@ -92,18 +94,38 @@ public class Player : MonoBehaviour
             if (_barrier.name == "2")
             {
                 uiManager.updateQuestion(1);
-                _barrier.GetComponent<Animator>().Play("ScalingToRight");
+                if (scene.name == "Level-1" || scene.name == "Level-3" || scene.name == "Level-4" || scene.name == "Level-5") {
+                    _barrier.GetComponent<Animator>().Play("ScalingToRight");
+                }
+                else
+                {
+                    _barrier.GetComponent<Animator>().Play("ScalingToLeft");
+                }
                 Destroy(wrongBarrier1);
             }
             if (_barrier.name == "5")
             {
                 uiManager.updateQuestion(2);
-                _barrier.GetComponent<Animator>().Play("ScalingToLeft");
+                if (scene.name == "Level-1" || scene.name == "Level-3" || scene.name == "Level-5")
+                {
+                    _barrier.GetComponent<Animator>().Play("ScalingToLeft");
+                }
+                else
+                {
+                    _barrier.GetComponent<Animator>().Play("ScalingToRight");
+                }
                 Destroy(wrongBarrier2);
             }
             if (_barrier.name == "8")
             {
-                _barrier.GetComponent<Animator>().Play("ScalingToLeft");
+                if (scene.name == "Level-1" || scene.name == "Level-2" || scene.name == "Level-5")
+                {
+                    _barrier.GetComponent<Animator>().Play("ScalingToLeft");
+                }
+                else
+                {
+                    _barrier.GetComponent<Animator>().Play("ScalingToRight");
+                }
                 Destroy(wrongBarrier3);
                 yield return new WaitForSeconds(0.7f);
                 uiManager.textBackground.gameObject.SetActive(false);

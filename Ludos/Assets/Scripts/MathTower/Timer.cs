@@ -21,11 +21,14 @@ public class Timer : MonoBehaviour
     private UnityAction<int> onTimerChangeAction;
     private UnityAction onTimerEndAction;
     private UnityAction<bool> onTimerPauseAction;
+
+    UiManager uiManager;
     // Start is called before the first frame update
     void Start()
     {
         Awake();
         SetDuration(time).Begin();   
+        uiManager = GameObject.Find("Canvas").GetComponent<UiManager>();
     }
 
     private void Awake()
@@ -58,6 +61,12 @@ public class Timer : MonoBehaviour
     public Timer SetDuration(int seconds)
     {
         Duration = remainingDuration = seconds;
+        
+        //if()
+        //{
+        //    uiManager.updateStars();
+        //}
+
         return this;
     }
 
