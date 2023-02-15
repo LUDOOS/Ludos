@@ -527,7 +527,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 350183538}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2138617577}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: BackToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &350183538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1321,7 +1333,7 @@ Animator:
   m_GameObject: {fileID: 856297019}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d018391fd96d85d42b3ee41d00c6b4ba, type: 2}
+  m_Controller: {fileID: 9100000, guid: 12cf101b6a79938428fa371648865171, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2991,7 +3003,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1695753542}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2138617577}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: BackToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1695753542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3307,7 +3331,7 @@ Animator:
   m_GameObject: {fileID: 1813313124}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6e62fda687e69544a8c6a3c316b4d1af, type: 2}
+  m_Controller: {fileID: 9100000, guid: 12cf101b6a79938428fa371648865171, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3435,7 +3459,7 @@ Animator:
   m_GameObject: {fileID: 1827039502}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d018391fd96d85d42b3ee41d00c6b4ba, type: 2}
+  m_Controller: {fileID: 9100000, guid: 12cf101b6a79938428fa371648865171, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3624,7 +3648,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1867778174}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2138617577}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: PlayLevel4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1867778174
 MonoBehaviour:
   m_ObjectHideFlags: 0
