@@ -22,13 +22,13 @@ public class Timer : MonoBehaviour
     private UnityAction onTimerEndAction;
     private UnityAction<bool> onTimerPauseAction;
 
-    UiManager uiManager;
+    MathTowerUiManager uiManager;
     // Start is called before the first frame update
     void Start()
     {
         Awake();
         SetDuration(time).Begin();   
-        uiManager = GameObject.Find("Canvas").GetComponent<UiManager>();
+        uiManager = GameObject.Find("Canvas").GetComponent<MathTowerUiManager>();
     }
 
     private void Awake()

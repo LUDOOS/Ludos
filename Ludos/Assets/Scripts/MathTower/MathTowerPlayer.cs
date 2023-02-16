@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class MathTowerPlayer : MonoBehaviour
 {
     public bool isGrounded = true;
     float _movement = 2.5f;
@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator animator;
-    UiManager uiManager;
+    MathTowerUiManager uiManager;
     Scene scene;
     [SerializeField] private GameObject wrongBarrier1;
     [SerializeField] private GameObject wrongBarrier2;
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        uiManager = GameObject.Find("Canvas").GetComponent<UiManager>();
+        uiManager = GameObject.Find("Canvas").GetComponent<MathTowerUiManager>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
