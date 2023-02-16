@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class MathTowerCamera : MonoBehaviour
 {
-    [SerializeField]private Player player;
+    [SerializeField]private MathTowerPlayer player;
     Vector3 tempPos;
     // Start is called before the first frame update
     void Start()

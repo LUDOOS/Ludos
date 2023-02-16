@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UiManager : MonoBehaviour
+public class MathTowerUiManager : MonoBehaviour
 {
     [SerializeField] public Button textBackground;
     [SerializeField] Text _question;
