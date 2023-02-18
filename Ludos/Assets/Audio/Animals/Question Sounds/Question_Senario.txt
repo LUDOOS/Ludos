@@ -1,0 +1,37 @@
+Lets search for the animals, you will hear the question and try to guess the right answer.
+Click on the animal you think its the right one.
+[lion]
+who is the king of the jungl.
+{Wolve}
+who is the highly intelligent animal who are caring above all devoted to family.
+{Snake}
+who is the reptile animal with a long, thin body but no legs.
+---------------------------------------------------
+{Star fish}
+who is star-shaped animal, but they are not fish but they live in the sea.
+{Octupus}
+who is a sea animals famous for their rounded bodies, bulging eyes, and eight long arms.
+{Crocodile}
+who is animal that have powerful jaws with many conical teeth and short legs with clawed webbed toes.
+---------------------------------------------------
+{Dog}
+who is animal that known to be faithful and loyal companions, protective of their masters and territory.
+{Cat}
+who is a furry animal that has a long tail and sharp claws and kept as pets.
+{Rat}
+Rats.
+who is animal that are medium-sized rodents with a long tail and live underground.
+---------------------------------------------------
+{Duck}
+who is a small type of swimming bird with a short neck and legs and They have webbed feet.
+{Owl}
+who is the night animal that have excellent eyesight and hearing. 
+{pelican}
+who is the animal that are characterized by a long beak and a large throat pouch used for catching prey.
+---------------------------------------------------
+{Elephant}
+who is a huge animal.
+{Hippo}
+ who is animal that have bulky body on stumpy legs.
+{Kangaroo}
+who is animal that have short hair, powerful hind legs, small forelimbs, big feet and a long tail.

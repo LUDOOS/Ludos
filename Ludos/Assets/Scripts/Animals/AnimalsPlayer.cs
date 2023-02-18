@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimalsPlayer : MonoBehaviour
 {
@@ -13,7 +14,12 @@ public class AnimalsPlayer : MonoBehaviour
 
     public void move()
     {
-        _move.x += 5.2f;
+        _move.x += 4.8f;
         transform.position = _move;
+    }
+
+    public void backtoMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
