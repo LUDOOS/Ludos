@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 108436402}
   - component: {fileID: 108436401}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Octopus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 143961248}
   - component: {fileID: 143961247}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: StarFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 150976163}
   - component: {fileID: 150976162}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -651,8 +651,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.69812, y: -166.95508}
-  m_SizeDelta: {x: 51.3324, y: 51.0549}
+  m_AnchoredPosition: {x: 100, y: -100}
+  m_SizeDelta: {x: 32.083, y: 31.909}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &150976162
 MonoBehaviour:
@@ -1031,7 +1031,7 @@ GameObject:
   - component: {fileID: 366988590}
   - component: {fileID: 366988589}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Hippo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 449039059}
   - component: {fileID: 449039058}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1697,7 +1697,7 @@ GameObject:
   - component: {fileID: 739639875}
   - component: {fileID: 739639874}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Kangaroo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1919,7 +1919,7 @@ GameObject:
   - component: {fileID: 804670829}
   - component: {fileID: 804670828}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Owl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2141,7 +2141,7 @@ GameObject:
   - component: {fileID: 948075340}
   - component: {fileID: 948075339}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Crocodile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2363,7 +2363,7 @@ GameObject:
   - component: {fileID: 954274346}
   - component: {fileID: 954274345}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Lion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2619,7 +2619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2686,7 +2686,7 @@ GameObject:
   - component: {fileID: 1172928282}
   - component: {fileID: 1172928281}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3855,7 +3855,7 @@ GameObject:
   - component: {fileID: 1953570952}
   - component: {fileID: 1953570951}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: Duck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
