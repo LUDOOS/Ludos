@@ -18,8 +18,4 @@ public class AnimalsPlayer : MonoBehaviour
         transform.position = _move;
     }
 
-    public void backtoMainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimalsCamera : MonoBehaviour
 {
-    [SerializeField] private AnimalsPlayer player;
+    [SerializeField] private GameObject player;
     Vector3 tempPos;
     // Start is called before the first frame update
     void Start()
