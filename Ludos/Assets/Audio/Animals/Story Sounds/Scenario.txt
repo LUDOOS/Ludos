@@ -1,0 +1,52 @@
+Hello friends, do you like animals, let's discover some animals together.
+Click on any animal to recognize it
+
+{Lion}
+Oh, its a lion.
+The lion is the king of the jungl.
+{Wolve}
+Wolves.
+Wolves are highly intelligent animals who are caring above all devoted to family.
+{Snake}
+Snake.
+A snake is a reptile with a long, thin body but no legs.
+---------------------------------------------------
+{Star fish}
+Star fish.
+Starfish are star-shaped, but they are not fish but they live in the sea.
+{Octupus}
+Octupus.
+Octopuses are sea animals famous for their rounded bodies, bulging eyes, and eight long arms.
+{Crocodile}
+Crocodiles.
+Crocodiles have powerful jaws with many conical teeth and short legs with clawed webbed toes.
+---------------------------------------------------
+{Dog}
+Dog.
+The dog is a pet animal and known to be faithful and loyal companions, protective of their masters and territory.
+{Cat}
+Cat.
+A cat is a furry animal that has a long tail and sharp claws. Cats are often kept as pets.
+{Rat}
+Rats.
+Rats are medium-sized rodents with a long tail, Rats are mainly nocturnal and live underground.
+---------------------------------------------------
+{Duck}
+Duck.
+A duck is a small type of swimming bird with a short neck and legs. They have webbed feet to help them swim.
+{Owl}
+Owl.
+Owl is night animal, Owls have excellent eyesight and hearing. 
+{pelican}
+pelican.
+Pelicans are characterized by a long beak and a large throat pouch used for catching prey.
+---------------------------------------------------
+{Elephant}
+Elephant. 
+Elephant is a huge animal.
+{Hippo}
+ Hippo.
+ Hippo have bulky body on stumpy legs.
+{Kangaroo}
+Kangaroo.
+All kangaroos have short hair, powerful hind legs, small forelimbs, big feet and a long tail.
