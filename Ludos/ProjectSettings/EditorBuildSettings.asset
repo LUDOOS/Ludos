@@ -29,4 +29,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MathTower/Level-5.unity
     guid: 156328a5f1ce5c341b86205685285934
+  - enabled: 1
+    path: Assets/Scenes/Animals/HomePage.unity
+    guid: 108a338563fd5b4439bd69ac88bd1996
+  - enabled: 1
+    path: Assets/Scenes/Animals/Level-1.unity
+    guid: 781060402be5a4a468f24fcb6b68bca8
+  - enabled: 1
+    path: Assets/Scenes/Animals/Level-2.unity
+    guid: 96451c3210e7d9741aed30eb0e0a16d0
+  - enabled: 1
+    path: Assets/Scenes/Animals/Level-3.unity
+    guid: eeb2e333e5192fa43af3a166eb059272
+  - enabled: 1
+    path: Assets/Scenes/Animals/Level-4.unity
+    guid: b46ce794e4f08024cb9074ba8316ffe9
+  - enabled: 1
+    path: Assets/Scenes/Animals/Level-5.unity
+    guid: e46a42853a2ea554090608fad8de5595
+  - enabled: 1
+    path: Assets/Scenes/Animals/Story.unity
+    guid: 31881d1d9ae35ad409b01a551317878c
   m_configObjects: {}
