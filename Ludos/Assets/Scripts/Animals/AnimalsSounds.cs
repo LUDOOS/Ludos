@@ -16,18 +16,13 @@ public class AnimalsSounds : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        //if(_audio.isPlaying){
-            
-        //}
-        _audio.Pause();
         _audio.Play();
         if (this.gameObject.name == "Animal")
         {
             StartCoroutine(moveCameraToNextQuestion());
         }
         else if (this.gameObject.name == "FinalAnimal")
-        {
-
+        { 
             StopCoroutine(moveCameraToNextQuestion());
             _uiManager.congrates.gameObject.SetActive(true);
         }
@@ -35,7 +30,7 @@ public class AnimalsSounds : MonoBehaviour
 
     IEnumerator moveCameraToNextQuestion()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3.5f);
         _player.move();
     }
 }
