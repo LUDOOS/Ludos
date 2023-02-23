@@ -131,6 +131,7 @@ public class MathTowerPlayer : MonoBehaviour
                 uiManager.textBackground.gameObject.SetActive(false);
                 yield return new WaitForSeconds(0.3f);
                 uiManager.congrates.gameObject.SetActive(true);
+                uiManager.confetti.enabled = true;
             }
         }
         else if(_barrier.name == "1" || _barrier.name == "4" || _barrier.name == "6")

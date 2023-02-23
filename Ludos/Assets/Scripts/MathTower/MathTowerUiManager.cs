@@ -11,6 +11,7 @@ public class MathTowerUiManager : MonoBehaviour
     [SerializeField] Sprite[] _spriteImg;
     [SerializeField] Image _starsImg;
     [SerializeField] public Image congrates;
+    [SerializeField] public RawImage confetti;
     string[] _questionText;
     Scene scene;
     // Start is called before the first frame update
@@ -39,6 +40,7 @@ public class MathTowerUiManager : MonoBehaviour
         }
         _question.text = _questionText[0];
         congrates.gameObject.SetActive(false);
+        confetti.enabled = false;
     }
 
     // Update is called once per frame
