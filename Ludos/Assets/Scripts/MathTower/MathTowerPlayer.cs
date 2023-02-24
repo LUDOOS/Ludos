@@ -129,8 +129,12 @@ public class MathTowerPlayer : MonoBehaviour
                 Destroy(wrongBarrier3);
                 yield return new WaitForSeconds(0.7f);
                 uiManager.textBackground.gameObject.SetActive(false);
+                Timer.SetPaused(true);
                 yield return new WaitForSeconds(0.3f);
                 uiManager.congrates.gameObject.SetActive(true);
+                uiManager.updateStars(Timer.second);
+                uiManager.confetti.enabled = true;
+                MathTowerGameManager.instance.isCompleted = true;
             }
         }
         else if(_barrier.name == "1" || _barrier.name == "4" || _barrier.name == "6")
