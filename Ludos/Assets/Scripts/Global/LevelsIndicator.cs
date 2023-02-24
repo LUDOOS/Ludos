@@ -7,13 +7,9 @@ public class LevelsIndicator : MonoBehaviour
 {
     [SerializeField] private Image uiFillImage;
 
-    private void Start()
+    public  void UpdateUI(float progress)
     {
-        UpdateUI(0.5f);
-    }
-
-    public void UpdateUI(float progress)
-    {
+        Debug.Log(progress);
         uiFillImage.fillAmount = progress;
     }
 }
