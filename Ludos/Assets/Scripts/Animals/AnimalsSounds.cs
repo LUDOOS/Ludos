@@ -30,7 +30,7 @@ public class AnimalsSounds : MonoBehaviour
 
     IEnumerator moveCameraToNextQuestion()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(2.5f);
         _player.move();
     }
 }
