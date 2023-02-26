@@ -19,29 +19,28 @@ public class Navigation : MonoBehaviour
     /// <MainPages>
     public void Navigate(int index)
     {
-        // 
         StartCoroutine(loadScene(index));
     }
 
-    //public void NavToGamePage()
-    //{
-    //    StartCoroutine(loadScene(14));
-    //}
+    public void NavToGamePage()
+    {
+        StartCoroutine(loadScene(1));
+    }
 
-    //public void NavToSettingsPage()
-    //{
-    //    SceneManager.LoadScene(15);
-    //}
+    public void NavToSettingsPage()
+    {
+        SceneManager.LoadScene(2);
+    }
 
-    //public void NavToAchivments()
-    //{
-    //    //SceneManager.LoadScene();
-    //}
+    public void NavToAchivments()
+    {
+        SceneManager.LoadScene(3);
+    }
 
-    //public void NavToCreaditis()
-    //{
-    //    //SceneManager.LoadScene();
-    //}
+    public void NavToShop()
+    {
+        SceneManager.LoadScene(4);
+    }
     /// </MainPages>
 
     ///<Games>
@@ -51,10 +50,10 @@ public class Navigation : MonoBehaviour
     //    SceneManager.LoadScene(0);
     //}
 
-    //public void NavToAnimals()
-    //{
-    //    SceneManager.LoadScene(7);
-    //}
+    public void NavToAnimals()
+    {
+        SceneManager.LoadScene(5);
+    }
 
     //public void NavToDatesAndTime()
     //{
@@ -62,6 +61,41 @@ public class Navigation : MonoBehaviour
     //}
 
     ///</Games>
+    ///
+
+    // <Animals Levels>
+
+    public void AnimalsStory()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+    public void AnimalsLevel1()
+    {
+        SceneManager.LoadScene(7);
+    }
+
+    public void AnimalsLevel2()
+    {
+        SceneManager.LoadScene(8);
+    }
+
+    public void AnimalsLevel3()
+    {
+        SceneManager.LoadScene(9);
+    }
+
+    public void AnimalsLevel4()
+    {
+        SceneManager.LoadScene(10);
+    }
+
+    public void AnimalsLevel5()
+    {
+        SceneManager.LoadScene(11);
+    }
+
+    // </Animals Levels>
 
 
 }
