@@ -19,14 +19,20 @@ public class AnimalsSounds : MonoBehaviour
     private void OnMouseUpAsButton()
     {
         _aHandler.PlayAudio(_clip);
-        if (this.gameObject.name == "Animal")
-        {
-            StartCoroutine(moveCameraToNextQuestion());
+        if (this.gameObject.name == "Animal" && _clip.name == "right")
+        {           
+            _aHandler._audio.Stop();
+            _aHandler.PlayAudio(_clip);
+            if (_aHandler._audio.isPlaying)
+            {
+                StartCoroutine(moveCameraToNextQuestion());
+            }
+            
         }
         else if (this.gameObject.name == "FinalAnimal")
-        { 
+        {
             StopCoroutine(moveCameraToNextQuestion());
-            FinishingLevel();
+            StartCoroutine(FinishingLevel());
         }
     }
 
