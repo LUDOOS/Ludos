@@ -17,15 +17,16 @@ public class Navigation : MonoBehaviour
     }
 
     /// <MainPages>
-    public void NavToHomePage()
+    public void Navigate(int index)
     {
-        StartCoroutine(loadScene(15));
+        // 
+        StartCoroutine(loadScene(index));
     }
 
-    public void NavToGamePage()
-    {
-        StartCoroutine(loadScene(14));
-    }
+    //public void NavToGamePage()
+    //{
+    //    StartCoroutine(loadScene(14));
+    //}
 
     //public void NavToSettingsPage()
     //{

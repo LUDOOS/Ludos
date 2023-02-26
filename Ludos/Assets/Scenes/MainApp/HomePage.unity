@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 897165190}
   - component: {fileID: 897165189}
   m_Layer: 5
-  m_Name: Creadits
+  m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,14 +474,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1791543488}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: NavToCreaditis
-        m_Mode: 1
+        m_MethodName: Navigate
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -835,14 +835,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1791543488}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: NavToSettingsPage
-        m_Mode: 1
+        m_MethodName: Navigate
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1074,14 +1074,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1791543488}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: NavToAchivments
-        m_Mode: 1
+        m_MethodName: Navigate
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1225,12 +1225,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1791543488}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: NavToGamePage
-        m_Mode: 1
+        m_MethodName: Navigate
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -9,51 +9,18 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/MathTower/HomePage.unity
-    guid: 84e9f981e81a3524a993f41922a24573
-  - enabled: 1
-    path: Assets/Scenes/MathTower/Level-1.unity
-    guid: b5813fff3148bd940ab63ed4d03d0842
-  - enabled: 1
-    path: Assets/Scenes/MathTower/Level-2.unity
-    guid: 73a30c0b83a836b42b013309a0d37bcf
-  - enabled: 1
-    path: Assets/Scenes/MathTower/Level-3.unity
-    guid: 506771061ba726841a1165b707b8f946
-  - enabled: 1
-    path: Assets/Scenes/MathTower/Level-4.unity
-    guid: e06a4bfdecfcc564181cf0e2825f10c9
-  - enabled: 1
-    path: Assets/Scenes/MathTower/Level-5.unity
-    guid: 156328a5f1ce5c341b86205685285934
-  - enabled: 1
-    path: Assets/Scenes/Animals/HomePage.unity
-    guid: 108a338563fd5b4439bd69ac88bd1996
-  - enabled: 1
-    path: Assets/Scenes/Animals/Level-1.unity
-    guid: 781060402be5a4a468f24fcb6b68bca8
-  - enabled: 1
-    path: Assets/Scenes/Animals/Level-2.unity
-    guid: 96451c3210e7d9741aed30eb0e0a16d0
-  - enabled: 1
-    path: Assets/Scenes/Animals/Level-3.unity
-    guid: eeb2e333e5192fa43af3a166eb059272
-  - enabled: 1
-    path: Assets/Scenes/Animals/Level-4.unity
-    guid: b46ce794e4f08024cb9074ba8316ffe9
-  - enabled: 1
-    path: Assets/Scenes/Animals/Level-5.unity
-    guid: e46a42853a2ea554090608fad8de5595
-  - enabled: 1
-    path: Assets/Scenes/Animals/Story.unity
-    guid: 31881d1d9ae35ad409b01a551317878c
+    path: Assets/Scenes/MainApp/HomePage.unity
+    guid: f1aa18c58d58d1340ad3769ddd91dd3d
   - enabled: 1
     path: Assets/Scenes/MainApp/GamesPage.unity
     guid: 315916dc893660b4ba6b2f3b27f15ad0
   - enabled: 1
-    path: Assets/Scenes/MainApp/HomePage.unity
-    guid: f1aa18c58d58d1340ad3769ddd91dd3d
-  - enabled: 1
     path: Assets/Scenes/MainApp/SettingsPage.unity
     guid: bb749fc9e627d0048a08ebf98058ba10
+  - enabled: 1
+    path: Assets/Scenes/MainApp/AchivementPage.unity
+    guid: 5ac5f953b88d3d64a8f37d9ee16f92e9
+  - enabled: 1
+    path: "Assets/Scenes/MainApp/\u0650ShopPage.unity"
+    guid: ff56a6c0523aded498207352b218adfe
   m_configObjects: {}
