@@ -20,18 +20,25 @@ public class AnimalsSounds : MonoBehaviour
     {
         _aHandler.PlayAudio(_clip);
         if (this.gameObject.name == "Animal" && _clip.name == "right")
-        {           
-            _aHandler._audio.Stop();
-            _aHandler.PlayAudio(_clip);
-            if (_aHandler._audio.isPlaying)
-            {
-                StartCoroutine(moveCameraToNextQuestion());
-            }
-            
+        {
+            PlayMyAudio('p');
         }
         else if (this.gameObject.name == "FinalAnimal")
         {
-            StopCoroutine(moveCameraToNextQuestion());
+            PlayMyAudio('s');
+        }
+    }
+
+    void PlayMyAudio(char state)
+    {
+        _aHandler._audio.Stop();
+        _aHandler.PlayAudio(_clip);
+        if (_aHandler._audio.isPlaying && state == 'p')
+        {
+            StartCoroutine(moveCameraToNextQuestion());
+        }
+        else if(state == 's')
+        {
             StartCoroutine(FinishingLevel());
         }
     }
@@ -45,6 +52,7 @@ public class AnimalsSounds : MonoBehaviour
     IEnumerator FinishingLevel()
     {
         yield return new WaitForSeconds(1.5f);
+        _uiManager.confetti.enabled = true;
         _uiManager.congrates.gameObject.SetActive(true);
     }
 }
