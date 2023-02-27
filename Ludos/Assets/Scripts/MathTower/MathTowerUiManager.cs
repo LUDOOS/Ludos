@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class MathTowerUiManager : MonoBehaviour
 {
-    public int stars = 0;
     [SerializeField] public Button textBackground;
     [SerializeField] Text _question;
     [SerializeField] Sprite[] _spriteImg;
@@ -19,7 +18,6 @@ public class MathTowerUiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
         scene = SceneManager.GetActiveScene();
         getQuestion();
 
@@ -63,23 +61,27 @@ public class MathTowerUiManager : MonoBehaviour
         _question.text = _questionText[index];
     }
 
-    public void updateStars(int second)
+    public void updateStars(int second, bool isActive)
     {
-        if (second >= 45)
+        if (isActive)
         {
-            _starsImg.sprite = _spriteImg[3];
-            Stars.instance.starsNumber += 3;
+            if (second >= 45)
+            {
+                _starsImg.sprite = _spriteImg[3];
+                Stars.instance.starsNumber += 3;
+            }
+            else if (second >= 30)
+            {
+                _starsImg.sprite = _spriteImg[2];
+                Stars.instance.starsNumber += 2;
+            }
+            else
+            {
+                _starsImg.sprite = _spriteImg[1];
+                Stars.instance.starsNumber += 1;
+            }
         }
-        else if (second >= 30)
-        {
-            _starsImg.sprite = _spriteImg[2];
-            Stars.instance.starsNumber += 2;
-        }
-        else
-        {
-            _starsImg.sprite = _spriteImg[1];
-            Stars.instance.starsNumber += 1;
-        }
+        Debug.Log(Stars.instance.starsNumber);
     }
 
 }

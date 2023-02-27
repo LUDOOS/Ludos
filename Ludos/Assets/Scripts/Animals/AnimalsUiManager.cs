@@ -33,5 +33,6 @@ public class AnimalsUiManager : MonoBehaviour
             _starsImg.sprite = _spriteImg[1];
             Stars.instance.starsNumber += 1;
         }
+        Debug.Log(Stars.instance.starsNumber);
     }
 }

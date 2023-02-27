@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MathTowerPlayer : MonoBehaviour
 {
     public bool isGrounded = true;
+    public bool isActive = false;
     float _movement = 2.5f;
     float _jumpForce = 8.3f;
     Rigidbody2D rb;
@@ -69,6 +70,7 @@ public class MathTowerPlayer : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x,_jumpForce);
             StartCoroutine(jumpAnimate());
             isGrounded = false;
+            isActive = false;
         }
        
     }
@@ -132,7 +134,8 @@ public class MathTowerPlayer : MonoBehaviour
                 Timer.SetPaused(true);
                 yield return new WaitForSeconds(0.3f);
                 uiManager.congrates.gameObject.SetActive(true);
-                uiManager.updateStars(Timer.second);
+                uiManager.updateStars(Timer.second, isActive);
+                isActive = true;
                 uiManager.confetti.enabled = true;
                 MathTowerGameManager.instance.isCompleted = true;
             }
