@@ -45,10 +45,10 @@ public class Navigation : MonoBehaviour
 
     ///<Games>
 
-    //public void NavToMathTower()
-    //{
-    //    SceneManager.LoadScene(0);
-    //}
+    public void NavToMathTower()
+    {
+        SceneManager.LoadScene(12);
+    }
 
     public void NavToAnimals()
     {
@@ -64,7 +64,6 @@ public class Navigation : MonoBehaviour
     ///
 
     // <Animals Levels>
-
     public void AnimalsStory()
     {
         SceneManager.LoadScene(6);
@@ -94,8 +93,54 @@ public class Navigation : MonoBehaviour
     {
         SceneManager.LoadScene(11);
     }
-
     // </Animals Levels>
 
 
+    // <Math Tower Levels>
+
+    public void GreaterThanCutscene()
+    {
+        SceneManager.LoadScene(13);
+    }
+
+    public void MinusCutscene()
+    {
+        SceneManager.LoadScene(14);
+    }
+
+    public void PlusCutscene()
+    {
+        SceneManager.LoadScene(15);
+    }
+
+    public void SmallerThanCutscene()
+    {
+        SceneManager.LoadScene(16);
+    }
+
+    public void MathTowerLevel1()
+    {
+        SceneManager.LoadScene(17);
+    }
+
+    public void MathTowerLevel2()
+    {
+        SceneManager.LoadScene(18);
+    }
+
+    public void MathTowerLevel3()
+    {
+        SceneManager.LoadScene(19);
+    }
+
+    public void MathTowerLevel4()
+    {
+        SceneManager.LoadScene(20);
+    }
+
+    public void MathTowerLevel5()
+    {
+        SceneManager.LoadScene(21);
+    }
+    // </Math Tower Levels>
 }

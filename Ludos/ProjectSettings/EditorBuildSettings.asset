@@ -44,4 +44,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Animals/Level-5.unity
     guid: e46a42853a2ea554090608fad8de5595
+  - enabled: 1
+    path: Assets/Scenes/MathTower/HomePage.unity
+    guid: 84e9f981e81a3524a993f41922a24573
+  - enabled: 1
+    path: Assets/Scenes/MathTower/CutSceneGreaterThan.unity
+    guid: 543596f216a3a2a42a7f468583d2e62a
+  - enabled: 1
+    path: Assets/Scenes/MathTower/CutSceneMinus.unity
+    guid: e47bfde2ad455b249b9c73fa44542c99
+  - enabled: 1
+    path: Assets/Scenes/MathTower/CutScenePlus.unity
+    guid: 16466a68e663b0d4a9daed1ff9aac14d
+  - enabled: 1
+    path: Assets/Scenes/MathTower/CutSceneSmallerThen.unity
+    guid: 6b99761d14a659449ab02b087ced2068
+  - enabled: 1
+    path: Assets/Scenes/MathTower/Level-1.unity
+    guid: b5813fff3148bd940ab63ed4d03d0842
+  - enabled: 1
+    path: Assets/Scenes/MathTower/Level-2.unity
+    guid: 73a30c0b83a836b42b013309a0d37bcf
+  - enabled: 1
+    path: Assets/Scenes/MathTower/Level-3.unity
+    guid: 506771061ba726841a1165b707b8f946
+  - enabled: 1
+    path: Assets/Scenes/MathTower/Level-4.unity
+    guid: e06a4bfdecfcc564181cf0e2825f10c9
+  - enabled: 1
+    path: Assets/Scenes/MathTower/Level-5.unity
+    guid: 156328a5f1ce5c341b86205685285934
   m_configObjects: {}

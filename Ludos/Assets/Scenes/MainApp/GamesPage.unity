@@ -1375,8 +1375,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 333227701}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: Navigate
-        m_Mode: 3
+        m_MethodName: NavToMathTower
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

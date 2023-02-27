@@ -282,9 +282,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 131950471}
-        m_TargetAssemblyTypeName: MathTowerMainMenu, Assembly-CSharp
-        m_MethodName: PlayLevel4
+      - m_Target: {fileID: 575302761}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: GreaterThanCutscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -670,9 +670,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 131950471}
-        m_TargetAssemblyTypeName: MathTowerMainMenu, Assembly-CSharp
-        m_MethodName: PlayLevel3
+      - m_Target: {fileID: 575302761}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: MathTowerLevel3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1018,8 +1018,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 575302761}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: Navigate
-        m_Mode: 3
+        m_MethodName: NavToGamePage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1464,9 +1464,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 131950471}
-        m_TargetAssemblyTypeName: MathTowerMainMenu, Assembly-CSharp
-        m_MethodName: PlayLevel1
+      - m_Target: {fileID: 575302761}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: PlusCutscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1689,9 +1689,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 131950471}
-        m_TargetAssemblyTypeName: MathTowerMainMenu, Assembly-CSharp
-        m_MethodName: PlayLevel2
+      - m_Target: {fileID: 575302761}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: MinusCutscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1935,9 +1935,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 131950471}
-        m_TargetAssemblyTypeName: MathTowerMainMenu, Assembly-CSharp
-        m_MethodName: PlayLevel5
+      - m_Target: {fileID: 575302761}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: SmallerThanCutscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
