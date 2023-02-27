@@ -68,43 +68,18 @@ public class MathTowerUiManager : MonoBehaviour
         if (second >= 45)
         {
             _starsImg.sprite = _spriteImg[3];
-            stars = 3;
+            Stars.instance.starsNumber += 3;
         }
         else if (second >= 30)
         {
             _starsImg.sprite = _spriteImg[2];
-            stars = 2;
+            Stars.instance.starsNumber += 2;
         }
         else
         {
             _starsImg.sprite = _spriteImg[1];
-            stars = 1;
+            Stars.instance.starsNumber += 1;
         }
-    }
-
-    public void BackToMainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void PlayLevel2()
-    {
-        SceneManager.LoadScene(3);
-    }
-
-    public void PlayLevel3()
-    {
-        SceneManager.LoadScene(4);
-    }
-
-    public void PlayLevel4()
-    {
-        SceneManager.LoadScene(5);
-    }
-
-    public void PlayLevel5()
-    {
-        SceneManager.LoadScene(6);
     }
 
 }

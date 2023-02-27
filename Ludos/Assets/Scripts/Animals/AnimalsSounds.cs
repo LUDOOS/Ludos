@@ -8,6 +8,7 @@ public class AnimalsSounds : MonoBehaviour
     AnimalsPlayer _player;
     AudioHandler _aHandler;
     AnimalsUiManager _uiManager;
+    bool isClicked = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +19,21 @@ public class AnimalsSounds : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        _aHandler.PlayAudio(_clip);
         if (this.gameObject.name == "Animal" && _clip.name == "right")
         {
-            PlayMyAudio('p');
+            if (isClicked) 
+            {
+                isClicked = false;
+                PlayMyAudio('p');
+            }
         }
         else if (this.gameObject.name == "FinalAnimal")
         {
             PlayMyAudio('s');
+        }
+        else
+        {
+            _aHandler.PlayAudio(_clip);
         }
     }
 
@@ -46,13 +54,16 @@ public class AnimalsSounds : MonoBehaviour
     IEnumerator moveCameraToNextQuestion()
     {
          yield return new WaitForSeconds(2.5f);
-         _player.move(); 
+         _player.move();
+        isClicked = true;
     }
 
     IEnumerator FinishingLevel()
     {
+        Timer.SetPaused(true);
         yield return new WaitForSeconds(1.5f);
         _uiManager.confetti.enabled = true;
+        _uiManager.UpdateStars(Timer.second);
         _uiManager.congrates.gameObject.SetActive(true);
     }
 }
