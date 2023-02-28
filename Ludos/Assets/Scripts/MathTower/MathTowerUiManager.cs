@@ -81,7 +81,6 @@ public class MathTowerUiManager : MonoBehaviour
                 Stars.instance.starsNumber += 1;
             }
         }
-        Debug.Log(Stars.instance.starsNumber);
     }
 
 }
