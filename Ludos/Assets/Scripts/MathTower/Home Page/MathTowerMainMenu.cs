@@ -10,17 +10,11 @@ public class MathTowerMainMenu : MonoBehaviour
     [SerializeField] Image Locked3;
     [SerializeField] Image Locked4;
     [SerializeField] Image Locked5;
-    int index = 2;
 
     private void Update()
     {
         UpdateIndicator();
         UnlockLevel();
-    }
-
-    private void LateUpdate()
-    {
-        
     }
 
     void UnlockLevel()
@@ -51,9 +45,7 @@ public class MathTowerMainMenu : MonoBehaviour
                     Debug.Log("Default");
                     break;
             }
-            index++;
             MathTowerGameManager.instance.isCompleted = false;
-            Debug.Log(MathTowerGameManager.instance.level + 1);
         }
     }
 

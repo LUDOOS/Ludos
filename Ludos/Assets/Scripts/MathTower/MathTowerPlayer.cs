@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MathTowerPlayer : MonoBehaviour
 {
+    // if the player touch the ground and the TouchingBarrier
     public bool isGrounded = true;
+    // check if the level end for updating the stars
     public bool isActive = false;
     float _movement = 2.5f;
     float _jumpForce = 8.3f;
@@ -49,7 +52,6 @@ public class MathTowerPlayer : MonoBehaviour
             StartCoroutine(walkAnimate());
             sr.flipX = true;
         }
-       
     }
 
     public void rightMove()
@@ -60,7 +62,6 @@ public class MathTowerPlayer : MonoBehaviour
             StartCoroutine(walkAnimate());
             sr.flipX = false;
         }
-
     }
 
     public void jump() 
@@ -72,7 +73,6 @@ public class MathTowerPlayer : MonoBehaviour
             isGrounded = false;
             isActive = false;
         }
-       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -81,71 +81,95 @@ public class MathTowerPlayer : MonoBehaviour
         {
            isGrounded = true;
         }
-        StartCoroutine(barrier(collision));
+        StartCoroutine(TouchingBarrier(collision));
     }
 
-    IEnumerator barrier(Collision2D collision)
+    IEnumerator TouchingBarrier(Collision2D collision)
     {
-        GameObject _barrier = collision.gameObject;
+        GameObject barrier = collision.gameObject;
 
-        if (_barrier.name == "2" || _barrier.name == "5" || _barrier.name == "8")
+        if (barrier.name == "2" || barrier.name == "5" || barrier.name == "8")
         {
-            GameObject _barrierChild = _barrier.transform.GetChild(0).gameObject;
-            _barrierChild.SetActive(false);
+            RemoveTheAnswerImage(barrier);
             yield return new WaitForSeconds(0.7f);
-            if (_barrier.name == "2")
-            {
-                uiManager.updateQuestion(1);
-                if (scene.name == "Level-1" || scene.name == "Level-3" || scene.name == "Level-4" || scene.name == "Level-5") {
-                    _barrier.GetComponent<Animator>().Play("ScalingToRight");
-                }
-                else
-                {
-                    _barrier.GetComponent<Animator>().Play("ScalingToLeft");
-                }
-                Destroy(wrongBarrier1);
-            }
-            if (_barrier.name == "5")
-            {
-                uiManager.updateQuestion(2);
-                if (scene.name == "Level-1" || scene.name == "Level-3" || scene.name == "Level-5")
-                {
-                    _barrier.GetComponent<Animator>().Play("ScalingToLeft");
-                }
-                else
-                {
-                    _barrier.GetComponent<Animator>().Play("ScalingToRight");
-                }
-                Destroy(wrongBarrier2);
-            }
-            if (_barrier.name == "8")
-            {
-                if (scene.name == "Level-1" || scene.name == "Level-2" || scene.name == "Level-5")
-                {
-                    _barrier.GetComponent<Animator>().Play("ScalingToLeft");
-                }
-                else
-                {
-                    _barrier.GetComponent<Animator>().Play("ScalingToRight");
-                }
-                Destroy(wrongBarrier3);
-                yield return new WaitForSeconds(0.7f);
-                uiManager.textBackground.gameObject.SetActive(false);
-                Timer.SetPaused(true);
-                yield return new WaitForSeconds(0.3f);
-                uiManager.congrates.gameObject.SetActive(true);
-                uiManager.updateStars(Timer.second, isActive);
-                isActive = true;
-                uiManager.confetti.enabled = true;
-                MathTowerGameManager.instance.isCompleted = true;
-            }
+            AnimateBarrier(barrier);
         }
-        else if(_barrier.name == "1" || _barrier.name == "4" || _barrier.name == "6")
+        // this section caused *Null Reference Exception*
+        else if (barrier.name == "1" || barrier.name == "4" || barrier.name == "6")
         {
             yield return new WaitForSeconds(1.5f);
-            _barrier.AddComponent<Rigidbody2D>().gravityScale = 1;
-            //_wrongBarrier.SetActive(false);
+            barrier.AddComponent<Rigidbody2D>().gravityScale = 1;
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    private void AnimateBarrier(GameObject barrier)
+    {
+        if (barrier.name == "2")
+        {
+            // Update Question
+            uiManager.UpdateQuestion(1);
+            // Animate Barrier Based on Level
+            if (scene.name == "Level-1" || scene.name == "Level-3" || scene.name == "Level-4" || scene.name == "Level-5")
+            {
+                barrier.GetComponent<Animator>().Play("ScalingToRight");
+            }
+            else
+            {
+                barrier.GetComponent<Animator>().Play("ScalingToLeft");
+            }
+            // Destroy the Wrong Barrier in Case the
+            // player jump on the correct barrier
+            Destroy(wrongBarrier1);
+        }
+        if (barrier.name == "5")
+        {
+            uiManager.UpdateQuestion(2);
+            if (scene.name == "Level-1" || scene.name == "Level-3" || scene.name == "Level-5")
+            {
+                barrier.GetComponent<Animator>().Play("ScalingToLeft");
+            }
+            else
+            {
+                barrier.GetComponent<Animator>().Play("ScalingToRight");
+            }
+            Destroy(wrongBarrier2);
+        }
+        if (barrier.name == "8")
+        {
+            if (scene.name == "Level-1" || scene.name == "Level-2" || scene.name == "Level-5")
+            {
+                barrier.GetComponent<Animator>().Play("ScalingToLeft");
+            }
+            else
+            {
+                barrier.GetComponent<Animator>().Play("ScalingToRight");
+            }
+            Destroy(wrongBarrier3);
+            StartCoroutine(FinishingLevel());
+        }
+    }
+
+    IEnumerator FinishingLevel()
+    {
+        yield return new WaitForSeconds(0.7f);
+        // the white rect that contain the question
+        uiManager.textBackground.gameObject.SetActive(false);
+        Timer.SetPaused(true);
+        yield return new WaitForSeconds(0.3f);
+        // finishing level Screen
+        uiManager.congrates.gameObject.SetActive(true);
+        uiManager.UpdateStars(Timer.second, isActive);
+        isActive = true;
+        // confetti is the finishing video
+        uiManager.confetti.enabled = true;
+        // if the level finished
+        MathTowerGameManager.instance.isCompleted = true;
+    }
+
+    private void RemoveTheAnswerImage(GameObject barrier)
+    {
+        GameObject barrierChild = barrier.transform.GetChild(0).gameObject;
+        barrierChild.SetActive(false);
     }
 }

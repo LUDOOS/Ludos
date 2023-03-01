@@ -22,6 +22,11 @@ public class MathTowerUiManager : MonoBehaviour
         getQuestion();
 
         _question.text = _questionText[0];
+        DesableObjects();
+    }
+
+    private void DesableObjects()
+    {
         congrates.gameObject.SetActive(false);
         confetti.enabled = false;
     }
@@ -56,12 +61,12 @@ public class MathTowerUiManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void updateQuestion(int index)
+    public void UpdateQuestion(int index)
     {
         _question.text = _questionText[index];
     }
 
-    public void updateStars(int second, bool isActive)
+    public void UpdateStars(int second, bool isActive)
     {
         if (isActive)
         {
