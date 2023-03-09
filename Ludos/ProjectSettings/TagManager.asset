@@ -8,6 +8,8 @@ TagManager:
   - PLAYER
   - BARRIER
   - FALL
+  - avatar
+  - stars
   layers:
   - Default
   - TransparentFX
