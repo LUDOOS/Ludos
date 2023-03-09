@@ -51,39 +51,4 @@ EditorBuildSettings:
     path: Assets/Scenes/Animals/Story.unity
     guid: 31881d1d9ae35ad409b01a551317878c
   - enabled: 1
-    path: Assets/Scenes/DateAndTime/HomePage.unity
-    guid: fd3a315e311723b4f9ae4ddc3cbae619
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Time/Time-Story.unity
-    guid: 8ca9adf11ebf29146914add62067b605
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Seasons/Seasons-Story.unity
-    guid: b942a2c6d0aa9744d93e75691b3856e5
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Date/Date-Story.unity
-    guid: e5c0ded5d9f3f6e4f821c5aac928dfd2
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Date/Date-days-lv1.unity
-    guid: 53a005d26cbc48445be20b424380eb75
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Date/Date-days-lv2.unity
-    guid: feea7695539ee25469fda6b6ca42389d
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Date/Date-months-lv2.unity
-    guid: 2b89643a39eea234599da4bb37611062
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Date/Date-months-lv1.unity
-    guid: 699f94ac05c2dcb4680692058dda0e99
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Seasons/Seasons-lv1.unity
-    guid: da124638bd75a934da656d8ef97a81b5
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Seasons/Seasons-lv2.unity
-    guid: 80b53fa3b460d334eaee4f981b33379f
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Time/Time-lv1.unity
-    guid: 966f7d7493f97584d83e9b156d3e8a68
-  - enabled: 1
-    path: Assets/Scenes/DateAndTime/Time/Time-lv2.unity
-    guid: 0276a3f5511522548a56261849ff8f3f
   m_configObjects: {}
