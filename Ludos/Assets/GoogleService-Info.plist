@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>386831906275-7iphsq1husblbqj21mjn5sv5h7gtebi8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.386831906275-7iphsq1husblbqj21mjn5sv5h7gtebi8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA1UaC6k1SnVgk3bNOmzyODWR6Sc5K3M2U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>386831906275</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ludos.ludos</string>
+	<key>PROJECT_ID</key>
+	<string>ludoes-1e6aa</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ludoes-1e6aa.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:386831906275:ios:3db2445e2844de9308dcd6</string>
+	<key>DATABASE_URL</key>
+	<string>https://ludoes-1e6aa-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>
