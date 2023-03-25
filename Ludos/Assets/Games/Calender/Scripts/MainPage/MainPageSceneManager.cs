@@ -78,8 +78,12 @@ public class MainPageSceneManager : MonoBehaviour
 
             case "MainPage":
                 SceneManager.LoadScene("HomePage");
-               
                 break;
+            case "GamesPage":
+                SceneManager.LoadScene(1);
+                break;
+
+               
 
             default:
                 Debug.Log("xd");

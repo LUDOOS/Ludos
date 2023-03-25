@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Navigation : MonoBehaviour
 {
+
+    public void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
     public Animator animator;
 
     IEnumerator loadScene(int index)
@@ -53,6 +58,10 @@ public class Navigation : MonoBehaviour
     public void NavToAnimals()
     {
         SceneManager.LoadScene(5);
+    }
+    public void NavToCalender()
+    {
+        SceneManager.LoadScene("Calender-HomePage");
     }
 
     //public void NavToDatesAndTime()
@@ -142,5 +151,7 @@ public class Navigation : MonoBehaviour
     {
         SceneManager.LoadScene(21);
     }
+
+
     // </Math Tower Levels>
 }
