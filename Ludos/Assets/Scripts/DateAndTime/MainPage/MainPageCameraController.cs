@@ -4,97 +4,53 @@ using UnityEngine;
 
 public class MainPageCameraController : MonoBehaviour
 {
-    Transform mainCam;
+    CameraLerp mainCam;
     Transform Avatar;
-    
-    bool clicked = false;
-    string target = "";
+    AnimationController animationController;
 
-    Vector3 [] pageLocations = new[] {
-        new Vector3(0, 0, -10),  //Main Page pos
-        new Vector3(-12.56f, 0, -10), //Time Page Pos
-        new Vector3(11.85f, 0, -10), //Date Page Pos
-        new Vector3(0, -10.06f, -10) //Seasons Page Pos
-    };
-    Vector3[] avatarLocations = new[] {
-        new Vector3(-1.27f, 2.67f), //Main Page pos
-        new Vector3(-13.7f,2.67f), //Time Page Pos
-        new Vector3(10.6f,2.67f), //Date Page Pos
-        new Vector3(-1.27f,-7) //Seasons Page Pos
+    Vector3[,] page_avatarPositions = new[,] {
+        { new Vector3(0, -0.12f, -10), new Vector3(0f, 2.4f) } ,  //Main Page pos
+        { new Vector3(11.85f, 0, -10),new Vector3(10.6f,2.67f)}, //Date Page Pos
+        { new Vector3(0, -10.06f, -10), new Vector3(-1.27f,-7)} //Seasons Page Pos
     };
     // Start is called before the first frame update
     void Start()
     {
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        mainCam = GameObject.Find("MainCamParent").GetComponent<CameraLerp>();
+        animationController = GameObject.Find("AnimationController").GetComponent<AnimationController>();
         Avatar = GameObject.FindGameObjectWithTag("avatar").transform;
         Application.targetFrameRate = 60;
 
     }
 
-// Update is called once per frame
-void Update()
+
+
+    public void moveToCalender()
     {
-        if (clicked && target != "") {
-            moveTo(target);
-        }
-       
+        animationController.animate("UI1_enable", "Canvas");
+        StartCoroutine(mainCam.LerpFromTo( page_avatarPositions[1, 0], 1f, 0.4f));
+        StartCoroutine(LerpFromTo(Avatar.position, page_avatarPositions[1, 1], 1.05f, Avatar,0.3f));
     }
-    public void clickHandler(string target) {
-        clicked = true;
-        this.target = target;
+    public void moveToSeasons() {
+        animationController.animate("UI2_enable", "Canvas");
+        StartCoroutine(mainCam.LerpFromTo( page_avatarPositions[2, 0], 1.3f, 0.4f));
+        StartCoroutine(LerpFromTo(Avatar.position, page_avatarPositions[2, 1], 1.05f, Avatar,0.3f));
     }
-    public void moveTo(string game)
+    public void moveToMainPage() {
+        StartCoroutine(mainCam.LerpFromTo(page_avatarPositions[0, 0], 1f, 0f));
+        StartCoroutine(LerpFromTo(Avatar.position, page_avatarPositions[0, 1], 1.05f, Avatar,0));
+    }
+
+    IEnumerator LerpFromTo(Vector3 pos1, Vector3 pos2, float duration , Transform gameObject , float delay )
     {
-
-        //time_game is at x = -18.72 y = 0
-        //date_game is at x = 15.802 y = 0
-        //seasons_game is at x = 0 y = -10.06
-
-        switch (game)
-        {     
-            default:
-                Debug.Log("def");
-                StartCoroutine(LerpFromTo(mainCam.position, pageLocations[0], 1f, mainCam));
-                StartCoroutine(LerpFromTo(Avatar.position, avatarLocations[0], 1.05f, Avatar));
-                clicked = false;
-                target = "";
-                break;
-            case "time":
-                Debug.Log("ttttttt");
-                StartCoroutine(LerpFromTo(mainCam.position, pageLocations[1], 0.8f, mainCam));
-                StartCoroutine(LerpFromTo(Avatar.position, avatarLocations[1], 0.856f, Avatar));
-                clicked = false;
-                target = "";
-                break;
-            case "date":
-                Debug.Log("dateeee");
-                StartCoroutine(LerpFromTo(mainCam.position, pageLocations[2], 1f, mainCam));
-                StartCoroutine(LerpFromTo(Avatar.position, avatarLocations[2], 1.05f, Avatar));
-                clicked = false;
-                target = "";
-                break;
-            case "seasons":
-                Debug.Log(mainCam.position);
-                StartCoroutine(LerpFromTo(mainCam.position, pageLocations[3], 1.3f,mainCam));
-                StartCoroutine(LerpFromTo(Avatar.position, avatarLocations[3], 1.5f, Avatar));
-                clicked = false;
-                target = "";
-                break;            
-
- 
-
-
-        }
-    }
-    IEnumerator LerpFromTo(Vector3 pos1, Vector3 pos2, float duration , Transform test )
-    {
-        Debug.Log(pos2 + test.name );
+        yield return new WaitForSeconds(delay);
+        Debug.Log(pos2 + gameObject.name );
         for (float t = 0f; t < duration; t += Time.deltaTime)
         {
-            test.position = Vector3.Lerp(pos1, pos2, t / duration);
+            gameObject.position = Vector3.Lerp(pos1, pos2, t / duration);
             yield return 0;
         }
-        test.position = pos2;
+        gameObject.position = pos2;
     }
 
 

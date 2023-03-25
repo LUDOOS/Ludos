@@ -12,17 +12,6 @@ public class MainPageSceneManager : MonoBehaviour
 
         switch (game)
         {
-            case "time-lv1":
-                SceneManager.LoadScene("Time-lv1");
-                break;
-            case "time-lv2":
-                SceneManager.LoadScene("Time-lv2");
-                break;
-            case "time-Story":
-                SceneManager.LoadScene("Time-Story");
-                break;
-
-
 
 
             case "days-lv1":
@@ -40,6 +29,22 @@ public class MainPageSceneManager : MonoBehaviour
             case "date-Story":
                 SceneManager.LoadScene("Date-Story");
                 break;
+            case "date-Story1":
+                SceneManager.LoadScene("Date-Story 1");
+                break;
+            case "date-Story2":
+                SceneManager.LoadScene("Date-Story 2");
+                break;
+            case "date-Story3":
+                SceneManager.LoadScene("Date-Story 3");
+                break;
+            case "date-Story4":
+                SceneManager.LoadScene("Date-Story 4");
+                break;
+
+            case "date-Story5":
+                SceneManager.LoadScene("Date-Story 5");
+                break;
 
 
 
@@ -48,6 +53,12 @@ public class MainPageSceneManager : MonoBehaviour
                 break;
             case "Seasons-lv2":
                 SceneManager.LoadScene("Seasons-lv2");
+                break;
+            case "Seasons-lv3":
+                SceneManager.LoadScene("Seasons-lv3");
+                break;
+            case "Seasons-lv4":
+                SceneManager.LoadScene("Seasons-lv4");
                 break;
             case "Seasons-Story":
                 SceneManager.LoadScene("Seasons-Story");

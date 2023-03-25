@@ -1,93 +1,97 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DateDaysController : MonoBehaviour
 {
-    Transform mainCam;
-    bool clicked = false;
-    int target = 0;
+    CameraLerp mainCam;
+
     private int StarCounter = 0;
     public Image img;
     public Sprite [] sprites;
     public TextMeshProUGUI txt;
-    Vector3[] pageLocations = new[] {
-        new Vector3(0, 0, -10),
-        new Vector3(6f, 0, -10), //Second Question Pos
-        new Vector3(11.65f, 0, -10), //third Question Page Pos
-        new Vector3(16.4f, 0, -10)
+    AnimationController animationController;
+    AudioController audioController;
+
+    Vector3[,] pageLocations = new[,] {
+        { new Vector3(0, 0, -10),new Vector3(0, -0.22f, 0) },
+        { new Vector3(6f, 0, -10),new Vector3(6, -0.22f, 0) }, //Second Question Pos
+        { new Vector3(11.65f, 0, -10),new Vector3(11.54f, -0.22f, 0) }, //third Question Page Pos
+        { new Vector3(16.4f, 0, -10),new Vector3(16.34f, 2.71f, 0) }
     };
     // Start is called before the first frame update
     void Start()
     {
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").transform;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (clicked && target != 0)
-        {
-            moveTo(target);
-        }
-
+        
+        mainCam = GameObject.Find("MainCamParent").GetComponent<CameraLerp>();
+        audioController = GameObject.Find("Audio Source").GetComponent<AudioController>();
+        animationController = GameObject.Find("AnimationController").GetComponent<AnimationController>();
         
     }
-    public void clickHandler(int target)
+
+
+    public void goToQuestion_one()
     {
-        clicked = true;
-        this.target = target;
+        StartCoroutine(mainCam.LerpFromTo(pageLocations[0,0], 2f,0f));
+        StartCoroutine(mainCam.LerpFromTo("avatarParent",pageLocations[0, 1], 1.5f, 0f));
+        audioController.audioSource.Stop();
+        audioController.ChangeClip(1);
     }
-    public void moveTo(int game)
+    public void goToQuestion_two(bool correct)
     {
-
-
-        switch (game)
+        if (!correct)
         {
-            case 0:
-                StartCoroutine(LerpFromTo(mainCam.position, pageLocations[0], 0.8f, mainCam));
-                clicked = false;
-                target = 0;
-                break;
-            case 1:
-                Debug.Log("ttttttt");
-                StartCoroutine(LerpFromTo(mainCam.position, pageLocations[1], 0.8f, mainCam));
-                StarCounter ++;
-                clicked = false;
-                target = 0;
-                break;
-            case 2:
-                Debug.Log("dateeee");
-                StartCoroutine(LerpFromTo(mainCam.position, pageLocations[2], 1f, mainCam));
-                StarCounter++;
-               
-                clicked = false;
-                target = 0;
-                break;
-            case 3:
-                Debug.Log("def");
-                StartCoroutine(LerpFromTo(mainCam.position, pageLocations[3], 1f, mainCam));
-                StarCounter++;
-                updateFinalPage();
-                clicked = false;
-                target = 0;
-                break;
-
-    }
-    IEnumerator LerpFromTo(Vector3 pos1, Vector3 pos2, float duration, Transform test)
-    {
-        Debug.Log(pos2 + test.name);
-        for (float t = 0f; t < duration; t += Time.deltaTime)
-        {
-            test.position = Vector3.Lerp(pos1, pos2, t / duration);
-            yield return 0;
+            animationController.animateCamera("wrongAnswer");
         }
-        test.position = pos2;
+        else {
+            animationController.animate("correctAnswer", "avatar1");
+            StarCounter++;
+        }
+       
+        StartCoroutine(mainCam.LerpFromTo(pageLocations[1,0], 2f,1.2f));
+        StartCoroutine(mainCam.LerpFromTo("avatarParent", pageLocations[1, 1], 1.5f, 1.2f));
+        audioController.audioSource.Stop();
+        audioController.ChangeClip(2);
     }
 
+    public void goToQuestion_three(bool correct)
+    {
+        if (!correct)
+        {
+            animationController.animateCamera("wrongAnswer");
+        }
+        else
+        {
+            animationController.animate("correctAnswer", "avatar1");
+            StarCounter++;
+        }
+        StartCoroutine(mainCam.LerpFromTo(pageLocations[2,0], 2f,1.2f));
+        StartCoroutine(mainCam.LerpFromTo("avatarParent", pageLocations[2, 1], 1.5f, 1.2f));
+        audioController.audioSource.Stop();
+        audioController.ChangeClip(3);
+    }
+    public void goToFinalPage(bool correct)
+    {
+        if (!correct)
+        {
+           animationController.animateCamera("wrongAnswer");
+            
+        }
+        else
+        {
+            animationController.animate("correctAnswer", "avatar1");
+            StarCounter++;
+        }
+        updateFinalPage();
+        StartCoroutine(mainCam.LerpFromTo(pageLocations[3,0], 2f,1.2f));
+        StartCoroutine(mainCam.LerpFromTo("avatarParent", pageLocations[3, 1], 1.5f, 1.2f));
+        audioController.audioSource.Stop();
+        //audioController.ChangeClip(1);
+    }
+
+
+   
     public void updateFinalPage() {
         if (StarCounter == 3)
         {
@@ -112,4 +116,7 @@ public class DateDaysController : MonoBehaviour
 
         
     }
+
+
 }
+
