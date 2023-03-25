@@ -1,37 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MathTowerMainMenu : MonoBehaviour
 {
-    public void PlayStory()
+    [SerializeField] Slider slider;
+    [SerializeField] Image Locked2;
+    [SerializeField] Image Locked3;
+    [SerializeField] Image Locked4;
+    [SerializeField] Image Locked5;
+
+    private void Update()
     {
-        SceneManager.LoadScene(1);
+        UpdateIndicator();
+        UnlockLevel();
     }
 
-    public void PlayLevel1()
+    void UnlockLevel()
     {
-        SceneManager.LoadScene(2);
+        if (MathTowerGameManager.instance.isCompleted)
+        {
+            switch (MathTowerGameManager.instance.level+1)
+            {
+                case 2:
+                    Locked2.enabled = false;      
+                    break;
+                case 3:
+                    Locked2.enabled = false;
+                    Locked3.enabled = false; 
+                    break;
+                case 4:
+                    Locked2.enabled = false;
+                    Locked3.enabled = false;
+                    Locked4.enabled = false;
+                    break;
+                case 5:
+                    Locked2.enabled = false;
+                    Locked3.enabled = false;
+                    Locked4.enabled = false;
+                    Locked5.enabled = false;
+                    break;
+                default:
+                    Debug.Log("Default");
+                    break;
+            }
+            MathTowerGameManager.instance.isCompleted = false;
+        }
     }
 
-    public void PlayLevel2()
+    void UpdateIndicator()
     {
-        SceneManager.LoadScene(3);
-    }
-
-    public void PlayLevel3()
-    {
-        SceneManager.LoadScene(4);
-    }
-
-    public void PlayLevel4()
-    {
-        SceneManager.LoadScene(5);
-    }
-
-    public void PlayLevel5()
-    {
-        SceneManager.LoadScene(6);
+        if (MathTowerGameManager.instance.isCompleted)
+        {
+            slider.value = MathTowerGameManager.instance.level;
+        }
     }
 }

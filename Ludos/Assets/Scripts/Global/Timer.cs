@@ -8,11 +8,12 @@ public class Timer : MonoBehaviour
 {
 
     [SerializeField] private Image uiFillImage;
-    [SerializeField] private int time;
+    private int time = 60;
+    public static int second = 0;
 
     public int Duration { get; private set; }
 
-    public bool IsPaused { get; private set; }
+    public static bool IsPaused { get; private set; }
 
     private int remainingDuration;
 
@@ -20,7 +21,7 @@ public class Timer : MonoBehaviour
     private UnityAction onTimerBeginAction;
     private UnityAction<int> onTimerChangeAction;
     private UnityAction onTimerEndAction;
-    private UnityAction<bool> onTimerPauseAction;
+    private static UnityAction<bool> onTimerPauseAction;
 
     MathTowerUiManager uiManager;
     // Start is called before the first frame update
@@ -50,7 +51,7 @@ public class Timer : MonoBehaviour
         IsPaused = false;
     }
 
-    public void SetPaused(bool paused)
+    public static void SetPaused(bool paused)
     {
         IsPaused = paused;
 
@@ -61,12 +62,6 @@ public class Timer : MonoBehaviour
     public Timer SetDuration(int seconds)
     {
         Duration = remainingDuration = seconds;
-        
-        //if()
-        //{
-        //    uiManager.updateStars();
-        //}
-
         return this;
     }
 
@@ -82,6 +77,7 @@ public class Timer : MonoBehaviour
     {
         while (remainingDuration > 0)
         {
+            second = remainingDuration;
             if (!IsPaused)
             {
                 if (onTimerChangeAction != null)

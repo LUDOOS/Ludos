@@ -9,13 +9,30 @@ public class AnimalsUiManager : MonoBehaviour
     [SerializeField] Sprite[] _spriteImg;
     [SerializeField] Image _starsImg;
     [SerializeField] public Image congrates;
+    [SerializeField] public RawImage confetti;
     // Start is called before the first frame update
     private void Start()
     {
         congrates.gameObject.SetActive(false);
+        confetti.enabled = false;
     }
-    public void updateStars(int star)
+    public void UpdateStars(int second)
     {
-        _starsImg.sprite = _spriteImg[star];
+        if (second >= 40)
+        {
+            _starsImg.sprite = _spriteImg[3];
+            Stars.instance.starsNumber += 3;
+        }
+        else if (second >= 20)
+        {
+            _starsImg.sprite = _spriteImg[2];
+            Stars.instance.starsNumber += 2;
+        }
+        else
+        {
+            _starsImg.sprite = _spriteImg[1];
+            Stars.instance.starsNumber += 1;
+        }
+        Debug.Log(Stars.instance.starsNumber);
     }
 }
