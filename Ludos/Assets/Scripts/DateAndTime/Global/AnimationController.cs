@@ -39,6 +39,7 @@ public class AnimationController : MonoBehaviour
             case "correctAnswer":
                 temp.SetTrigger("correct");
                 break;
+
         }
     }
 }

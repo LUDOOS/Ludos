@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Ludos/Assets/Videos/Animals/Videos/animals-confetti-video.mp4.meta
-guid: f9ede894872c13048a3c946e19bf25dc
-========
-guid: abb32e502658444418423e920eb313de
->>>>>>>> AndriaSalah-date-and-time:Ludos/Assets/Videos/Animals/Videos/Days-1.mp4.meta
+guid: ca321575424dbec409cb09950a675d45
 VideoClipImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -16,16 +12,7 @@ VideoClipImporter:
   flipVertical: 0
   flipHorizontal: 0
   importAudio: 1
-  targetSettings:
-    0:
-      enableTranscoding: 0
-      codec: 0
-      resizeFormat: 0
-      aspectRatio: 0
-      customWidth: 720
-      customHeight: 1280
-      bitrateMode: 2
-      spatialQuality: 2
+  targetSettings: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
