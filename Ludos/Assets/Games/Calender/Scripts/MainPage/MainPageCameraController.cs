@@ -25,7 +25,7 @@ public class MainPageCameraController : MonoBehaviour
         animationController = GameObject.Find("AnimationController").GetComponent<AnimationController>();
         Avatar = GameObject.FindGameObjectWithTag("avatar").transform;
 
-        Application.targetFrameRate = 60;
+        
 
     }
     private void Update()
@@ -73,25 +73,32 @@ public class MainPageCameraController : MonoBehaviour
     {
         if (GameManager.instance.isCompleted)
         {
-            switch (GameManager.instance.level + 1)
+            switch (GameManager.instance.level)
             {
+                case 1:
+                    Locked[0].enabled = false;
+                    break;
                 case 2:
                     Locked[0].enabled = false;
+                    Locked[1].enabled = false;
                     break;
                 case 3:
                     Locked[0].enabled = false;
                     Locked[1].enabled = false;
+                    Locked[2].enabled = false;
                     break;
                 case 4:
                     Locked[0].enabled = false;
                     Locked[1].enabled = false;
                     Locked[2].enabled = false;
+                    Locked[3].enabled = false;
                     break;
                 case 5:
                     Locked[0].enabled = false;
                     Locked[1].enabled = false;
                     Locked[2].enabled = false;
                     Locked[3].enabled = false;
+                    Locked[4].enabled = false;
                     break;
                 default:
                     Debug.Log("Default");

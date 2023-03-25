@@ -28,8 +28,7 @@ public class VideoController : MonoBehaviour
     }
 
     public void loadStory() {
-        GameManager.instance.level++;
-        Debug.Log(GameManager.instance.level);
+        
         sceneManager.changeScene(nextSceneName);
     }
 
