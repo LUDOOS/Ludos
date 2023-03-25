@@ -77,7 +77,7 @@ public class MainPageSceneManager : MonoBehaviour
                 break;
 
             case "MainPage":
-                SceneManager.LoadScene("HomePage");
+                SceneManager.LoadScene("Calendar-HomePage");
                 break;
             case "GamesPage":
                 SceneManager.LoadScene(1);

@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &30844259
+--- !u!1 &442536809
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,9 +131,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 30844261}
-  - component: {fileID: 30844260}
-  - component: {fileID: 30844262}
+  - component: {fileID: 442536812}
+  - component: {fileID: 442536811}
+  - component: {fileID: 442536810}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
@@ -141,13 +141,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!328 &30844260
+--- !u!114 &442536810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442536809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0042d999ef863e45890171285cb7b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: months-lv2
+  StoryVideo: {fileID: 442536811}
+--- !u!328 &442536811
 VideoPlayer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30844259}
+  m_GameObject: {fileID: 442536809}
   m_Enabled: 1
   m_VideoClip: {fileID: 32900000, guid: 6acfdf4270856494e981105525a6cd45, type: 3}
   m_TargetCameraAlpha: 1
@@ -176,13 +190,13 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
---- !u!4 &30844261
+--- !u!4 &442536812
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30844259}
+  m_GameObject: {fileID: 442536809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -818.2429, y: 1698.3488, z: -46.96613}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -191,20 +205,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &30844262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30844259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3caf5110e73260c4f9437d5e764c30bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: months-lv2
-  StoryVideo: {fileID: 30844260}
 --- !u!1 &528775441
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +713,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 34b9962d634af0449976f4772403d24f, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8446bf7ff19cc524ba3ab8785a40c0db, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9e726e923ab34af40b7585c6d3b6efbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c50936d85642ef4ab674fffce02580e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
