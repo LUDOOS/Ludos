@@ -13,6 +13,8 @@ public class MainPageCameraController : MonoBehaviour
         { new Vector3(11.85f, 0, -10),new Vector3(10.6f,2.67f)}, //Date Page Pos
         { new Vector3(0, -10.06f, -10), new Vector3(-1.27f,-7)} //Seasons Page Pos
     };
+
+
     // Start is called before the first frame update
     void Start()
     {
