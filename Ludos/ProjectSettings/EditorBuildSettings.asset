@@ -120,6 +120,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Games/Calender/Scenes/Seasons/Seasons-Story.unity
+    guid: 8c25127e738cc2e4d8b99718527e53d1
+  - enabled: 1
     path: Assets/Games/Calender/Scenes/Seasons/Seasons-lv1.unity
     guid: 638df34b3d8cd314c8a6cf5aa7d7d533
   - enabled: 1

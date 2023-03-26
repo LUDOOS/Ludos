@@ -15,27 +15,19 @@ public class MainPageSceneManager : MonoBehaviour
 
 
             case "days-lv1":
-                GameManager.instance.level++;
-                GameManager.instance.isCompleted = true;
-                Debug.Log(GameManager.instance.level);
+                GameManager.instance.CurrentLevel = 0; // -------------->>> LevelProgress
                 SceneManager.LoadScene("Date-days-lv1");
                 break;
             case "days-lv2":
-                GameManager.instance.level++;
-                GameManager.instance.isCompleted = true;
-                Debug.Log(GameManager.instance.level);
+                GameManager.instance.CurrentLevel = 1; // -------------->>> LevelProgress
                 SceneManager.LoadScene("Date-days-lv2");
                 break;
             case "months-lv1":
-                GameManager.instance.level++;
-                GameManager.instance.isCompleted = true;
-                Debug.Log(GameManager.instance.level);
+                GameManager.instance.CurrentLevel = 2; // -------------->>> LevelProgress
                 SceneManager.LoadScene("Date-months-lv1");
                 break;
             case "months-lv2":
-                GameManager.instance.level++;
-                GameManager.instance.isCompleted = true;
-                Debug.Log(GameManager.instance.level);
+                GameManager.instance.CurrentLevel = 3; // -------------->>> LevelProgress
                 SceneManager.LoadScene("Date-months-lv2");
                 break;
             case "date-Story":
@@ -61,15 +53,19 @@ public class MainPageSceneManager : MonoBehaviour
 
 
             case "Seasons-lv1":
+                GameManager.instance.CurrentLevel = 4; // -------------->>> LevelProgress
                 SceneManager.LoadScene("Seasons-lv1");
                 break;
             case "Seasons-lv2":
+                GameManager.instance.CurrentLevel = 5; // -------------->>> LevelProgress
                 SceneManager.LoadScene("Seasons-lv2");
                 break;
             case "Seasons-lv3":
+                GameManager.instance.CurrentLevel = 6; // -------------->>> LevelProgress
                 SceneManager.LoadScene("Seasons-lv3");
                 break;
             case "Seasons-lv4":
+                GameManager.instance.CurrentLevel = 7; // -------------->>> LevelProgress
                 SceneManager.LoadScene("Seasons-lv4");
                 break;
             case "Seasons-Story":
