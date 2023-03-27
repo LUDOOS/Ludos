@@ -2425,7 +2425,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
-  isActive: 0
   wrongBarrier1: {fileID: 990567968}
   wrongBarrier2: {fileID: 683689289}
   wrongBarrier3: {fileID: 837297224}
@@ -4719,3 +4718,6 @@ MonoBehaviour:
   _starsImg: {fileID: 1676940983}
   congrates: {fileID: 1704607736}
   confetti: {fileID: 810792547}
+  _video: {fileID: 688089274}
+  isActive: 0
+  timer: {fileID: 724776911}
