@@ -1506,7 +1506,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946168078}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: f9ede894872c13048a3c946e19bf25dc, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 6a2a641ec3b97654db0607010f33f230, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1789,7 +1789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e900a240b8ffcbd4eab5a167994c778c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audio: {fileID: 0}
+  _audio: {fileID: 1011084119}
 --- !u!82 &1011084119
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2011,6 +2011,7 @@ MonoBehaviour:
   _starsImg: {fileID: 563008580}
   congrates: {fileID: 1121990312}
   confetti: {fileID: 946168081}
+  time: 180
 --- !u!1 &1121990311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2254,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2e23bd1ef5cdd19499c536ca55929d25, type: 3}
+    - target: {fileID: 3395993701590185344, guid: 032a2eecafe561043b3d4ecd754ebbea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3395993701590185346, guid: 032a2eecafe561043b3d4ecd754ebbea, type: 3}
       propertyPath: time
       value: 90

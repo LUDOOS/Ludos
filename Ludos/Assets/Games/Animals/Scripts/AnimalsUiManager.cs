@@ -10,6 +10,8 @@ public class AnimalsUiManager : MonoBehaviour
     [SerializeField] Image _starsImg;
     [SerializeField] public Image congrates;
     [SerializeField] public RawImage confetti;
+    //[SerializeField] Timer _timer;
+    public int time = 180;
     // Start is called before the first frame update
     private void Start()
     {
@@ -33,6 +35,10 @@ public class AnimalsUiManager : MonoBehaviour
             _starsImg.sprite = _spriteImg[1];
             Stars.instance.starsNumber += 1;
         }
-        Debug.Log(Stars.instance.starsNumber);
+    }
+
+    public void StopTimer()
+    {
+        Timer.SetPaused(false);
     }
 }

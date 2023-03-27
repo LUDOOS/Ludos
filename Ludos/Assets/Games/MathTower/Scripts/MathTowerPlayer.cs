@@ -8,8 +8,6 @@ public class MathTowerPlayer : MonoBehaviour
 {
     // if the player touch the ground and the TouchingBarrier
     public bool isGrounded = true;
-    // check if the level end for updating the stars
-    public bool isActive = false;
     float _movement = 2.5f;
     float _jumpForce = 8.3f;
     Rigidbody2D rb;
@@ -71,7 +69,7 @@ public class MathTowerPlayer : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x,_jumpForce);
             StartCoroutine(jumpAnimate());
             isGrounded = false;
-            isActive = false;
+            //isActive = false;
         }
     }
 
@@ -146,25 +144,8 @@ public class MathTowerPlayer : MonoBehaviour
                 barrier.GetComponent<Animator>().Play("ScalingToRight");
             }
             Destroy(wrongBarrier3);
-            StartCoroutine(FinishingLevel());
+            StartCoroutine(uiManager.FinishingLevel());
         }
-    }
-
-    IEnumerator FinishingLevel()
-    {
-        yield return new WaitForSeconds(0.7f);
-        // the white rect that contain the question
-        uiManager.textBackground.gameObject.SetActive(false);
-        Timer.SetPaused(true);
-        yield return new WaitForSeconds(0.3f);
-        // finishing level Screen
-        uiManager.congrates.gameObject.SetActive(true);
-        uiManager.UpdateStars(Timer.second, isActive);
-        isActive = true;
-        // confetti is the finishing video
-        uiManager.confetti.enabled = true;
-        // if the level finished
-        MathTowerGameManager.instance.isCompleted = true;
     }
 
     private void RemoveTheAnswerImage(GameObject barrier)

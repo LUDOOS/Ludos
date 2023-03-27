@@ -60,10 +60,10 @@ public class AnimalsSounds : MonoBehaviour
 
     IEnumerator FinishingLevel()
     {
-        Timer.SetPaused(true);
         yield return new WaitForSeconds(1.5f);
         _uiManager.confetti.enabled = true;
         _uiManager.UpdateStars(Timer.second);
+        _uiManager.StopTimer();
         _uiManager.congrates.gameObject.SetActive(true);
     }
 }
