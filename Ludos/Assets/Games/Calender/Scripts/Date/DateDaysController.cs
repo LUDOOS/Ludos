@@ -13,6 +13,9 @@ public class DateDaysController : MonoBehaviour
     public TextMeshProUGUI txt;
     AnimationController animationController;
     AudioController audioController;
+    static bool[] completeStatus = { false,false,false, false }; // -------------->>> LevelProgress
+    public Button[] answerButtons; 
+
 
     Vector3[,] pageLocations = new[,] {
         { new Vector3(0, 0, -10),new Vector3(0, -0.22f, 0) },
@@ -27,7 +30,7 @@ public class DateDaysController : MonoBehaviour
         mainCam = GameObject.Find("MainCamParent").GetComponent<CameraLerp>();
         audioController = GameObject.Find("Audio Source").GetComponent<AudioController>();
         animationController = GameObject.Find("AnimationController").GetComponent<AnimationController>();
-        
+
     }
 
 
@@ -40,6 +43,7 @@ public class DateDaysController : MonoBehaviour
     }
     public void goToQuestion_two(bool correct)
     {
+        disableKeys(answerButtons[0], answerButtons[1]);
         if (!correct)
         {
             animationController.animateCamera("wrongAnswer");
@@ -57,6 +61,7 @@ public class DateDaysController : MonoBehaviour
 
     public void goToQuestion_three(bool correct)
     {
+        disableKeys(answerButtons[2], answerButtons[3]);
         if (!correct)
         {
             animationController.animateCamera("wrongAnswer");
@@ -73,6 +78,7 @@ public class DateDaysController : MonoBehaviour
     }
     public void goToFinalPage(bool correct)
     {
+        disableKeys(answerButtons[4], answerButtons[5]);
         if (!correct)
         {
            animationController.animateCamera("wrongAnswer");
@@ -84,6 +90,7 @@ public class DateDaysController : MonoBehaviour
             StarCounter++;
         }
         updateFinalPage();
+        UpdateLevels(); // -------------->>> LevelProgress
         StartCoroutine(mainCam.LerpFromTo(pageLocations[3,0], 2f,1.2f));
         StartCoroutine(mainCam.LerpFromTo("avatarParent", pageLocations[3, 1], 1.5f, 1.2f));
         audioController.audioSource.Stop();
@@ -92,7 +99,7 @@ public class DateDaysController : MonoBehaviour
 
 
    
-    public void updateFinalPage() {
+     void updateFinalPage() {
         if (StarCounter == 3)
         {
             img.sprite = sprites[3];
@@ -117,6 +124,22 @@ public class DateDaysController : MonoBehaviour
         
     }
 
-
+    //&& GameManager.instance.nextLevel != GameManager.instance.CurrentLevel
+    void UpdateLevels() // -------------->>> LevelProgress
+    {
+        if (!completeStatus[GameManager.instance.CalendarCurrentLevel] )
+        {
+            completeStatus[GameManager.instance.CalendarCurrentLevel] = true;
+            GameManager.instance.CalendarNextLevel++;
+            Debug.Log("level " + (GameManager.instance.CalendarNextLevel + 1) + " is unlocked");
+        }
+        
+        
+    }
+    void disableKeys(Button b1 , Button b2) {
+        b1.interactable = false;
+        b2.interactable = false;
+        
+    }
 }
 

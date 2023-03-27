@@ -188,7 +188,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.6156863, g: 0.98039216, b: 0.7019608, a: 1}
     m_SelectedColor: {r: 0.1254902, g: 0.6784314, b: 0.25490198, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.1254902, g: 0.6784314, b: 0.25490198, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2041,7 +2041,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.98039216, g: 0.62352943, b: 0.6156863, a: 1}
     m_SelectedColor: {r: 0.78431374, g: 0.30980393, b: 0.30980393, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.7843138, g: 0.30980393, b: 0.30980393, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2813,6 +2813,7 @@ MonoBehaviour:
   img: {fileID: 0}
   sprites: []
   txt: {fileID: 0}
+  answerButtons: []
 --- !u!1 &1273496931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,7 +3141,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.98039216, g: 0.62352943, b: 0.6156863, a: 1}
     m_SelectedColor: {r: 0.78431374, g: 0.30980393, b: 0.30980393, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.7843138, g: 0.30980393, b: 0.30980393, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3995,7 +3996,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.98039216, g: 0.62352943, b: 0.6156863, a: 1}
     m_SelectedColor: {r: 0.78431374, g: 0.30980393, b: 0.30980393, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.7843138, g: 0.30980393, b: 0.30980393, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4384,7 +4385,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.61552155, g: 0.9811321, b: 0.7033977, a: 1}
     m_SelectedColor: {r: 0.12495552, g: 0.6792453, b: 0.25607783, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.1254902, g: 0.6784314, b: 0.25490198, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4496,7 +4497,7 @@ Animator:
   m_GameObject: {fileID: 1955045518}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3ad218067264e54418575b73c7b6e4c7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7f29dbf307ecf924b930aed25ac176e2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4623,7 +4624,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.6156863, g: 0.98039216, b: 0.7019608, a: 1}
     m_SelectedColor: {r: 0.1254902, g: 0.6784314, b: 0.25490198, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.1254902, g: 0.6784314, b: 0.25490198, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -5044,6 +5045,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 93ed35d77587d3647a0f0461073d13a3, type: 3}
   - {fileID: 21300000, guid: f976414a7337dbc4a80f014c6f20506f, type: 3}
   txt: {fileID: 136017314}
+  answerButtons:
+  - {fileID: 1929686194}
+  - {fileID: 740154648}
+  - {fileID: 76865825}
+  - {fileID: 1401333999}
+  - {fileID: 1958741488}
+  - {fileID: 1819627657}
 --- !u!4 &2135026957
 Transform:
   m_ObjectHideFlags: 0

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainPageCameraController : MonoBehaviour
+public class MainPageController : MonoBehaviour
 {
     CameraLerp mainCam;
     Transform Avatar;
     AnimationController animationController;
-    [SerializeField] Slider slider;
-    [SerializeField] Image [] Locked;
+    [SerializeField] Slider [] slider;
+   
+    public Button[] LevelButtons; // -------------->>> LevelProgress
 
     Vector3[,] page_avatarPositions = new[,] {
         { new Vector3(0, -0.12f, -10), new Vector3(0f, 2.4f) } ,  //Main Page pos
@@ -24,16 +25,11 @@ public class MainPageCameraController : MonoBehaviour
         mainCam = GameObject.Find("MainCamParent").GetComponent<CameraLerp>();
         animationController = GameObject.Find("AnimationController").GetComponent<AnimationController>();
         Avatar = GameObject.FindGameObjectWithTag("avatar").transform;
+        updateLevels(); // -------------->>> LevelProgress
 
-        
+
 
     }
-    private void Update()
-    {
-        UpdateIndicator();
-        UnlockLevel();
-    }
-
 
 
     public void moveToCalender()
@@ -65,56 +61,27 @@ public class MainPageCameraController : MonoBehaviour
     }
 
 
- 
 
-
-
-    void UnlockLevel()
+    void updateLevels() // -------------->>> LevelProgress
     {
-        if (GameManager.instance.isCompleted)
+        Debug.Log("updating");
+        for (int i = 0; i < GameManager.instance.CalendarNextLevel; i++)
         {
-            switch (GameManager.instance.level)
-            {
-                case 1:
-                    Locked[0].enabled = false;
-                    break;
-                case 2:
-                    Locked[0].enabled = false;
-                    Locked[1].enabled = false;
-                    break;
-                case 3:
-                    Locked[0].enabled = false;
-                    Locked[1].enabled = false;
-                    Locked[2].enabled = false;
-                    break;
-                case 4:
-                    Locked[0].enabled = false;
-                    Locked[1].enabled = false;
-                    Locked[2].enabled = false;
-                    Locked[3].enabled = false;
-                    break;
-                case 5:
-                    Locked[0].enabled = false;
-                    Locked[1].enabled = false;
-                    Locked[2].enabled = false;
-                    Locked[3].enabled = false;
-                    Locked[4].enabled = false;
-                    break;
-                default:
-                    Debug.Log("Default");
-                    break;
-            }
-            GameManager.instance.isCompleted = false;
+           LevelButtons[i].interactable = true;
+           
+        }
+        if (GameManager.instance.CalendarNextLevel < 5)
+        {
+            slider[0].value = GameManager.instance.CalendarNextLevel ;
+        }
+        else
+        {
+            slider[0].value = 5;
+            slider[1].value = GameManager.instance.CalendarNextLevel - 5;
         }
     }
 
-    void UpdateIndicator()
-    {
-        if (GameManager.instance.isCompleted)
-        {
-            slider.value = GameManager.instance.level;
-        }
-    }
+
 }
 
 

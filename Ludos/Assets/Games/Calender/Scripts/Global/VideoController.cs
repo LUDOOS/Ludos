@@ -28,8 +28,17 @@ public class VideoController : MonoBehaviour
     }
 
     public void loadStory() {
-        
-        sceneManager.changeScene(nextSceneName);
+        if (nextSceneName.Equals("Seasons-lv1"))
+        {
+            if (GameManager.instance.CalendarCurrentLevel >= 4)
+                sceneManager.changeScene(nextSceneName);
+            else {
+                sceneManager.changeScene("MainPage");
+            }
+        }
+        else {
+            sceneManager.changeScene(nextSceneName);
+        }
     }
 
 }

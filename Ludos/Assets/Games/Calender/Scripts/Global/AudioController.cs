@@ -11,7 +11,8 @@ public class AudioController :MonoBehaviour
       
         audioSource.PlayOneShot(audioclips[0]);
     }
-    public void ChangeClip(int clipNumber) {
-      audioSource.PlayOneShot(audioclips[clipNumber]);
+    public void ChangeClip(int clipNumber)
+    {
+        audioSource.PlayOneShot(audioclips[clipNumber]);
     }
 }

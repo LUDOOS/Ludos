@@ -14,6 +14,10 @@ public class SeasonController : MonoBehaviour
     public TextMeshProUGUI txt;
     AnimationController animationController;
     AudioController audioController;
+    static bool[] completeStatus = { false, false, false, false }; // -------------->>> LevelProgress
+    public Button[] answerButtons;
+
+
 
     Vector3[,] pageLocations = new[,] {
         { new Vector3(-0.7f, 0, -10),new Vector3(-0.7f, 0f, 0) },
@@ -41,6 +45,7 @@ public class SeasonController : MonoBehaviour
     }
     public void goToQuestion_two(bool correct)
     {
+        disableKeys(answerButtons[0], answerButtons[1]);
         if (!correct)
         {
             animationController.animateCamera("wrongAnswer");
@@ -59,6 +64,7 @@ public class SeasonController : MonoBehaviour
 
     public void goToQuestion_three(bool correct)
     {
+        disableKeys(answerButtons[2], answerButtons[3]);
         if (!correct)
         {
             animationController.animateCamera("wrongAnswer");
@@ -75,6 +81,7 @@ public class SeasonController : MonoBehaviour
     }
     public void goToFinalPage(bool correct)
     {
+        disableKeys(answerButtons[4], answerButtons[5]);
         if (!correct)
         {
             animationController.animateCamera("wrongAnswer");
@@ -86,6 +93,7 @@ public class SeasonController : MonoBehaviour
             StarCounter++;
         }
         updateFinalPage();
+        UpdateLevels(); // -------------->>> LevelProgress
         StartCoroutine(mainCam.LerpFromTo(pageLocations[3, 0], 2f, 1.2f));
         StartCoroutine(mainCam.LerpFromTo("avatarParent", pageLocations[3, 1], 1.5f, 1.2f));
         audioController.audioSource.Stop();
@@ -119,7 +127,23 @@ public class SeasonController : MonoBehaviour
 
 
     }
+        void UpdateLevels() // -------------->>> LevelProgress
+    {
+            if (!completeStatus[GameManager.instance.CalendarCurrentLevel-4] && GameManager.instance.CalendarNextLevel != GameManager.instance.CalendarCurrentLevel)
+            {
+                completeStatus[GameManager.instance.CalendarCurrentLevel-4] = true;
+                GameManager.instance.CalendarNextLevel++;
+                Debug.Log("level " + (GameManager.instance.CalendarNextLevel + 1) + " is unlocked");
+            }
 
+
+        }
+        void disableKeys(Button b1, Button b2)
+        {
+            b1.interactable = false;
+            b2.interactable = false;
+
+        }
 
 }
 
