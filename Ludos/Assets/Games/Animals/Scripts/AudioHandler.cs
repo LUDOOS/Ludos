@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class AudioHandler : MonoBehaviour
 {
-    public AudioSource _audio;
+     public AudioSource _audio;
 
-    private void Start()
-    {
-        _audio = GetComponent<AudioSource>();
-    }
     public void PlayAudio(AudioClip clip)
     {
 
