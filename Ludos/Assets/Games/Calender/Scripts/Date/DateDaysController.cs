@@ -124,14 +124,14 @@ public class DateDaysController : MonoBehaviour
         
     }
 
-
-     void UpdateLevels() // -------------->>> LevelProgress
+    //&& GameManager.instance.nextLevel != GameManager.instance.CurrentLevel
+    void UpdateLevels() // -------------->>> LevelProgress
     {
-        if (!completeStatus[GameManager.instance.CurrentLevel] && GameManager.instance.nextLevel != GameManager.instance.CurrentLevel )
+        if (!completeStatus[GameManager.instance.CalendarCurrentLevel] )
         {
-            completeStatus[GameManager.instance.CurrentLevel] = true;
-            GameManager.instance.nextLevel++;
-            Debug.Log("level " + (GameManager.instance.nextLevel + 1) + " is unlocked");
+            completeStatus[GameManager.instance.CalendarCurrentLevel] = true;
+            GameManager.instance.CalendarNextLevel++;
+            Debug.Log("level " + (GameManager.instance.CalendarNextLevel + 1) + " is unlocked");
         }
         
         

@@ -9,8 +9,17 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
    // public bool isCompleted = false;
 
-    public int CurrentLevel = 0; // -------------->>> LevelProgress
-    public int nextLevel = 1; // -------------->>> LevelProgress
+    public int CalendarCurrentLevel = 0; // -------------->>> LevelProgress
+    public int CalendarNextLevel = 1; // -------------->>> LevelProgress
+    public int CalendarStars = 0;
+
+    public int MathTowerCurrentLevel = 0; // -------------->>> LevelProgress
+    public int MathTowerNextLevel = 1; // -------------->>> LevelProgress
+    public int MathTowerStars = 0;
+
+    public int AnimalsCurrentLevel = 0; // -------------->>> LevelProgress
+    public int AnimalsNextLevel = 1; // -------------->>> LevelProgress
+    public int AnimalsStars = 0;
 
     private void Start()
     {

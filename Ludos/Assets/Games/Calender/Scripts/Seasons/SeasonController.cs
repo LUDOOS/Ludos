@@ -129,11 +129,11 @@ public class SeasonController : MonoBehaviour
     }
         void UpdateLevels() // -------------->>> LevelProgress
     {
-            if (!completeStatus[GameManager.instance.CurrentLevel-4] && GameManager.instance.nextLevel != GameManager.instance.CurrentLevel)
+            if (!completeStatus[GameManager.instance.CalendarCurrentLevel-4] && GameManager.instance.CalendarNextLevel != GameManager.instance.CalendarCurrentLevel)
             {
-                completeStatus[GameManager.instance.CurrentLevel-4] = true;
-                GameManager.instance.nextLevel++;
-                Debug.Log("level " + (GameManager.instance.nextLevel + 1) + " is unlocked");
+                completeStatus[GameManager.instance.CalendarCurrentLevel-4] = true;
+                GameManager.instance.CalendarNextLevel++;
+                Debug.Log("level " + (GameManager.instance.CalendarNextLevel + 1) + " is unlocked");
             }
 
 
