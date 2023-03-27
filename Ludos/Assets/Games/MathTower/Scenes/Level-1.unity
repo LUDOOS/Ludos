@@ -2911,7 +2911,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1164793135}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_TargetAssemblyTypeName: MathTowerPlayer, Assembly-CSharp
         m_MethodName: rightMove
         m_Mode: 1
         m_Arguments:

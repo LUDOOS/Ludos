@@ -1307,6 +1307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175142399}
   - component: {fileID: 1175142398}
+  - component: {fileID: 1175142400}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1343,6 +1344,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1175142400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175142397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f272caea7e70947b4a2dd204ca8d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CalendarCurrentLevel: 0
+  CalendarNextLevel: 1
+  CalendarStars: 0
+  MathTowerCurrentLevel: 0
+  MathTowerNextLevel: 1
+  MathTowerStars: 0
+  AnimalsCurrentLevel: 0
+  AnimalsNextLevel: 1
+  AnimalsStars: 0
 --- !u!1 &1218376228
 GameObject:
   m_ObjectHideFlags: 0

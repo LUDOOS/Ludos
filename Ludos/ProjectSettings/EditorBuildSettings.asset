@@ -50,18 +50,18 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Games/MathTower/Scenes/CutSceneGreaterThan.unity
-    guid: 543596f216a3a2a42a7f468583d2e62a
-  - enabled: 1
-    path: Assets/Games/MathTower/Scenes/CutSceneMinus.unity
-    guid: e47bfde2ad455b249b9c73fa44542c99
-  - enabled: 1
-    path: Assets/Games/MathTower/Scenes/CutScenePlus.unity
-    guid: 16466a68e663b0d4a9daed1ff9aac14d
-  - enabled: 1
-    path: Assets/Games/MathTower/Scenes/CutSceneSmallerThen.unity
-    guid: 6b99761d14a659449ab02b087ced2068
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Games/MathTower/Scenes/Level-1.unity
     guid: b5813fff3148bd940ab63ed4d03d0842

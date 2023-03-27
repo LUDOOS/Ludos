@@ -107,49 +107,31 @@ public class Navigation : MonoBehaviour
 
     // <Math Tower Levels>
 
-    public void GreaterThanCutscene()
+  
+
+    public void MathTowerLevel1()
     {
         SceneManager.LoadScene(13);
     }
 
-    public void MinusCutscene()
+    public void MathTowerLevel2()
     {
         SceneManager.LoadScene(14);
     }
 
-    public void PlusCutscene()
+    public void MathTowerLevel3()
     {
         SceneManager.LoadScene(15);
     }
 
-    public void SmallerThanCutscene()
+    public void MathTowerLevel4()
     {
         SceneManager.LoadScene(16);
     }
 
-    public void MathTowerLevel1()
-    {
-        SceneManager.LoadScene(17);
-    }
-
-    public void MathTowerLevel2()
-    {
-        SceneManager.LoadScene(18);
-    }
-
-    public void MathTowerLevel3()
-    {
-        SceneManager.LoadScene(19);
-    }
-
-    public void MathTowerLevel4()
-    {
-        SceneManager.LoadScene(20);
-    }
-
     public void MathTowerLevel5()
     {
-        SceneManager.LoadScene(21);
+        SceneManager.LoadScene(17);
     }
 
 

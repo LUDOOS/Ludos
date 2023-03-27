@@ -64,13 +64,14 @@ public class MathTowerPlayer : MonoBehaviour
 
     public void jump() 
     {
-        if (isGrounded)
+                if (isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x,_jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, _jumpForce);
             StartCoroutine(jumpAnimate());
             isGrounded = false;
             //isActive = false;
         }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

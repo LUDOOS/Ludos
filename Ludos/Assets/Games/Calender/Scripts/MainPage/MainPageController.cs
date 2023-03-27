@@ -72,7 +72,7 @@ public class MainPageController : MonoBehaviour
         }
         if (GameManager.instance.CalendarNextLevel < 5)
         {
-            slider[0].value = GameManager.instance.CalendarNextLevel ;
+            slider[0].value = GameManager.instance.CalendarNextLevel - 1 ;
         }
         else
         {

@@ -1751,8 +1751,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f272caea7e70947b4a2dd204ca8d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentLevel: 0
-  nextLevel: 1
+  CalendarCurrentLevel: 0
+  CalendarNextLevel: 1
+  CalendarStars: 0
+  MathTowerCurrentLevel: 0
+  MathTowerNextLevel: 1
+  MathTowerStars: 0
+  AnimalsCurrentLevel: 0
+  AnimalsNextLevel: 1
+  AnimalsStars: 0
 --- !u!4 &886073155
 Transform:
   m_ObjectHideFlags: 0
