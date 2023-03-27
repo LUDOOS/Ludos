@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class StoryAudio : MonoBehaviour
 {
-    AudioHandler aHandler;
+    [SerializeField] AudioHandler handler;
     [SerializeField] AudioClip clip;
 
-    void Start()
-    {
-        aHandler = GameObject.Find("Background").GetComponent<AudioHandler>();
-    }
 
     private void OnMouseUpAsButton()
     {
-        aHandler.PlayAudio(clip);
+        handler.PlayAudio(clip);
     }
 
 }
