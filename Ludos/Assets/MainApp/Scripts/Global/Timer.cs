@@ -8,7 +8,6 @@ public class Timer : MonoBehaviour
 {
 
     [SerializeField] private Image uiFillImage;
-    private int time = 60;
     public static int second = 0;
 
     public int Duration { get; private set; }
@@ -18,18 +17,15 @@ public class Timer : MonoBehaviour
     private int remainingDuration;
 
     // Events --
-    private UnityAction onTimerBeginAction;
+    private static UnityAction onTimerBeginAction;
     private UnityAction<int> onTimerChangeAction;
     private UnityAction onTimerEndAction;
     private static UnityAction<bool> onTimerPauseAction;
 
-    MathTowerUiManager uiManager;
     // Start is called before the first frame update
     void Start()
     {
         Awake();
-        SetDuration(time).Begin();   
-        uiManager = GameObject.Find("Canvas").GetComponent<MathTowerUiManager>();
     }
 
     private void Awake()
