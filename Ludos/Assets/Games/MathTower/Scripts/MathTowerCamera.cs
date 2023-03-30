@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MathTowerCamera : MonoBehaviour
 {
-    [SerializeField]private MathTowerPlayer player;
+    [SerializeField] private MathTowerController controller;
     Vector3 tempPos;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class MathTowerCamera : MonoBehaviour
     void LateUpdate()
     {
         tempPos = transform.position;
-        tempPos.y = player.transform.position.y + 2.5f;
+        tempPos.y = controller.transform.position.y + 2.5f;
         transform.position = tempPos ;
     }
 }
