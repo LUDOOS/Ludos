@@ -8,6 +8,9 @@ TagManager:
   - PLAYER
   - BARRIER
   - FALL
+  - stars
+  - avatar
+  - levelButton
   layers:
   - Default
   - TransparentFX
