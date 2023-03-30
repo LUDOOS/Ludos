@@ -29,6 +29,7 @@ public class MathTowerUiManager : MonoBehaviour
         _video.GetComponent<VideoPlayer>().loopPointReached += EndReached;
         _question.text = _questionText[0];
         congrates.gameObject.SetActive(false);
+        confetti.gameObject.SetActive(false);
         timer.SetDuration(60).Begin();
         Timer.SetPaused(true);
     }
@@ -41,7 +42,6 @@ public class MathTowerUiManager : MonoBehaviour
         }
     }
 
-
     void EndReached(VideoPlayer vp)
     {
         isFinished = true;
@@ -52,27 +52,23 @@ public class MathTowerUiManager : MonoBehaviour
         if (scene.name == "Level-1")
         {
             _questionText = new string[] { "1 + 1", "2 + 3", "7 + 1" };
-            MathTowerGameManager.instance.level = 1;
+           
         }
         else if (scene.name == "Level-2")
         {
             _questionText = new string[] { "1 - 1", "6 - 4", "7 - 1" };
-            MathTowerGameManager.instance.level = 2;
         }
         else if (scene.name == "Level-3")
         {
             _questionText = new string[] { "1 + 4", "4 - 3", "6 + 1" };
-            MathTowerGameManager.instance.level = 3;
         }
         else if (scene.name == "Level-4")
         {
             _questionText = new string[] { "1 > 9", "2 > 3", "8 > 9" };
-            MathTowerGameManager.instance.level = 4;
         }
         else
         {
             _questionText = new string[] { "6 < 5", "2 < 7", "6 < 1" };
-            MathTowerGameManager.instance.level = 5;
         }
     }
 
@@ -89,17 +85,15 @@ public class MathTowerUiManager : MonoBehaviour
             if (second >= 45)
             {
                 _starsImg.sprite = _spriteImg[3];
-                Stars.instance.starsNumber += 3;
+                
             }
             else if (second >= 30)
             {
                 _starsImg.sprite = _spriteImg[2];
-                Stars.instance.starsNumber += 2;
             }
             else
             {
                 _starsImg.sprite = _spriteImg[1];
-                Stars.instance.starsNumber += 1;
             }
         }
     }
@@ -115,8 +109,6 @@ public class MathTowerUiManager : MonoBehaviour
         UpdateStars(Timer.second, isActive);
         isActive = true;
         // confetti is the finishing video
-        confetti.enabled = true;
-        // if the level finished
-        MathTowerGameManager.instance.isCompleted = true;
+        confetti.gameObject.SetActive(true);
     }
 }
