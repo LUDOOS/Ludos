@@ -19,7 +19,7 @@ public class AuthManger : MonoBehaviour
     public FirebaseUser User;
     public FirebaseApp app;
     public FirebaseFirestore db;
-    //DocumentReference docRef;
+
     [Header("Firebase DATA")]
     public Children Children;
     public Parent parent;
@@ -82,8 +82,6 @@ public class AuthManger : MonoBehaviour
             {
                 Debug.Log("Signed in " + User.UserId);
                 SceneManager.LoadScene("choosePlayer");
-                //UnityEngine.SceneManagement.SceneManager.LoadScene(23);
-                //UIManager.Instance.OpenGAME();
             }
         }
     }
@@ -125,33 +123,33 @@ public class AuthManger : MonoBehaviour
     //TODO shall we do method for parent : Async ,Delete ,Update still we dont need username And email 
     public void AddChildren( string ChildName,int ChildAge) {
         //TODO object Avatar set Defalet 1
-        parent._NoChildren++;
+        parent.NoChildren++;
         var parentnRef = db.Collection("parent").Document(User.UserId);
         parentnRef.SetAsync(parent).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {
                 //Debug.LogFormat("User add data is successfully: {0} ({1})", User.DisplayName, User.Email);
-                Debug.LogFormat("Children {0} add successfully: ({1})", Children._Name, User.Email);
+                Debug.LogFormat("Children {0} add successfully: ({1})", Children.Name, User.Email);
             }
             else
             {
-                Debug.LogFormat("Children {0} add  Failed: ({1})", Children._Name, User.Email);
+                Debug.LogFormat("Children {0} add  Failed: ({1})", Children.Name, User.Email);
             }
         });
     
-        Children = new Children(parent._NoChildren,1,ChildName,ChildAge,0, new ArrayList() { false }, new ArrayList() { false }, new ArrayList() { false }, new ArrayList() { false }, new ArrayList() { false }, new ArrayList() { false });
-        var ChildrenRef = db.Collection("parent").Document(User.UserId).Collection("Children").Document(parent._NoChildren.ToString());
+        Children = new Children(parent.NoChildren,1,ChildName,ChildAge,0, new ArrayList() {}, new ArrayList() {}, new ArrayList() { false }, new ArrayList() { false }, new ArrayList() { false }, new ArrayList() { false });
+        var ChildrenRef = db.Collection("parent").Document(User.UserId).Collection("Children").Document(parent.NoChildren.ToString());
         ChildrenRef.SetAsync(Children).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {
                 //Debug.LogFormat("User add data is successfully: {0} ({1})", User.DisplayName, User.Email);
-                Debug.LogFormat("Children {0} add successfully: ({1})", Children._Name, User.Email);
+                Debug.LogFormat("Children {0} add successfully: ({1})", Children.Name, User.Email);
             }
             else
             {
-                Debug.LogFormat("Children {0} add  Failed: ({1})", Children._Name, User.Email);
+                Debug.LogFormat("Children {0} add  Failed: ({1})", Children.Name, User.Email);
 
             }
         });
@@ -169,9 +167,9 @@ public class AuthManger : MonoBehaviour
     }
     public void DeleteChildrenData(int NoChildren)
     {
-        if (parent._NoChildren > 0)
+        if (parent.NoChildren > 0)
         {
-            parent._NoChildren--;
+            parent.NoChildren--;
             db.Collection("parent").Document(User.UserId).Collection("Children").Document(NoChildren.ToString()).DeleteAsync();
             db.Collection("parent").Document(User.UserId).SetAsync(parent).ContinueWithOnMainThread(task =>
             {
@@ -446,38 +444,11 @@ public class AuthManger : MonoBehaviour
     {
         Debug.LogFormat("user SignOut :{0} ({1}) ", User.DisplayName, User.Email);
         auth.SignOut();
-        //auth.StateChanged -= AuthStateChanged;
         AuthStateChanged(this, null);
-        //auth = null;
         UnityEngine.SceneManagement.SceneManager.LoadScene("FirebaseLogin");
-        //UIManager.Instance.Openlogin();
     }
-
-
-
-
-
-
-    //test  
     public List<Children> GetChildren() {
-        //ArrayList childrens = new ArrayList();
-        //List<Children> childrens = new List<Children>();
         List<Children> childrens = new List<Children>();
-        //Dictionary<string, object>[] childrens = new Dictionary<string, object>()[];
-
-        //foreach (var item in task.Result)
-        //{
-        //    Debug.Log(item.ToString());
-        //}
-        //Query query = db.Collection("parent").Document(User.UserId).Collection("Children");
-        //query.GetSnapshotAsync().ContinueWithOnMainThread((querySnapshotTask) =>
-        //{
-
-        //    foreach (DocumentSnapshot documentSnapshot in querySnapshotTask.Result.Documents)
-        //    {
-        //        Debug.Log(System.String.Format("Document {0} returned by query ", documentSnapshot.Id));
-        //    }
-        //});
         Query AllQuery = db.Collection("parent").Document(User.UserId).Collection("Children");
         AllQuery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
@@ -486,13 +457,7 @@ public class AuthManger : MonoBehaviour
                 QuerySnapshot AllQuerySnapshot = task.Result;
                 foreach (DocumentSnapshot documentSnapshot in AllQuerySnapshot.Documents)
                 {
-                    Debug.LogFormat($"Document data for document: {documentSnapshot.Id}");
-                    //Dictionary<string, object> c = documentSnapshot.ToDictionary();
-                    //foreach (KeyValuePair<string, object> val in c)
-                    //{
-                    //    Debug.LogFormat("Key = {0}, Value = {1}", val.Key, val.Value);
-                    //}
-                    //childrens.Add(Children);
+                    //Debug.LogFormat($"Document data for document: {documentSnapshot.Id}");
                     childrens.Add(documentSnapshot.ConvertTo<Children>());                }
             }
             else if (task.Exception != null)

@@ -18,19 +18,4 @@ public struct Parent
         this.NoChildren = NoChildren;
         this.Email = Email;
     }
-    public string _Name
-    {
-        get { return Name; }
-        set { Name = value; }
-    }
-    public int _NoChildren
-    {
-        get { return NoChildren; }
-        set { NoChildren = value; }
-    }
-    public string _Email
-    {
-        get { return Email; }
-        set { Email = value; }
-    }
 }
