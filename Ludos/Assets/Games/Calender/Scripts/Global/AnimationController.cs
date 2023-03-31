@@ -42,4 +42,9 @@ public class AnimationController : MonoBehaviour
 
         }
     }
+    public IEnumerator destroyAnimation(string ComponentName,float delay) {
+        yield return new WaitForSeconds(delay);
+        Destroy(GameObject.Find(ComponentName));
+
+    }
 }
