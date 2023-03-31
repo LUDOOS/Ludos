@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class MathTowerController : MonoBehaviour
 {
     [SerializeField] private GameObject[] wrongBarrier;
+    static bool[] completeStatus = { false, false, false, false, false };
     MathTowerUiManager uiManager;
     Scene scene;
 
@@ -77,6 +78,7 @@ public class MathTowerController : MonoBehaviour
             }
             Destroy(wrongBarrier[2]);
             StartCoroutine(uiManager.FinishingLevel());
+            UpdateLevels();
         }
     }
 
@@ -84,5 +86,16 @@ public class MathTowerController : MonoBehaviour
     {
         GameObject barrierChild = barrier.transform.GetChild(0).gameObject;
         barrierChild.SetActive(false);
+    }
+    void UpdateLevels()
+    {
+        if (!completeStatus[GameManager.instance.mathTowerCurrentLevel])
+        {
+            completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
+            GameManager.instance.mathTowerNextLevel++;
+            //Debug.Log("level " + (GameManager.instance.mathTowerNextLevel + 1) + " is unlocked");
+        }
+
+
     }
 }

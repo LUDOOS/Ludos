@@ -20,17 +20,21 @@ public class MainPageController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         mainCam = GameObject.Find("MainCamParent").GetComponent<CameraLerp>();
         animationController = GameObject.Find("AnimationController").GetComponent<AnimationController>();
         Avatar = GameObject.FindGameObjectWithTag("avatar").transform;
         updateLevels(); // -------------->>> LevelProgress
-
+        StartCoroutine(animationController.destroyAnimation("LevelLoader", 1.1f));
 
 
     }
-
+    private void Update()
+    {
+        
+        
+    }
 
     public void moveToCalender()
     {

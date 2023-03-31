@@ -1306,7 +1306,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1175142399}
-  - component: {fileID: 1175142398}
   - component: {fileID: 1175142400}
   m_Layer: 0
   m_Name: GameManager
@@ -1315,20 +1314,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1175142398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175142397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b9364646e488947b9d7f77d1d4cf1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCompleted: 0
-  level: 0
 --- !u!4 &1175142399
 Transform:
   m_ObjectHideFlags: 0
@@ -1359,12 +1344,12 @@ MonoBehaviour:
   CalendarCurrentLevel: 0
   CalendarNextLevel: 1
   CalendarStars: 0
-  MathTowerCurrentLevel: 0
-  MathTowerNextLevel: 1
-  MathTowerStars: 0
-  AnimalsCurrentLevel: 0
-  AnimalsNextLevel: 1
-  AnimalsStars: 0
+  mathTowerCurrentLevel: 0
+  mathTowerNextLevel: 1
+  mathTowerStars: 0
+  animalsCurrentLevel: 0
+  animalsNextLevel: 1
+  animalsStars: 0
 --- !u!1 &1218376228
 GameObject:
   m_ObjectHideFlags: 0
