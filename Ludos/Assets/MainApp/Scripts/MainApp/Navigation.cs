@@ -112,26 +112,31 @@ public class Navigation : MonoBehaviour
     public void MathTowerLevel1()
     {
         SceneManager.LoadScene(13);
+        GameManager.instance.mathTowerCurrentLevel = 0;
     }
 
     public void MathTowerLevel2()
     {
         SceneManager.LoadScene(14);
+        GameManager.instance.mathTowerCurrentLevel = 1;
     }
 
     public void MathTowerLevel3()
     {
         SceneManager.LoadScene(15);
+        GameManager.instance.mathTowerCurrentLevel = 2;
     }
 
     public void MathTowerLevel4()
     {
         SceneManager.LoadScene(16);
+        GameManager.instance.mathTowerCurrentLevel = 3;
     }
 
     public void MathTowerLevel5()
     {
         SceneManager.LoadScene(17);
+        GameManager.instance.mathTowerCurrentLevel = 4;
     }
 
 
