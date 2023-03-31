@@ -20,6 +20,14 @@ public class Navigation : MonoBehaviour
 
         SceneManager.LoadScene(index);
     }
+    IEnumerator loadScene(string index)
+    {
+        animator.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene(index);
+    }
 
     /// <MainPages>
     public void Navigate(int index)
@@ -61,7 +69,7 @@ public class Navigation : MonoBehaviour
     }
     public void NavToCalender()
     {
-        SceneManager.LoadScene("Calendar-HomePage");
+        StartCoroutine(loadScene("Calendar-HomePage"));
     }
 
     //public void NavToDatesAndTime()

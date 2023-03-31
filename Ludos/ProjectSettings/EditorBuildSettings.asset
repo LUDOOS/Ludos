@@ -134,10 +134,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Games/Calender/Scenes/Seasons/Seasons-lv4.unity
     guid: 12668d476254a3b4a8776a959a955caf
-  - enabled: 1
+  - enabled: 0
     path: Assets/database/Scenes/database/choosePlayer.unity
     guid: 5c5a7825f98a9774ab1d311db15617d6
-  - enabled: 1
+  - enabled: 0
     path: Assets/database/Scenes/database/FirebaseLogin.unity
     guid: 07020c8fc917ce448bfb264687aa7ede
   m_configObjects: {}
