@@ -934,9 +934,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1121990316}
-        m_TargetAssemblyTypeName: AnimalsMainMenu, Assembly-CSharp
-        m_MethodName: BackToMainMenu
+      - m_Target: {fileID: 1445996206}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: NavToAnimals
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2787,9 +2787,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1121990316}
-        m_TargetAssemblyTypeName: AnimalsMainMenu, Assembly-CSharp
-        m_MethodName: PlayLevel5
+      - m_Target: {fileID: 1445996206}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: AnimalsLevel5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -2827,7 +2827,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 329221162}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: MathTowerLevel4
+        m_MethodName: AnimalsLevel4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

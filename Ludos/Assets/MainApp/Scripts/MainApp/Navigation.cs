@@ -76,31 +76,37 @@ public class Navigation : MonoBehaviour
     public void AnimalsStory()
     {
         SceneManager.LoadScene(6);
+        GameManager.instance.animalsCurrentLevel = 0;
     }
 
     public void AnimalsLevel1()
     {
         SceneManager.LoadScene(7);
+        GameManager.instance.animalsCurrentLevel = 1;
     }
 
     public void AnimalsLevel2()
     {
         SceneManager.LoadScene(8);
+        GameManager.instance.animalsCurrentLevel = 2;
     }
 
     public void AnimalsLevel3()
     {
         SceneManager.LoadScene(9);
+        GameManager.instance.animalsCurrentLevel = 3;
     }
 
     public void AnimalsLevel4()
     {
         SceneManager.LoadScene(10);
+        GameManager.instance.animalsCurrentLevel = 4;
     }
 
     public void AnimalsLevel5()
     {
         SceneManager.LoadScene(11);
+        GameManager.instance.animalsCurrentLevel = 5;
     }
     // </Animals Levels>
 

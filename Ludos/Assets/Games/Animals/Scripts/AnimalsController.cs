@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalsSounds : MonoBehaviour
+public class AnimalsController : MonoBehaviour
 {
     [SerializeField] AudioClip _clip;
     AnimalsPlayer _player;
     AudioHandler _aHandler;
     AnimalsUiManager _uiManager;
     bool isClicked = true;
+    static bool[] completeStatus = { false, false, false, false, false };
     // Start is called before the first frame update
     void Start()
     {
@@ -48,13 +49,14 @@ public class AnimalsSounds : MonoBehaviour
         else if(state == 's')
         {
             StartCoroutine(FinishingLevel());
+            UpdateLevels();
         }
     }
 
     IEnumerator moveCameraToNextQuestion()
     {
-         yield return new WaitForSeconds(2.5f);
-         _player.move();
+        yield return new WaitForSeconds(2.5f);
+        _player.move();
         isClicked = true;
     }
 
@@ -65,5 +67,15 @@ public class AnimalsSounds : MonoBehaviour
         _uiManager.UpdateStars(Timer.second);
         _uiManager.StopTimer();
         _uiManager.congrates.gameObject.SetActive(true);
+    }
+
+    void UpdateLevels()
+    {
+        if (!completeStatus[GameManager.instance.animalsCurrentLevel])
+        {
+            completeStatus[GameManager.instance.animalsCurrentLevel] = true;
+            GameManager.instance.animalsNextLevel++;
+            //Debug.Log("level " + (GameManager.instance.mathTowerNextLevel + 1) + " is unlocked");
+        }
     }
 }
