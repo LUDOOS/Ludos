@@ -8,27 +8,37 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:386831906275:ios:3db2445e2844de9308dcd6",
+        "mobilesdk_app_id": "1:386831906275:android:3ec45ad886b12a2308dcd6",
         "android_client_info": {
           "package_name": "com.ludos.ludos"
         }
       },
       "oauth_client": [
         {
-          "client_id": "386831906275-7iphsq1husblbqj21mjn5sv5h7gtebi8.apps.googleusercontent.com"
+          "client_id": "386831906275-n8kohbv61ljibmnsusem38iq5abe2gd6.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA1UaC6k1SnVgk3bNOmzyODWR6Sc5K3M2U"
+          "current_key": "AIzaSyB5GV1DtvTP20klYPKubWWlkHRbnwyjp7M"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 0
-        },
         "appinvite_service": {
-          "status": 1
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386831906275-n8kohbv61ljibmnsusem38iq5abe2gd6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "386831906275-7iphsq1husblbqj21mjn5sv5h7gtebi8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ludos.ludos"
+              }
+            }
+          ]
         }
       }
     }
