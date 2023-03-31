@@ -1,0 +1,37 @@
+{
+  "project_info": {
+    "project_number": "386831906275",
+    "firebase_url": "https://ludoes-1e6aa-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ludoes-1e6aa",
+    "storage_bucket": "ludoes-1e6aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386831906275:ios:3db2445e2844de9308dcd6",
+        "android_client_info": {
+          "package_name": "com.ludos.ludos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386831906275-7iphsq1husblbqj21mjn5sv5h7gtebi8.apps.googleusercontent.com"
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1UaC6k1SnVgk3bNOmzyODWR6Sc5K3M2U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
