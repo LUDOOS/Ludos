@@ -13,8 +13,6 @@ public class mangeplayer : MonoBehaviour
     [SerializeField]
     private GameObject parentButtonGameObject;
     private List<Children> childrens;
-
-
     [SerializeField]
     InputField childname;
     [SerializeField]
@@ -95,7 +93,7 @@ public class mangeplayer : MonoBehaviour
         Debug.Log(name);
         foreach (Children child in childrens) {
             if (child.Name == name) {
-                AuthManger.Instance.Children = child;
+                AuthManger.Instance.children = child;
             }
         }
         //OpenGAME

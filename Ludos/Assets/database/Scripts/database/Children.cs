@@ -26,18 +26,9 @@ public struct Children
     //Firestore Property to store store_Items 
     [FirestoreProperty]
     public IList StoreItems { get; set; }
-    //Firestore Property to store store_Items 
-    //[FirestoreProperty]
-    //public System.Collections.IList Ac { get; set; }
-    //Firestore Property to store store_Items 
-    // [[FirestoreDocumentId]]
-    // public IList  Games{ get; set; }
     //Firestore Property to store Math 
     [FirestoreProperty]
     public IList Math { get; set; }
-    //Firestore Property to store APC 
-    [FirestoreProperty]
-    public IList APC { get; set; }
     //Firestore Property to store TimeAndDate 
     [FirestoreProperty]
     public IList TimeAndDate { get; set; }
@@ -46,7 +37,7 @@ public struct Children
     public IList Animals { get; set; }
 
 
-    public Children(int ID,object Avatar, string Name, int Age, int Total_stars, IList Achievements, IList StoreItems, IList Math, IList APC, IList TimeAndDate, IList Animals) {
+    public Children(int ID,object Avatar, string Name, int Age, int Total_stars, IList Achievements, IList StoreItems, IList Math, IList TimeAndDate, IList Animals) {
         this.ID = ID;
         this.Avatar = Avatar;
         this.Name = Name;
@@ -55,7 +46,7 @@ public struct Children
         this.Achievements = Achievements;
         this.StoreItems = StoreItems;
         this.Math = Math;
-        this.APC = APC;
+        
         this.TimeAndDate = TimeAndDate;
         this.Animals = Animals;
     }
