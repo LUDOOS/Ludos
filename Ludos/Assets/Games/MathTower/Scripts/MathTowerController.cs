@@ -92,10 +92,9 @@ public class MathTowerController : MonoBehaviour
         if (!completeStatus[GameManager.instance.mathTowerCurrentLevel])
         {
             completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
+            AuthManger.Instance.children.Math.Add(3); // TODO : add Stars here to the firebase
             GameManager.instance.mathTowerNextLevel++;
-            //Debug.Log("level " + (GameManager.instance.mathTowerNextLevel + 1) + " is unlocked");
         }
-
 
     }
 }
