@@ -50,4 +50,20 @@ public struct Children
         this.TimeAndDate = TimeAndDate;
         this.Animals = Animals;
     }
+    public int getTotalstars(IList game)
+    {
+        int total = 0;
+        for (int i = 1; i < game.Count; i++)
+        {
+            if (game[i] != null)
+            {
+                total += (int)game[i];
+            }
+            else
+            {
+                return total;
+            }
+        }
+        return total;
+    }
 }

@@ -32,8 +32,9 @@ public class GameManager : MonoBehaviour
         mathTowerStars = 0;
 
         animalsCurrentLevel = AuthManger.Instance.children.Animals.Count - 1;
-        animalsNextLevel = AuthManger.Instance.children.Animals.Count; 
+        animalsNextLevel = AuthManger.Instance.children.Animals.Count;
         animalsStars = 0;
+        AuthManger.Instance.children.getTotalstars(AuthManger.Instance.children.Animals);
 
         Debug.Log("Game Manager class :: Math Current Level = " + $"{AuthManger.Instance.children.Math.Count - 1}");
         Debug.Log("Game Manager class :: Math Next Level = " + $"{AuthManger.Instance.children.Math.Count}");
@@ -48,6 +49,59 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+        }
+    }
+    public void UpdateData(string GameName, int level, int stars)
+    {
+        switch (GameName)
+        {
+            case "math":
+            case "Math":
+                if (AuthManger.Instance.children.Math.Count-1 < level) {
+                    AuthManger.Instance.children.Math.Add(stars);
+                    mathTowerNextLevel++;
+                    mathTowerCurrentLevel++;
+                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                }
+                else if (AuthManger.Instance.children.Math.IndexOf(level) < stars)
+                {
+                    AuthManger.Instance.children.Math[level] = stars;
+                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                }
+                break;
+            case "animals":
+            case "Animals":
+                if (AuthManger.Instance.children.Animals.Count - 1 < level)
+                {
+                    AuthManger.Instance.children.Animals.Add(stars);
+                    animalsNextLevel++;
+                    animalsCurrentLevel++;
+                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                }
+                else if (AuthManger.Instance.children.Animals.IndexOf(level) < stars)
+                {
+                    AuthManger.Instance.children.Animals[level] = stars;
+                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                }
+                break;
+            case "calendar":
+            case "Calendar":
+                if (AuthManger.Instance.children.TimeAndDate.Count - 1 < level)
+                {
+                    CalendarNextLevel++;
+                    CalendarCurrentLevel++;
+                    AuthManger.Instance.children.TimeAndDate.Add(stars);
+                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                }
+                if (AuthManger.Instance.children.TimeAndDate.IndexOf(level) < stars)
+                {
+                    AuthManger.Instance.children.TimeAndDate[level] = stars;
+                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                }
+                break;
+            default:
+                Debug.LogError("Game Manager class :: UpdateData GameName not match");
+                break;
         }
     }
 }

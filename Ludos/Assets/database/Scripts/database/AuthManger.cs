@@ -35,25 +35,25 @@ public class AuthManger : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
-            FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith( task =>
-            {
-                var dependencyStatus = task.Result;
-                if (dependencyStatus == DependencyStatus.Available)
-                {
-                    Debug.Log("DependencyStatus.Available");
+            FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+           {
+               var dependencyStatus = task.Result;
+               if (dependencyStatus == DependencyStatus.Available)
+               {
+                   Debug.Log("DependencyStatus.Available");
                     // Create and hold a reference to your FirebaseApp,
                     // where firebaseApp is a Firebase.FirebaseApp property of your application class.
                     InitializeFirebase();
                     //CreateInstance();
                     // Set a flag here to indicate whether Firebase is ready to use by your firebaseApp.
                 }
-                else
-                {
-                    Debug.LogError(System.String.Format(
-                      "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
+               else
+               {
+                   Debug.LogError(System.String.Format(
+                     "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
                     // Firebase Unity SDK is not safe to use here.
                 }
-            });
+           });
         }
         //Check that all of the necessary dependencies for Firebase are present on the system
     }
@@ -85,7 +85,7 @@ public class AuthManger : MonoBehaviour
         }
     }
 
-    
+
     //void OnDestroy()
     //{
     //    // some times make error try commint it 
@@ -93,48 +93,53 @@ public class AuthManger : MonoBehaviour
     //    this.firebaseAuth = null;
     //}
 
-    private IEnumerator AddUserINFO() {
+    private IEnumerator AddUserINFO()
+    {
 
         yield return new WaitUntil(predicate: () => firebaseApp != null);
-        
+
         yield return new WaitUntil(predicate: () => firebaseAuth != null);
-        
+
         yield return new WaitUntil(predicate: () => firebaseFirestore != null);
 
         var parentRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId);
-        
+
         parent = new Parent(firebaseUser.DisplayName, 0, firebaseUser.Email);
-        
+
         parentRef.SetAsync(parent).ContinueWithOnMainThread(task =>
         {
-            if (task.IsCompleted) {
+            if (task.IsCompleted)
+            {
                 Debug.LogFormat("firebaseUser {0} Register successfully: ({1})", firebaseUser.DisplayName, firebaseUser.Email);
                 UIManager.Instance.OpenLoginPanel();
-            } else {
+            }
+            else
+            {
                 Debug.LogFormat("firebaseUser {0} add data Failed: ({1})", firebaseUser.DisplayName, firebaseUser.Email);
                 firebaseUser.DeleteAsync();
             }
         });
     }
     //TODO shall we do method for parent : Async ,Delete ,Update still we dont need username And email 
-    public void AddChildren( string ChildName,int ChildAge) {
+    public void AddChildren(string ChildName, int ChildAge)
+    {
         //TODO object Avatar set Defalet 1
         parent.NumberOfChildrens++;
         var parentnRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId);
-        parentnRef.SetAsync(parent).ContinueWithOnMainThread( task =>
-        {
-            if (task.IsCompleted)
-            {
+        parentnRef.SetAsync(parent).ContinueWithOnMainThread(task =>
+       {
+           if (task.IsCompleted)
+           {
                 //Debug.LogFormat("firebaseUser add data is successfully: {0} ({1})", firebaseUser.DisplayName, firebaseUser.Email);
                 Debug.LogFormat("children {0} add successfully: ({1})", children.Name, firebaseUser.Email);
-            }
-            else
-            {
-                Debug.LogFormat("children {0} add  Failed: ({1})", children.Name, firebaseUser.Email);
-            }
-        });
-    
-        children = new Children(parent.NumberOfChildrens,1,ChildName,ChildAge,0, new ArrayList() {}, new ArrayList() {}, new ArrayList() { false }, new ArrayList() { false }, new ArrayList() { false });
+           }
+           else
+           {
+               Debug.LogFormat("children {0} add  Failed: ({1})", children.Name, firebaseUser.Email);
+           }
+       });
+
+        children = new Children(parent.NumberOfChildrens, 1, ChildName, ChildAge, 0, new ArrayList() { }, new ArrayList() { }, new ArrayList() { false }, new ArrayList() { false }, new ArrayList() { false });
         var ChildrenRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(parent.NumberOfChildrens.ToString());
         ChildrenRef.SetAsync(children).ContinueWithOnMainThread(task =>
         {
@@ -150,29 +155,29 @@ public class AuthManger : MonoBehaviour
             }
         });
     }
-    public void AsyncChildrenData(int NoChildren)
+    public void AsyncChildrenData(int childID)
     {
 
-        if (NoChildren > 0)
+        if (childID > 0)
         {
-            firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(NoChildren.ToString()).GetSnapshotAsync().ContinueWithOnMainThread(task =>
+            firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(childID.ToString()).GetSnapshotAsync().ContinueWithOnMainThread(task =>
             {
                 children = task.Result.ConvertTo<Children>();
             });
         }
     }
-    public void DeleteChildrenData(int NoChildren)
+    public void DeleteChildrenData(int childID)
     {
         if (parent.NumberOfChildrens > 0)
         {
             parent.NumberOfChildrens--;
-            firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(NoChildren.ToString()).DeleteAsync();
+            firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(childID.ToString()).DeleteAsync();
             firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).SetAsync(parent).ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted)
                 {
-                //Debug.LogFormat("firebaseUser add data is successfully: {0} ({1})", firebaseUser.DisplayName, firebaseUser.Email);
-                Debug.LogFormat("firebaseUser {0} delete successfully: ({1})", firebaseUser.DisplayName, firebaseUser.Email);
+                    //Debug.LogFormat("firebaseUser add data is successfully: {0} ({1})", firebaseUser.DisplayName, firebaseUser.Email);
+                    Debug.LogFormat("firebaseUser {0} delete successfully: ({1})", firebaseUser.DisplayName, firebaseUser.Email);
                 }
                 else
                 {
@@ -182,11 +187,11 @@ public class AuthManger : MonoBehaviour
             });
         }
     }
-    private void SendChildrenData(int NoChildren)
+    public void SendChildrenData(int childID)
     {
-        if (NoChildren > 0)
+        if (childID > 0)
         {
-            firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(NoChildren.ToString()).SetAsync(children).ContinueWithOnMainThread(task =>
+            firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(childID.ToString()).SetAsync(children).ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted)
                 {
@@ -200,67 +205,19 @@ public class AuthManger : MonoBehaviour
             });
         }
     }
-
-    // to use from games 
-    public void UpdateChildrenData(int NoChildren, object ChildrenItem, int ArrayIndex, object ChangedValue)
-    {
-        if (NoChildren > 0)
-        {
-            System.Type s = typeof(string);
-            System.Type i = typeof(int);
-            System.Type ar = typeof(ArrayList);
-            System.Type test = ChildrenItem.GetType();
-            if (test == s || test == i)
-            {
-                ChildrenItem = ChangedValue;
-                SendChildrenData(NoChildren);
-            }
-            else if (test == ar)
-            {
-                ArrayList temp = (ArrayList)ChildrenItem;
-                temp[ArrayIndex] = ChangedValue;
-                ChildrenItem = temp;
-                temp = null;
-                SendChildrenData(NoChildren);
-            }
-            s = i = ar = test = null;
-            //GC is garbage collector
-            System.GC.Collect();
-            System.GC.WaitForPendingFinalizers();
-        }
-    }
-    public void UpdateChildrenData(int NoChildren, object ChildrenItem, object ChangedValue)
-    {
-        if (NoChildren > 0)
-        {
-            System.Type s = typeof(string);
-            System.Type i = typeof(int);
-            System.Type test = ChildrenItem.GetType();
-            if (test == s || test == i)
-            {
-                ChildrenItem = ChangedValue;
-                SendChildrenData(NoChildren);
-            }
-            s = i = test = null;
-            //GC is garbage collector
-            System.GC.Collect();
-            System.GC.WaitForPendingFinalizers();
-        }
-    }
-
     //Function for the login button
-    public void Login(string _email, string _password,Text _warningLoginText, Text _confirmLoginText)
+    public void Login(string _email, string _password, Text _warningLoginText, Text _confirmLoginText)
     {
         //Call the login coroutine passing the email and password
-        StartCoroutine(LoginAsync(_email,_password, _warningLoginText, _confirmLoginText));
+        StartCoroutine(LoginAsync(_email, _password, _warningLoginText, _confirmLoginText));
     }
     //Function for the register button
     public void Register(string _email, string _password, string _Verifypassword, string _username, Text _warningRegisterText)
     {
         //Call the register coroutine passing the email, password, and username
-        StartCoroutine(RegisterAsync(_email, _password,_Verifypassword, _username,_warningRegisterText));
+        StartCoroutine(RegisterAsync(_email, _password, _Verifypassword, _username, _warningRegisterText));
     }
-    private IEnumerator LoginAsync(string _email, string _password,Text warningLoginText,Text confirmLoginText)
+    private IEnumerator LoginAsync(string _email, string _password, Text warningLoginText, Text confirmLoginText)
     {
         //Call the Firebase firebaseAuth signin function passing the email and password
         var LoginTask = firebaseAuth.SignInWithEmailAndPasswordAsync(_email, _password);
@@ -313,7 +270,7 @@ public class AuthManger : MonoBehaviour
             confirmLoginText.text = "Logged In....";
         }
     }
-    private IEnumerator RegisterAsync(string _email, string _password, string _Verifypassword, string _username,Text warningRegisterText)
+    private IEnumerator RegisterAsync(string _email, string _password, string _Verifypassword, string _username, Text warningRegisterText)
     {
         if (_username == "")
         {
@@ -388,7 +345,7 @@ public class AuthManger : MonoBehaviour
         }
     }
     //TODO Can bee better
-    public  IEnumerator UpdateUsernameAuth(string _username)
+    public IEnumerator UpdateUsernameAuth(string _username)
     {
         //Create a user profile and set the username
         UserProfile profile = new() { DisplayName = _username };
@@ -407,7 +364,8 @@ public class AuthManger : MonoBehaviour
             //Username is now set
         }
     }
-    public IEnumerator UpdateEmailAuth(string _email) {
+    public IEnumerator UpdateEmailAuth(string _email)
+    {
         var authTask = firebaseAuth.CurrentUser.UpdateEmailAsync(_email);
         //Wait until the task completes
         yield return new WaitUntil(predicate: () => authTask.IsCompleted);
@@ -443,7 +401,8 @@ public class AuthManger : MonoBehaviour
         AuthStateChanged(this, null);
         UnityEngine.SceneManagement.SceneManager.LoadScene("FirebaseLogin");
     }
-    public List<Children> GetChildren() {
+    public List<Children> GetChildren()
+    {
         List<Children> childrens = new List<Children>();
         Query AllQuery = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children");
         AllQuery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
@@ -454,7 +413,8 @@ public class AuthManger : MonoBehaviour
                 foreach (DocumentSnapshot documentSnapshot in AllQuerySnapshot.Documents)
                 {
                     //Debug.LogFormat($"Document data for document: {documentSnapshot.Id}");
-                    childrens.Add(documentSnapshot.ConvertTo<Children>());                }
+                    childrens.Add(documentSnapshot.ConvertTo<Children>());
+                }
             }
             else if (task.Exception != null)
             {
@@ -463,5 +423,4 @@ public class AuthManger : MonoBehaviour
         });
         return childrens;
     }
-
 }
