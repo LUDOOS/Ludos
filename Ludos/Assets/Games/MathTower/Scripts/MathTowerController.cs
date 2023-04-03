@@ -78,7 +78,8 @@ public class MathTowerController : MonoBehaviour
             }
             Destroy(wrongBarrier[2]);
             StartCoroutine(uiManager.FinishingLevel());
-            UpdateLevels();
+            StartCoroutine(UpdateLevels());
+            
         }
     }
 
@@ -87,22 +88,19 @@ public class MathTowerController : MonoBehaviour
         GameObject barrierChild = barrier.transform.GetChild(0).gameObject;
         barrierChild.SetActive(false);
     }
-    void UpdateLevels()
+    IEnumerator UpdateLevels()
     {
+        yield return new WaitForSeconds(0.5f);
         if (!completeStatus[GameManager.instance.mathTowerCurrentLevel])
         {
             completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
             int level= int.Parse(scene.name[^1].ToString());
             Debug.Log($"level ={level}");
-            //foreach (GameObject g in scene.GetRootGameObjects())
-            //{
-                //Debug.Log($"names ={GameObject.Find("Canvas").transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>().sprite.texture.name}");
-            //}
-            //Debug.Log($"(uiManager._starsImg.sprite.name ={uiManager._starsImg.sprite.name}");
-            //int stars =int.Parse(uiManager._starsImg.sprite.name[^1].ToString());
-            //Debug.Log($"stars ={stars}");
 
-            GameManager.instance.UpdateData(GameName:"math",level: level, stars:3);
+            Debug.Log("From firebase :::" + AuthManger.Instance.children.Math[level]); ;
+            Debug.Log("new from level  : " + Stars.instance.stars);
+            GameManager.instance.UpdateData(GameName:"math",level: level, Stars.instance.stars);
+            Debug.Log("New From Firebase :: " + AuthManger.Instance.children.Math[level]);
         }
 
     }

@@ -16,7 +16,7 @@ public class MathTowerUiManager : MonoBehaviour
     [SerializeField] public RawImage confetti;
     [SerializeField] public RawImage _video;
     string[] _questionText;
-    // check if the level end for updating the stars
+    // check if the level end for updating the earnedStars
     public bool isActive = false;
     private bool isFinished = false;
     Scene scene;
@@ -80,22 +80,27 @@ public class MathTowerUiManager : MonoBehaviour
 
     public void UpdateStars(int second, bool isActive)
     {
+        int stars = 0;
         if (isActive)
         {
             if (second >= 45)
             {
                 _starsImg.sprite = _spriteImg[3];
-                
+                stars = 3;
             }
             else if (second >= 30)
             {
                 _starsImg.sprite = _spriteImg[2];
+                stars = 2;
             }
             else
             {
                 _starsImg.sprite = _spriteImg[1];
+                stars = 1;
             }
         }
+        Stars.instance.stars = stars;
+        Debug.Log(Stars.instance.stars);
     }
     public IEnumerator FinishingLevel()
     {

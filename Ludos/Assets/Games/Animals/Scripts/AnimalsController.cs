@@ -64,6 +64,7 @@ public class AnimalsController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         _uiManager.confetti.enabled = true;
+        Debug.Log(Timer.second);
         _uiManager.UpdateStars(Timer.second);
         _uiManager.StopTimer();
         _uiManager.congrates.gameObject.SetActive(true);

@@ -12,6 +12,7 @@ public class AnimalsUiManager : MonoBehaviour
     [SerializeField] public RawImage confetti;
     //[SerializeField] Timer _timer;
     public int time = 180;
+    int stars = 0;
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,21 +21,22 @@ public class AnimalsUiManager : MonoBehaviour
     }
     public void UpdateStars(int second)
     {
-        if (second >= 40)
+        if (second >= 30)
         {
             _starsImg.sprite = _spriteImg[3];
-            Stars.instance.starsNumber += 3;
+            stars = 3;
         }
-        else if (second >= 20)
+        else if (second >= 15)
         {
             _starsImg.sprite = _spriteImg[2];
-            Stars.instance.starsNumber += 2;
+            stars = 2;
         }
         else
         {
             _starsImg.sprite = _spriteImg[1];
-            Stars.instance.starsNumber += 1;
+            stars = 1;
         }
+        //Stars.instance.ObserveOnStarsChanged(game: AuthManger.Instance.children.Animals, currentStars: stars);
     }
 
     public void StopTimer()
