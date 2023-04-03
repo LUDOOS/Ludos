@@ -63,8 +63,9 @@ public class GameManager : MonoBehaviour
                     mathTowerCurrentLevel++;
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
-                else if (AuthManger.Instance.children.Math.IndexOf(level) < stars)
+                else if (System.Convert.ToInt32(AuthManger.Instance.children.Math[level]) < stars)
                 {
+                    Debug.Log(System.Convert.ToInt32(AuthManger.Instance.children.Math[level]));
                     AuthManger.Instance.children.Math[level] = stars;
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
@@ -78,7 +79,7 @@ public class GameManager : MonoBehaviour
                     animalsCurrentLevel++;
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
-                else if (AuthManger.Instance.children.Animals.IndexOf(level) < stars)
+                else if (System.Convert.ToInt32(AuthManger.Instance.children.Animals[level])< stars)
                 {
                     AuthManger.Instance.children.Animals[level] = stars;
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
@@ -93,7 +94,7 @@ public class GameManager : MonoBehaviour
                     AuthManger.Instance.children.TimeAndDate.Add(stars);
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
-                if (AuthManger.Instance.children.TimeAndDate.IndexOf(level) < stars)
+                if (System.Convert.ToInt32(AuthManger.Instance.children.TimeAndDate[level] )< stars)
                 {
                     AuthManger.Instance.children.TimeAndDate[level] = stars;
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);

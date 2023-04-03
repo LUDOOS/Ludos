@@ -92,8 +92,17 @@ public class MathTowerController : MonoBehaviour
         if (!completeStatus[GameManager.instance.mathTowerCurrentLevel])
         {
             completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
-            int level= int.Parse(scene.name[scene.name.Length - 1].ToString());
-            GameManager.instance.UpdateData(GameName:"math",level: level, stars:3);// ToDo stars
+            int level= int.Parse(scene.name[^1].ToString());
+            Debug.Log($"level ={level}");
+            //foreach (GameObject g in scene.GetRootGameObjects())
+            //{
+                //Debug.Log($"names ={GameObject.Find("Canvas").transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>().sprite.texture.name}");
+            //}
+            //Debug.Log($"(uiManager._starsImg.sprite.name ={uiManager._starsImg.sprite.name}");
+            //int stars =int.Parse(uiManager._starsImg.sprite.name[^1].ToString());
+            //Debug.Log($"stars ={stars}");
+
+            GameManager.instance.UpdateData(GameName:"math",level: level, stars:3);
         }
 
     }

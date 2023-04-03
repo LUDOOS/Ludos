@@ -25,7 +25,7 @@ public class mangeplayer : MonoBehaviour
     {
         var x = AuthManger.Instance.GetChildren();
         //var s = Resources.Load<Sprite>(ss);
-        yield return new WaitForSeconds(1F);
+        yield return new WaitForSeconds(0.5F);
         childrens = x;
         for (int i = 0; i < childrens.Count; i++)
         {
