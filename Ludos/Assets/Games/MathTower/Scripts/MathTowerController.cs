@@ -77,8 +77,8 @@ public class MathTowerController : MonoBehaviour
                 barrier.GetComponent<Animator>().Play("ScalingToRight");
             }
             Destroy(wrongBarrier[2]);
-            StartCoroutine(uiManager.FinishingLevel());
-            UpdateLevels();
+            //StartCoroutine(uiManager.FinishingLevel());
+            StartCoroutine(UpdateLevels());
         }
     }
 
@@ -87,22 +87,19 @@ public class MathTowerController : MonoBehaviour
         GameObject barrierChild = barrier.transform.GetChild(0).gameObject;
         barrierChild.SetActive(false);
     }
-    void UpdateLevels()
+    IEnumerator UpdateLevels()
     {
+        yield return StartCoroutine(uiManager.FinishingLevel());
+        uiManager.UpdateStars(Timer.second, isActive:uiManager.isActive);
         if (!completeStatus[GameManager.instance.mathTowerCurrentLevel])
         {
             completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
             int level= int.Parse(scene.name[^1].ToString());
             Debug.Log($"level ={level}");
-            //foreach (GameObject g in scene.GetRootGameObjects())
-            //{
-                //Debug.Log($"names ={GameObject.Find("Canvas").transform.GetChild(4).gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>().sprite.texture.name}");
-            //}
-            //Debug.Log($"(uiManager._starsImg.sprite.name ={uiManager._starsImg.sprite.name}");
-            //int stars =int.Parse(uiManager._starsImg.sprite.name[^1].ToString());
-            //Debug.Log($"stars ={stars}");
-
-            GameManager.instance.UpdateData(GameName:"math",level: level, stars:3);
+            Debug.Log($"from firebase stars ={AuthManger.Instance.children.Math[level]}");
+            Debug.Log($"from level stars ={Stars.instance.starsNumber}");
+            GameManager.instance.UpdateData(GameName:"math",level: level, stars:Stars.instance.starsNumber);// ToDO stares
+            Debug.Log($"new stars ={AuthManger.Instance.children.Math[level]}");
         }
 
     }

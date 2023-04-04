@@ -20,7 +20,7 @@ public class MathTowerUiManager : MonoBehaviour
     public bool isActive = false;
     private bool isFinished = false;
     Scene scene;
-    [SerializeField]Timer timer;
+    [SerializeField] Timer timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,21 +80,27 @@ public class MathTowerUiManager : MonoBehaviour
 
     public void UpdateStars(int second, bool isActive)
     {
+        int stars = 0;
         if (isActive)
         {
             if (second >= 45)
             {
                 _starsImg.sprite = _spriteImg[3];
+                stars = 3;
                 
             }
             else if (second >= 30)
             {
                 _starsImg.sprite = _spriteImg[2];
+                stars = 2;
             }
             else
             {
                 _starsImg.sprite = _spriteImg[1];
+                stars = 1;
             }
+            Stars.instance.starsNumber = stars;
+            Debug.Log("stars =" + Stars.instance.starsNumber);
         }
     }
     public IEnumerator FinishingLevel()
@@ -106,7 +112,7 @@ public class MathTowerUiManager : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         // finishing level Screen
         congrates.gameObject.SetActive(true);
-        UpdateStars(Timer.second, isActive);
+        //UpdateStars(Timer.second, isActive);
         isActive = true;
         // confetti is the finishing video
         confetti.gameObject.SetActive(true);
