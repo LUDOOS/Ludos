@@ -29,15 +29,15 @@ public struct Children
     //Firestore Property to store Math 
     [FirestoreProperty]
     public IList Math { get; set; }
-    //Firestore Property to store TimeAndDate 
+    //Firestore Property to store Calendar 
     [FirestoreProperty]
-    public IList TimeAndDate { get; set; }
+    public IList Calendar { get; set; }
     //Firestore Property to store Animals 
     [FirestoreProperty]
     public IList Animals { get; set; }
 
 
-    public Children(int ID,object Avatar, string Name, int Age, int Total_stars, IList Achievements, IList StoreItems, IList Math, IList TimeAndDate, IList Animals) {
+    public Children(int ID,object Avatar, string Name, int Age, int Total_stars, IList Achievements, IList StoreItems, IList Math, IList Calendar, IList Animals) {
         this.ID = ID;
         this.Avatar = Avatar;
         this.Name = Name;
@@ -47,7 +47,7 @@ public struct Children
         this.StoreItems = StoreItems;
         this.Math = Math;
         
-        this.TimeAndDate = TimeAndDate;
+        this.Calendar = Calendar;
         this.Animals = Animals;
     }
     public int getTotalstars(IList game)

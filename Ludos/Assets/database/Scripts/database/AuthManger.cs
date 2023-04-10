@@ -93,10 +93,10 @@ public class AuthManger : MonoBehaviour
     //    this.firebaseAuth = null;
     //}
 
-    private IEnumerator AddUserINFO()
+    private IEnumerator AddUserINFO()// for  parent 
     {
 
-        yield return new WaitUntil(predicate: () => firebaseApp != null);
+        yield return new WaitUntil(predicate: () => firebaseApp != null);//  foe make sure firebase is rady 
 
         yield return new WaitUntil(predicate: () => firebaseAuth != null);
 
@@ -104,7 +104,7 @@ public class AuthManger : MonoBehaviour
 
         var parentRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId);
 
-        parent = new Parent(firebaseUser.DisplayName, 0, firebaseUser.Email);
+        parent = new Parent(firebaseUser.DisplayName,NumberOfChildrens: 0, firebaseUser.Email);
 
         parentRef.SetAsync(parent).ContinueWithOnMainThread(task =>
         {
@@ -123,8 +123,7 @@ public class AuthManger : MonoBehaviour
     //TODO shall we do method for parent : Async ,Delete ,Update still we dont need username And email 
     public void AddChildren(string ChildName, int ChildAge)
     {
-        //TODO object Avatar set Defalet 1
-        parent.NumberOfChildrens++;
+        parent.NumberOfChildrens++;//  update number of children for parent 
         var parentnRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId);
         parentnRef.SetAsync(parent).ContinueWithOnMainThread(task =>
        {
@@ -138,8 +137,9 @@ public class AuthManger : MonoBehaviour
                Debug.LogFormat("children {0} add  Failed: ({1})", children.Name, firebaseUser.Email);
            }
        });
-
-        children = new Children(parent.NumberOfChildrens, 1, ChildName, ChildAge, 0, new ArrayList() { }, new ArrayList() { }, new ArrayList() { false }, new ArrayList() { false }, new ArrayList() { false });
+       //object Avatar set Defalet 1
+       // cetriate child data
+        children = new Children(ID: parent.NumberOfChildrens , Avatar: 1,Name: ChildName,Age: ChildAge,Total_stars: 0,Achievements: new ArrayList() { },StoreItems: new ArrayList() { },Math: new ArrayList() { false },Calendar: new ArrayList() { false }, Animals: new ArrayList() { false });
         var ChildrenRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(parent.NumberOfChildrens.ToString());
         ChildrenRef.SetAsync(children).ContinueWithOnMainThread(task =>
         {

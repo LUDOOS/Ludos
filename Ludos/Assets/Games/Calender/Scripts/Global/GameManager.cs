@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        CalendarCurrentLevel = AuthManger.Instance.children.TimeAndDate.Count - 1;
-        CalendarNextLevel = AuthManger.Instance.children.TimeAndDate.Count;
+        CalendarCurrentLevel = AuthManger.Instance.children.Calendar.Count - 1;
+        CalendarNextLevel = AuthManger.Instance.children.Calendar.Count;
         CalendarStars = 0;
 
         mathTowerCurrentLevel = AuthManger.Instance.children.Math.Count - 1;
@@ -87,16 +87,16 @@ public class GameManager : MonoBehaviour
                 break;
             case "calendar":
             case "Calendar":
-                if (AuthManger.Instance.children.TimeAndDate.Count - 1 < level)
+                if (AuthManger.Instance.children.Calendar.Count - 1 < level)
                 {
                     CalendarNextLevel++;
                     CalendarCurrentLevel++;
-                    AuthManger.Instance.children.TimeAndDate.Add(stars);
+                    AuthManger.Instance.children.Calendar.Add(stars);
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
-                if (System.Convert.ToInt32(AuthManger.Instance.children.TimeAndDate[level] )< stars)
+                if (System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level] )< stars)
                 {
-                    AuthManger.Instance.children.TimeAndDate[level] = stars;
+                    AuthManger.Instance.children.Calendar[level] = stars;
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
                 break;
