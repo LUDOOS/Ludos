@@ -48,7 +48,7 @@ public class mangeplayer : MonoBehaviour
     //    yield return new WaitForSeconds(1.5F);
     //    //childrens = x;
     //    //Debug.Log(childrens.Count);
-    //    for (int i = 0; i < 5; i++)
+    //    for (int i = 0; i < 100; i++)
     //    {
     //        //button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject, position: new Vector3(x: 0F, y: 0F + ((float)i * -2.0F), z: 0F)));
     //        button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject));

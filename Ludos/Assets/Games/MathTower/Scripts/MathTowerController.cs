@@ -94,12 +94,9 @@ public class MathTowerController : MonoBehaviour
         if (!completeStatus[GameManager.instance.mathTowerCurrentLevel])
         {
             completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
-            int level= int.Parse(scene.name[^1].ToString());
-            Debug.Log($"level ={level}");
-            Debug.Log($"from firebase stars ={AuthManger.Instance.children.Math[level]}");
-            Debug.Log($"from level stars ={Stars.instance.starsNumber}");
+            int level= int.Parse(scene.name[^1].ToString())-1;
+            Debug.Log($"level mathtower {level}");
             GameManager.instance.UpdateData(GameName:"math",level: level, stars:Stars.instance.starsNumber);// ToDO stares
-            Debug.Log($"new stars ={AuthManger.Instance.children.Math[level]}");
         }
 
     }

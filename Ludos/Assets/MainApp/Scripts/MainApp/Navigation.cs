@@ -69,7 +69,7 @@ public class Navigation : MonoBehaviour
     }
     public void NavToCalender()
     {
-        StartCoroutine(loadScene("Calendar-HomePage"));
+        SceneManager.LoadScene("Calendar-HomePage");
     }
 
     //public void NavToDatesAndTime()

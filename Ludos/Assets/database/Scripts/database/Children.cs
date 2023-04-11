@@ -36,8 +36,11 @@ public struct Children
     [FirestoreProperty]
     public IList Animals { get; set; }
 
+    //Firestore Property to store Animals 
+    [FirestoreProperty]
+    public IList completionState { get; set; }
 
-    public Children(int ID,object Avatar, string Name, int Age, int Total_stars, IList Achievements, IList StoreItems, IList Math, IList Calendar, IList Animals) {
+    public Children(int ID,object Avatar, string Name, int Age, int Total_stars, IList Achievements, IList StoreItems, IList Math, IList Calendar, IList Animals,IList completionState) {
         this.ID = ID;
         this.Avatar = Avatar;
         this.Name = Name;
@@ -46,7 +49,7 @@ public struct Children
         this.Achievements = Achievements;
         this.StoreItems = StoreItems;
         this.Math = Math;
-        
+        this.completionState = completionState;
         this.Calendar = Calendar;
         this.Animals = Animals;
     }

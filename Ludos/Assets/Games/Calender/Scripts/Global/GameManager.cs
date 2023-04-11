@@ -21,18 +21,20 @@ public class GameManager : MonoBehaviour
     public int animalsNextLevel; // -------------->>> LevelProgress
     public int animalsStars;
 
+    //private int totalStars;
+
     private void Start()
     {
-        CalendarCurrentLevel = AuthManger.Instance.children.Calendar.Count - 1;
-        CalendarNextLevel = AuthManger.Instance.children.Calendar.Count;
+        //CalendarCurrentLevel = AuthManger.Instance.children.Calendar.Count;
+        CalendarNextLevel = AuthManger.Instance.children.Calendar.Count + 1 ;
         CalendarStars = 0;
 
-        mathTowerCurrentLevel = AuthManger.Instance.children.Math.Count - 1;
-        mathTowerNextLevel = AuthManger.Instance.children.Math.Count;
+        mathTowerCurrentLevel = AuthManger.Instance.children.Math.Count ;
+        mathTowerNextLevel = AuthManger.Instance.children.Math.Count + 1;
         mathTowerStars = 0;
 
-        animalsCurrentLevel = AuthManger.Instance.children.Animals.Count - 1;
-        animalsNextLevel = AuthManger.Instance.children.Animals.Count;
+        animalsCurrentLevel = AuthManger.Instance.children.Animals.Count;
+        animalsNextLevel = AuthManger.Instance.children.Animals.Count + 1;
         animalsStars = 0;
         AuthManger.Instance.children.getTotalstars(AuthManger.Instance.children.Animals);
 
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
         {
             case "math":
             case "Math":
-                if (AuthManger.Instance.children.Math.Count-1 < level) {
+                if (AuthManger.Instance.children.Math.Count == level) {
                     AuthManger.Instance.children.Math.Add(stars);
                     mathTowerNextLevel++;
                     mathTowerCurrentLevel++;
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
                 break;
             case "animals":
             case "Animals":
-                if (AuthManger.Instance.children.Animals.Count - 1 < level)
+                if (AuthManger.Instance.children.Animals.Count == level)
                 {
                     AuthManger.Instance.children.Animals.Add(stars);
                     animalsNextLevel++;
@@ -87,21 +89,20 @@ public class GameManager : MonoBehaviour
                 break;
             case "calendar":
             case "Calendar":
-                if (AuthManger.Instance.children.Calendar.Count - 1 < level)
+                if (AuthManger.Instance.children.Calendar.Count == level)
                 {
                     CalendarNextLevel++;
-                    CalendarCurrentLevel++;
                     AuthManger.Instance.children.Calendar.Add(stars);
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
-                if (System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level] )< stars)
+                else if (System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level] )< stars)
                 {
                     AuthManger.Instance.children.Calendar[level] = stars;
                     AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
                 break;
             default:
-                Debug.LogError("Game Manager class :: UpdateData GameName not match");
+                Debug.LogError("Game Manager class :: UpdateData GameName does not match");
                 break;
         }
     }

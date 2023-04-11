@@ -139,7 +139,19 @@ public class AuthManger : MonoBehaviour
        });
        //object Avatar set Defalet 1
        // cetriate child data
-        children = new Children(ID: parent.NumberOfChildrens , Avatar: 1,Name: ChildName,Age: ChildAge,Total_stars: 0,Achievements: new ArrayList() { },StoreItems: new ArrayList() { },Math: new ArrayList() { false },Calendar: new ArrayList() { false }, Animals: new ArrayList() { false });
+        children = new Children(
+            ID: parent.NumberOfChildrens,
+            Avatar: 1,
+            Name: ChildName,
+            Age: ChildAge,
+            Total_stars: 0,
+            Achievements: new ArrayList(),
+            StoreItems: new ArrayList(),
+            Math: new ArrayList(),
+            Calendar: new ArrayList(),
+            Animals: new ArrayList(),
+            completionState: new ArrayList() { false , false, false});
+
         var ChildrenRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(parent.NumberOfChildrens.ToString());
         ChildrenRef.SetAsync(children).ContinueWithOnMainThread(task =>
         {
