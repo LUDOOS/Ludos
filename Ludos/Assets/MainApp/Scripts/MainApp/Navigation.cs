@@ -37,22 +37,26 @@ public class Navigation : MonoBehaviour
 
     public void NavToGamePage()
     {
-        StartCoroutine(loadScene(1));
+        StartCoroutine(loadScene("GamesPage"));
     }
 
     public void NavToSettingsPage()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("SettingsPage");
     }
 
     public void NavToAchivments()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("AchivementPage");
     }
 
     public void NavToShop()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("ShopPage");
+    }
+
+    public void NavToHome() {
+        SceneManager.LoadScene("HomePage");
     }
     /// </MainPages>
 
@@ -60,22 +64,18 @@ public class Navigation : MonoBehaviour
 
     public void NavToMathTower()
     {
-        SceneManager.LoadScene(12);
+        SceneManager.LoadScene("Math-HomePage");
     }
 
     public void NavToAnimals()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("Animals-HomePage");
     }
     public void NavToCalender()
     {
         SceneManager.LoadScene("Calendar-HomePage");
     }
 
-    //public void NavToDatesAndTime()
-    //{
-    //    //SceneManager.LoadScene(0);
-    //}
 
     ///</Games>
     ///
@@ -83,37 +83,37 @@ public class Navigation : MonoBehaviour
     // <Animals Levels>
     public void AnimalsStory()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene("Animals-Story");
         GameManager.instance.animalsCurrentLevel = 0;
     }
 
     public void AnimalsLevel1()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene("Animals-Level-1");
         GameManager.instance.animalsCurrentLevel = 1;
     }
 
     public void AnimalsLevel2()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene("Animals-Level-2");
         GameManager.instance.animalsCurrentLevel = 2;
     }
 
     public void AnimalsLevel3()
     {
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene("Animals-Level-3");
         GameManager.instance.animalsCurrentLevel = 3;
     }
 
     public void AnimalsLevel4()
     {
-        SceneManager.LoadScene(10);
+        SceneManager.LoadScene("Animals-Level-4");
         GameManager.instance.animalsCurrentLevel = 4;
     }
 
     public void AnimalsLevel5()
     {
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene("Animals-Level-5");
         GameManager.instance.animalsCurrentLevel = 5;
     }
     // </Animals Levels>
@@ -125,31 +125,31 @@ public class Navigation : MonoBehaviour
 
     public void MathTowerLevel1()
     {
-        SceneManager.LoadScene(13);
+        SceneManager.LoadScene("Math-Level-1");
         GameManager.instance.mathTowerCurrentLevel = 0;
     }
 
     public void MathTowerLevel2()
     {
-        SceneManager.LoadScene(14);
+        SceneManager.LoadScene("Math-Level-2");
         GameManager.instance.mathTowerCurrentLevel = 1;
     }
 
     public void MathTowerLevel3()
     {
-        SceneManager.LoadScene(15);
+        SceneManager.LoadScene("Math-Level-3");
         GameManager.instance.mathTowerCurrentLevel = 2;
     }
 
     public void MathTowerLevel4()
     {
-        SceneManager.LoadScene(16);
+        SceneManager.LoadScene("Math-Level-4");
         GameManager.instance.mathTowerCurrentLevel = 3;
     }
 
     public void MathTowerLevel5()
     {
-        SceneManager.LoadScene(17);
+        SceneManager.LoadScene("Math-Level-5");
         GameManager.instance.mathTowerCurrentLevel = 4;
     }
 

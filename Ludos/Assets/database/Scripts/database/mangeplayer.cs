@@ -85,7 +85,7 @@ public class mangeplayer : MonoBehaviour
     public void AddChild() {
         AuthManger.Instance.AddChildren(childname.text, int.Parse(chilage.text));
         //OpenGAME
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("HomePage");
     }
     private void setPlayer()
     {
@@ -97,6 +97,6 @@ public class mangeplayer : MonoBehaviour
             }
         }
         //OpenGAME
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("HomePage");
     }
 }
