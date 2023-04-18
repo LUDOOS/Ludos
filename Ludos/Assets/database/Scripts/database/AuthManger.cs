@@ -86,12 +86,12 @@ public class AuthManger : MonoBehaviour
     }
 
 
-    //void OnDestroy()
-    //{
-    //    // some times make error try commint it 
-    //    this.firebaseAuth.StateChanged -= AuthStateChanged;
-    //    this.firebaseAuth = null;
-    //}
+    void OnDestroy()
+    {
+        // some times make error try commint it 
+        this.firebaseAuth.StateChanged -= AuthStateChanged;
+        this.firebaseAuth = null;
+    }
 
     private IEnumerator AddUserINFO()// for  parent 
     {

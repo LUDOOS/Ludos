@@ -72,7 +72,6 @@ public class mangeplayer : MonoBehaviour
 
     public Button CreateButton(Button buttonPrefab, GameObject parent)
     {
-
         var button = Object.Instantiate(buttonPrefab, Vector3.zero, Quaternion.identity, parent.transform) as Button;
         var rectTransform = button.GetComponent<RectTransform>();
         button.transform.localScale = Vector3.one;
