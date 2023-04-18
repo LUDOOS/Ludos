@@ -1,6 +1,5 @@
 using Firebase.Firestore;
 using System.Collections;
-using System.Collections.Generic;
 
 [FirestoreData]
 public struct Children
@@ -9,7 +8,7 @@ public struct Children
     public int  ID { get; set; }
     //Firestore Property to store Name
     [FirestoreProperty]
-    public object Avatar { get; set; }
+    public string Avatar { get; set; }
     //Firestore Property to store Name
     [FirestoreProperty]
     public string Name { get; set; }
@@ -40,7 +39,7 @@ public struct Children
     [FirestoreProperty]
     public IList completionState { get; set; }
 
-    public Children(int ID,object Avatar, string Name, int Age, int Total_stars, IList Achievements, IList StoreItems, IList Math, IList Calendar, IList Animals,IList completionState) {
+    public Children(int ID,string Avatar, string Name, int Age, int Total_stars, IList Achievements, IList StoreItems, IList Math, IList Calendar, IList Animals,IList completionState) {
         this.ID = ID;
         this.Avatar = Avatar;
         this.Name = Name;

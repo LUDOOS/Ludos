@@ -5,7 +5,7 @@ public class avatar : MonoBehaviour
 {
     private void Awake()
     {
-        Sprite s = Resources.Load<Sprite>($"avatar{AuthManger.Instance.children.Avatar}");
+        Sprite s = Resources.Load<Sprite>(AuthManger.Instance.children.Avatar);
         string name = AuthManger.Instance.children.Name;
         if (gameObject.GetComponent<UnityEngine.UI.Image>() != null)
         {

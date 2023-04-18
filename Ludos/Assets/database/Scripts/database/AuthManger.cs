@@ -141,12 +141,12 @@ public class AuthManger : MonoBehaviour
        // cetriate child data
         children = new Children(
             ID: parent.NumberOfChildrens,
-            Avatar: 1,
+            Avatar: "avatar1",
             Name: ChildName,
             Age: ChildAge,
             Total_stars: 0,
             Achievements: new ArrayList(),
-            StoreItems: new ArrayList(),
+            StoreItems: new ArrayList() { "avatar1" },
             Math: new ArrayList(),
             Calendar: new ArrayList(),
             Animals: new ArrayList(),
@@ -208,11 +208,11 @@ public class AuthManger : MonoBehaviour
                 if (task.IsCompleted)
                 {
                     //Debug.LogFormat("firebaseUser add data is successfully: {0} ({1})", firebaseUser.DisplayName, firebaseUser.Email);
-                    Debug.LogFormat("firebaseUser {0} Register successfully: ({1})", firebaseUser.DisplayName, firebaseUser.Email);
+                    Debug.LogFormat("firebaseUser {0} SendChildrenData successfully: ({1})", firebaseUser.DisplayName, firebaseUser.Email);
                 }
                 else
                 {
-                    Debug.LogFormat("firebaseUser {0} add data Failed: ({1})", firebaseUser.DisplayName, firebaseUser.Email);
+                    Debug.LogFormat("firebaseUser {0} SendChildrenData Failed: ({1})", firebaseUser.DisplayName, firebaseUser.Email);
                 }
             });
         }
@@ -438,5 +438,27 @@ public class AuthManger : MonoBehaviour
             }
         });
         return childrens;
+    }
+    public List<shopitem> Getshopitems()
+    {
+        List<shopitem> items = new List<shopitem>();
+        Query AllQuery = firebaseFirestore.Collection("store_Item").Document("avatar").Collection("items");
+        AllQuery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted)
+            {
+                QuerySnapshot AllQuerySnapshot = task.Result;
+                foreach (DocumentSnapshot documentSnapshot in AllQuerySnapshot.Documents)
+                {
+                    Debug.LogFormat($"Document data for document: {documentSnapshot.Id}");
+                    items.Add(documentSnapshot.ConvertTo<shopitem>());
+                }
+            }
+            else if (task.Exception != null)
+            {
+                Debug.LogWarning(message: $"Failed to register task with {task.Exception}");
+            }
+        });
+        return items;
     }
 }

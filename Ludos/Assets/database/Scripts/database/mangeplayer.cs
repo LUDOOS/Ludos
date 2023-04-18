@@ -33,7 +33,7 @@ public class mangeplayer : MonoBehaviour
             button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject));
             button[i].name = childrens[i].Name;
             button[i].GetComponentInChildren<Text>().text = childrens[i].Name;
-            ss = $"avatar{childrens[i].Avatar}";
+            ss = childrens[i].Avatar;
             var s = Resources.Load<Sprite>(ss);
             button[i].image.sprite = s;
             button[i].image.SetNativeSize();
