@@ -75,6 +75,9 @@ public class Navigation : MonoBehaviour
     {
         SceneManager.LoadScene("Calendar-HomePage");
     }
+    public void LogOut() {
+        AuthManger.Instance.LogOut();
+    }
 
 
     ///</Games>
