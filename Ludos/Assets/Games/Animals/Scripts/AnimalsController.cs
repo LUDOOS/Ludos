@@ -79,9 +79,9 @@ public class AnimalsController : MonoBehaviour
         if (!completeStatus[GameManager.instance.animalsCurrentLevel])
         {
             completeStatus[GameManager.instance.animalsCurrentLevel] = true;
-            int level = int.Parse(scene.name[^1].ToString()) - 1;
-            Debug.Log($"level animals {level}");
-            GameManager.instance.UpdateData(GameName: "animals", level: level, stars: Stars.instance.starsNumber);
+            //int level = int.Parse(scene.name[^1].ToString()) - 1;
+            //Debug.Log($"level animals {level}");
+            GameManager.instance.UpdateData(GameName: "animals", level: GameManager.instance.animalsCurrentLevel, stars: Stars.instance.starsNumber);
         }
     }
 

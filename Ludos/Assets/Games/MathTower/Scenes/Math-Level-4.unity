@@ -4326,7 +4326,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1850774737}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: SmallerThanCutscene
+        m_MethodName: MathTowerLevel5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

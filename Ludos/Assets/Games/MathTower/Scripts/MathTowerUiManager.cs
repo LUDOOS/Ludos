@@ -49,20 +49,20 @@ public class MathTowerUiManager : MonoBehaviour
 
     private void getQuestion()
     {
-        if (scene.name == "Level-1")
+        if (scene.name == "Math-Level-1")
         {
             _questionText = new string[] { "1 + 1", "2 + 3", "7 + 1" };
            
         }
-        else if (scene.name == "Level-2")
+        else if (scene.name == "Math-Level-2")
         {
             _questionText = new string[] { "1 - 1", "6 - 4", "7 - 1" };
         }
-        else if (scene.name == "Level-3")
+        else if (scene.name == "Math-Level-3")
         {
             _questionText = new string[] { "1 + 4", "4 - 3", "6 + 1" };
         }
-        else if (scene.name == "Level-4")
+        else if (scene.name == "Math-Level-4")
         {
             _questionText = new string[] { "1 > 9", "2 > 3", "8 > 9" };
         }
@@ -80,27 +80,27 @@ public class MathTowerUiManager : MonoBehaviour
 
     public void UpdateStars(int second, bool isActive)
     {
-        int stars = 0;
+        //int stars = 0;
         if (isActive)
         {
             if (second >= 45)
             {
                 _starsImg.sprite = _spriteImg[3];
-                stars = 3;
+                //stars = 3;
                 
             }
             else if (second >= 30)
             {
                 _starsImg.sprite = _spriteImg[2];
-                stars = 2;
+                //stars = 2;
             }
             else
             {
                 _starsImg.sprite = _spriteImg[1];
-                stars = 1;
+                //stars = 1;
             }
-            Stars.instance.starsNumber = stars;
-            Debug.Log("stars =" + Stars.instance.starsNumber);
+            //Stars.instance.starsNumber = stars;
+            //Debug.Log("stars =" + Stars.instance.starsNumber);
         }
     }
     public IEnumerator FinishingLevel()

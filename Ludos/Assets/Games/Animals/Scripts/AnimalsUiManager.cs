@@ -23,17 +23,17 @@ public class AnimalsUiManager : MonoBehaviour
         if (second >= 40)
         {
             _starsImg.sprite = _spriteImg[3];
-            Stars.instance.starsNumber += 3;
+            //Stars.instance.starsNumber += 3;
         }
         else if (second >= 20)
         {
             _starsImg.sprite = _spriteImg[2];
-            Stars.instance.starsNumber += 2;
+            //Stars.instance.starsNumber += 2;
         }
         else
         {
             _starsImg.sprite = _spriteImg[1];
-            Stars.instance.starsNumber += 1;
+            //Stars.instance.starsNumber += 1;
         }
     }
 
