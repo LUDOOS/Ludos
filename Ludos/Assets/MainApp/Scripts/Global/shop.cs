@@ -13,6 +13,8 @@ public class shop : MonoBehaviour
     public GameObject itemsPrefab;
     [SerializeField]
     private GameObject parentGameObject;
+    [SerializeField]
+    private Text stars;
 
     public GameObject CreateGameObject(GameObject Prefab, GameObject parent)
     {
@@ -34,18 +36,18 @@ public class shop : MonoBehaviour
             return null;
         }
     }
-    public IEnumerator Getshopitems()
+    
+public void loadShop_Avatars()
     {
-        var x = AuthManger.Instance.Getshopitems();
-        yield return new WaitForSeconds(0.5F);
-        shopitem = x;
-        for (int i = 0; i < shopitem.Count; i++)
+        
+        for (int i = 0; i < 25; i++)
         {
-            Sprite s = Resources.Load<Sprite>(shopitem[i].Img_path);
-            items.Add(CreateGameObject(Prefab: itemsPrefab, parent: parentGameObject));
-            items[i].name = shopitem[i].Img_path;
-            items[i].GetComponentInChildren<Text>().text = "price: " + shopitem[i].Price.ToString();
-            items[i].GetComponentInChildren<Image>().sprite = s;
+            string img_name = $"avatar{i + 1}";
+            var s = Resources.Load<Sprite>(img_name);
+            items.Add(CreateGameObject(itemsPrefab, parent: parentGameObject));
+            items[i].name = img_name;// img path
+            GetChildWithName(items[i], "price").GetComponent<Text>().text = "3";
+            GetChildWithName(items[i], "avatar").GetComponent<Image>().sprite = s;
             if (!AuthManger.Instance.children.StoreItems.Contains(items[i].name))
             {
                 GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() => buy());
@@ -53,44 +55,31 @@ public class shop : MonoBehaviour
             else if (items[i].name != AuthManger.Instance.children.Avatar)
             {
                 GetChildWithName(items[i], "buy").GetComponentInChildren<Text>().text = "set";
-                GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() =>sethandeler());
+                GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
             }
             else
             {
                 GetChildWithName(items[i], "buy").GetComponentInChildren<Text>().text = "set";
+                GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
                 items[i].GetComponentInChildren<Button>().interactable = false;
             }
-        }
-    }
-    
-public IEnumerator test()
-    {
-        yield return new WaitForSeconds(0);
-        for (int i = 0; i < 25; i++)
-        {
-            string ss = $"avatar{i + 1}";
-            var s = Resources.Load<Sprite>(ss);
-            items.Add(CreateGameObject(itemsPrefab, parent: parentGameObject));
-            items[i].name = ss;// img path
-            GetChildWithName(items[i], "price").GetComponent<Text>().text = "price: test";
-            GetChildWithName(items[i], "avatar").GetComponent<Image>().sprite = s;
+            
         }
     }
     private void buy()
     {
         GameObject GO = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
+        int price = int.Parse(GetChildWithName(GO, "price").GetComponentInChildren<Text>().text);
         Debug.Log(GO.name);
-        foreach (shopitem item in shopitem)
-        {
-            if (item.Name == GO.name)
-            {
-                if (!AuthManger.Instance.children.StoreItems.Contains(item.Img_path))
+
+                if (!AuthManger.Instance.children.StoreItems.Contains(GO.name))
                 {
                     
-                    if (item.Price <= AuthManger.Instance.children.Total_stars)
+                    if (price <= AuthManger.Instance.children.Total_stars)
                     {
-                        AuthManger.Instance.children.Total_stars -= item.Price;
-                        AuthManger.Instance.children.StoreItems.Add(item.Img_path);
+                        AuthManger.Instance.children.Total_stars -= price;
+                        stars.text = AuthManger.Instance.children.Total_stars.ToString();
+                        AuthManger.Instance.children.StoreItems.Add(GO.name);
                         //more op
                         GetChildWithName(GO, "buy").GetComponentInChildren<Text>().text = "set";
                         GetChildWithName(GO, "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
@@ -103,15 +92,15 @@ public IEnumerator test()
                     }
                 }
             }
-        }
-    }
+        
+    
     private void sethandeler()
     {
         GameObject GO = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
 
-        var temp = items.Where(obj => obj.name == AuthManger.Instance.children.Avatar)
-                            .SingleOrDefault().GetComponentInChildren<Button>().interactable = true;
-        GetChildWithName(GO, "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
+        GameObject temp = items.Where(obj => obj.name == AuthManger.Instance.children.Avatar)
+                            .SingleOrDefault(); temp.GetComponentInChildren<Button>().interactable = true;
+        //GetChildWithName(temp, "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
         AuthManger.Instance.children.Avatar = GO.name;
         AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
         GetChildWithName(GO, "buy").GetComponent<Button>().interactable = false;
@@ -119,8 +108,9 @@ public IEnumerator test()
 
     void Awake()
     {
-        StartCoroutine(Getshopitems());
-        //StartCoroutine(test());
+        stars.text = AuthManger.Instance.children.Total_stars.ToString();
+        //StartCoroutine(Getshopitems());
+       loadShop_Avatars();
     }
 
 
@@ -128,5 +118,9 @@ public IEnumerator test()
     void Update()
     {
 
+    }
+    private void LateUpdate()
+    {
+        
     }
 }
