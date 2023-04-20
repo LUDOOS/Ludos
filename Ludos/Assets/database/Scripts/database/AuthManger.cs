@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -85,13 +86,7 @@ public class AuthManger : MonoBehaviour
         }
     }
 
-
-    //void OnDestroy()
-    //{
-    //    // some times make error try commint it 
-    //    this.firebaseAuth.StateChanged -= AuthStateChanged;
-    //    this.firebaseAuth = null;
-    //}
+    
 
     private IEnumerator AddUserINFO()// for  parent 
     {
@@ -460,5 +455,21 @@ public class AuthManger : MonoBehaviour
             }
         });
         return items;
+    }
+
+    // public void OnApplicationPause(bool pauseStatus)
+    // {
+    //     if (pauseStatus)
+    //     {
+    //         SendChildrenData(children.ID);
+    //     }
+    // }
+
+    public void OnDestroy()
+    {
+        SendChildrenData(children.ID);
+        firebaseAuth.StateChanged -= AuthStateChanged;
+        firebaseAuth = null;
+        
     }
 }

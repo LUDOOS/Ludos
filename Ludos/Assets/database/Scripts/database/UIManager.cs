@@ -17,24 +17,40 @@ public class UIManager : MonoBehaviour
     //Login variables
     [Space]
     [Header("Login")]
+    [SerializeField]
     private InputField emailLoginField;
+    [SerializeField]
     private InputField passwordLoginField;
+    [SerializeField]
     private Text warningLoginText;
+    [SerializeField]
     private Text confirmLoginText;
 
     //Register variables
     [Space]
     [Header("Register")]
+    [SerializeField]
     private InputField UsernameRegisterField;
+    [SerializeField]
     private InputField emailRegisterField;
+    [SerializeField]
     private InputField passwordRegisterField;
+    [SerializeField]
     private InputField passwordRegisterVerifyField;
+    [SerializeField]
     private Text warningRegisterText;
 
 
     private void Awake()
     {
         CreateInstance();
+        if (emailLoginField.text == "" && passwordLoginField.text == "") {
+            //Login
+            emailLoginField.text = "i2@ludos.com";
+            passwordLoginField.text = "test123";
+            warningLoginText.text = "";
+            confirmLoginText.text = "";
+        }
     }
 
     private void CreateInstance()
@@ -45,47 +61,7 @@ public class UIManager : MonoBehaviour
         }
     }
    
-    private void Update()
-    {
-        //int selectedCharacter = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
-        //emailLoginField = GameObject.Find("EmailInputField").GetComponent<InputField>();
-        if (loginPanel.activeInHierarchy && loginPanel != null)
-        {
-            //Login
-            emailLoginField = GameObject.Find("EmailInputField").GetComponent<InputField>();
-            passwordLoginField = GameObject.Find("PasswordInputField").GetComponent<InputField>();
-            warningLoginText = GameObject.Find("warningLoginText").GetComponent<Text>();
-            confirmLoginText = GameObject.Find("confirmLoginText").GetComponent<Text>();
-            //test
-            if (emailLoginField.text == "" && passwordLoginField.text == "") {
-                //Login
-                emailLoginField.text = "i2@ludos.com";
-                passwordLoginField.text = "test123";
-                warningLoginText.text = "";
-                confirmLoginText.text = "";
-            }
-        }
-        else if (registrationPanel.activeInHierarchy && registrationPanel != null)
-        {
-            //Register
-            UsernameRegisterField = GameObject.Find("UsernameRegisterField").GetComponent<InputField>();
-            emailRegisterField = GameObject.Find("RegisterEmailInputField").GetComponent<InputField>();
-            passwordRegisterField = GameObject.Find("RegisterPasswordInputField").GetComponent<InputField>();
-            passwordRegisterVerifyField = GameObject.Find("RegisterConfirmPasswordInputField").GetComponent<InputField>();
-            warningRegisterText = GameObject.Find("warningRegisterText").GetComponent<Text>();
-
-            //test
-            if (UsernameRegisterField.text == "" && emailRegisterField.text == "" && passwordRegisterField.text == "" && passwordRegisterVerifyField.text == "" )
-            {
-                //Register
-                UsernameRegisterField.text = "i";
-                emailRegisterField.text = "i@ludos.com";
-                passwordRegisterField.text = "test123";
-                passwordRegisterVerifyField.text = "test123";
-                warningRegisterText.text = "";
-            }
-        }
-    }
+    
 
     public void Login()
     {
