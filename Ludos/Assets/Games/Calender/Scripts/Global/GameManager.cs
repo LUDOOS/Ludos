@@ -29,11 +29,11 @@ public class GameManager : MonoBehaviour
         CalendarNextLevel = AuthManger.Instance.children.Calendar.Count + 1 ;
         CalendarStars = 0;
 
-        mathTowerCurrentLevel = AuthManger.Instance.children.Math.Count ;
+        //mathTowerCurrentLevel = AuthManger.Instance.children.Math.Count ;
         mathTowerNextLevel = AuthManger.Instance.children.Math.Count + 1;
         mathTowerStars = 0;
 
-        animalsCurrentLevel = AuthManger.Instance.children.Animals.Count;
+        // animalsCurrentLevel = AuthManger.Instance.children.Animals.Count;
         animalsNextLevel = AuthManger.Instance.children.Animals.Count + 1;
         animalsStars = 0;
         //under test
@@ -81,14 +81,14 @@ public class GameManager : MonoBehaviour
                     animalsNextLevel++;
                     //animalsCurrentLevel++;
                     AuthManger.Instance.children.Total_stars += stars;
-                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                    //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
                 else if (System.Convert.ToInt32(AuthManger.Instance.children.Animals[level])< stars)
                 {
                     int temp = stars - System.Convert.ToInt32(AuthManger.Instance.children.Animals[level]);
                     AuthManger.Instance.children.Total_stars += temp;
                     AuthManger.Instance.children.Animals[level] = stars;
-                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                    //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
                 break;
             case "calendar":
@@ -98,14 +98,14 @@ public class GameManager : MonoBehaviour
                     CalendarNextLevel++;
                     AuthManger.Instance.children.Total_stars += stars;
                     AuthManger.Instance.children.Calendar.Add(stars);
-                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                   // AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
                 else if (System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level] )< stars)
                 {
                     int temp = stars - System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level]);
                     AuthManger.Instance.children.Total_stars += temp;
                     AuthManger.Instance.children.Calendar[level] = stars;
-                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                    //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                 }
                 break;
             default:

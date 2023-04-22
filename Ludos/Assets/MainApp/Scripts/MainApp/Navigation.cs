@@ -11,15 +11,7 @@ public class Navigation : MonoBehaviour
         Application.targetFrameRate = 60;
     }
     public Animator animator;
-
-    IEnumerator loadScene(int index)
-    {
-        animator.SetTrigger("Start");
-
-        yield return new WaitForSeconds(1f);
-
-        SceneManager.LoadScene(index);
-    }
+    
     IEnumerator loadScene(string index)
     {
         animator.SetTrigger("Start");
@@ -30,10 +22,7 @@ public class Navigation : MonoBehaviour
     }
 
     /// <MainPages>
-    public void Navigate(int index)
-    {
-        StartCoroutine(loadScene(index));
-    }
+
 
     public void NavToGamePage()
     {
@@ -87,37 +76,37 @@ public class Navigation : MonoBehaviour
     public void AnimalsStory()
     {
         SceneManager.LoadScene("Animals-Story");
-        GameManager.instance.animalsCurrentLevel = 0;
+        //GameManager.instance.animalsCurrentLevel = 0;
     }
 
     public void AnimalsLevel1()
     {
         SceneManager.LoadScene("Animals-Level-1");
-        GameManager.instance.animalsCurrentLevel = 1;
+        GameManager.instance.animalsCurrentLevel = 0;
     }
 
     public void AnimalsLevel2()
     {
         SceneManager.LoadScene("Animals-Level-2");
-        GameManager.instance.animalsCurrentLevel = 2;
+        GameManager.instance.animalsCurrentLevel = 1;
     }
 
     public void AnimalsLevel3()
     {
         SceneManager.LoadScene("Animals-Level-3");
-        GameManager.instance.animalsCurrentLevel = 3;
+        GameManager.instance.animalsCurrentLevel = 2;
     }
 
     public void AnimalsLevel4()
     {
         SceneManager.LoadScene("Animals-Level-4");
-        GameManager.instance.animalsCurrentLevel = 4;
+        GameManager.instance.animalsCurrentLevel = 3;
     }
 
     public void AnimalsLevel5()
     {
         SceneManager.LoadScene("Animals-Level-5");
-        GameManager.instance.animalsCurrentLevel = 5;
+        GameManager.instance.animalsCurrentLevel = 4;
     }
     // </Animals Levels>
 

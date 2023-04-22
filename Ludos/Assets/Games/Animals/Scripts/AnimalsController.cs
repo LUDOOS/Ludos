@@ -10,6 +10,7 @@ public class AnimalsController : MonoBehaviour
     AudioHandler _aHandler;
     AnimalsUiManager _uiManager;
     bool isClicked = true;
+    private static int stars = 0;
     static bool[] completeStatus = { false, false, false, false, false };
     Scene scene;
     // Start is called before the first frame update
@@ -27,12 +28,14 @@ public class AnimalsController : MonoBehaviour
         {
             if (isClicked) 
             {
+                stars++;
                 isClicked = false;
                 PlayMyAudio('p');
             }
         }
         else if (this.gameObject.name == "FinalAnimal")
         {
+            stars++;
             PlayMyAudio('s');
         }
         else
@@ -67,7 +70,7 @@ public class AnimalsController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         _uiManager.confetti.enabled = true;
-        _uiManager.UpdateStars(Timer.second);
+        _uiManager.UpdateStars(stars);
         _uiManager.StopTimer();
         _uiManager.congrates.gameObject.SetActive(true);
         
@@ -79,9 +82,7 @@ public class AnimalsController : MonoBehaviour
         if (!completeStatus[GameManager.instance.animalsCurrentLevel])
         {
             completeStatus[GameManager.instance.animalsCurrentLevel] = true;
-            //int level = int.Parse(scene.name[^1].ToString()) - 1;
-            //Debug.Log($"level animals {level}");
-            GameManager.instance.UpdateData(GameName: "animals", level: GameManager.instance.animalsCurrentLevel, stars: Stars.instance.starsNumber);
+            GameManager.instance.UpdateData(GameName: "animals", level: GameManager.instance.animalsCurrentLevel, stars: stars);
         }
     }
 

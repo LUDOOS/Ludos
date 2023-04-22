@@ -1079,6 +1079,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loginPanel: {fileID: 350581753}
   registrationPanel: {fileID: 770145239}
+  emailLoginField: {fileID: 896712346}
+  passwordLoginField: {fileID: 1577326456}
+  warningLoginText: {fileID: 512683135}
+  confirmLoginText: {fileID: 1238442975}
+  UsernameRegisterField: {fileID: 1781917333}
+  emailRegisterField: {fileID: 1542321294}
+  passwordRegisterField: {fileID: 77452608}
+  passwordRegisterVerifyField: {fileID: 353647575}
+  warningRegisterText: {fileID: 329040854}
 --- !u!1 &509400242
 GameObject:
   m_ObjectHideFlags: 0

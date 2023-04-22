@@ -11,6 +11,7 @@ public class MathTowerController : MonoBehaviour
     [SerializeField] private GameObject[] wrongBarrier;
     static bool[] completeStatus = { false, false, false, false, false };
     MathTowerUiManager uiManager;
+    private int stars;
     Scene scene;
 
     private void Start()
@@ -35,6 +36,7 @@ public class MathTowerController : MonoBehaviour
             // Animate Barrier Based on Level
             if (scene.name == "Math-Level-1" || scene.name == "Math-Level-3" || scene.name == "Math-Level-4" || scene.name == "Math-Level-5")
             {
+                stars++;
                 barrier.GetComponent<Animator>().Play("ScalingToRight");
             }
             else
@@ -54,6 +56,7 @@ public class MathTowerController : MonoBehaviour
             uiManager.UpdateQuestion(2);
             if (scene.name == "Math-Level-1" || scene.name == "Math-Level-3" || scene.name == "Math-Level-5")
             {
+                stars++;
                 barrier.GetComponent<Animator>().Play("ScalingToLeft");
             }
             else
@@ -70,6 +73,7 @@ public class MathTowerController : MonoBehaviour
         {
             if (scene.name == "Math-Level-1" || scene.name == "Math-Level-2" || scene.name == "Math-Level-5")
             {
+                stars++;
                 barrier.GetComponent<Animator>().Play("ScalingToLeft");
             }
             else
@@ -96,7 +100,7 @@ public class MathTowerController : MonoBehaviour
             completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
             //int level= int.Parse(scene.name[^1].ToString())-1;
             //Debug.Log($"level mathtower {level}");
-            GameManager.instance.UpdateData(GameName:"math",level: GameManager.instance.mathTowerCurrentLevel, stars:Stars.instance.starsNumber);// ToDO stares
+            GameManager.instance.UpdateData(GameName:"math",level: GameManager.instance.mathTowerCurrentLevel, stars:stars);// ToDO stares
         }
 
     }
