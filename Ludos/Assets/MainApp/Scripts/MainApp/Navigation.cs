@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 public class Navigation : MonoBehaviour
 {
 
-    public void Start()
-    {
-        Application.targetFrameRate = 60;
-    }
     public Animator animator;
     
     IEnumerator loadScene(string index)

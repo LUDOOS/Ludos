@@ -25,7 +25,10 @@ public class AuthManger : MonoBehaviour
     public Children children;
     public Parent parent;
 
-
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
     private void Awake()
     {
         if (Instance != null && Instance != this)
