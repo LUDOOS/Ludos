@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class mangeplayer : MonoBehaviour
 {
-    //public Button[] button ;
     [SerializeField]
     private List<Button> button;
     [SerializeField]
@@ -24,50 +23,39 @@ public class mangeplayer : MonoBehaviour
     public IEnumerator Getchild()
     {
         var x = AuthManger.Instance.GetChildren();
-        //var s = Resources.Load<Sprite>(ss);
         yield return new WaitForSeconds(0.5F);
         childrens = x;
         for (int i = 0; i < childrens.Count; i++)
         {
-            //button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject, position: new Vector3(x: 0F, y: 0F + ((float)i * -2.0F), z: 0F)));
             button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject));
             button[i].name = childrens[i].Name;
             button[i].GetComponentInChildren<Text>().text = childrens[i].Name;
             ss = childrens[i].Avatar;
             var s = Resources.Load<Sprite>(ss);
             button[i].image.sprite = s;
-            button[i].image.SetNativeSize();
             button[i].onClick.AddListener(() => setPlayer());
-            //Debug.Log(i);
+
         }
     }
-    //public IEnumerator test()
-    //{
-    //    //var x = AuthManger.Instance.GetChildren();
-    //    var s = Resources.Load<Sprite>("avatar2");
-    //    yield return new WaitForSeconds(1.5F);
-    //    //childrens = x;
-    //    //Debug.Log(childrens.Count);
-    //    for (int i = 0; i < 100; i++)
-    //    {
-    //        //button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject, position: new Vector3(x: 0F, y: 0F + ((float)i * -2.0F), z: 0F)));
-    //        button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject));
-    //        button[i].name = i.ToString();
-    //        button[i].GetComponentInChildren<Text>().text = i.ToString();
-    //        //button[i].image.sprite = Resources.Load<Sprite>($"Assets/Sprites/Global/Avatars/avatar{(int)childrens[i]._Avatar}");
-    //        button[i].image.sprite = s;
-    //        button[i].image.SetNativeSize();
-    //        button[i].onClick.AddListener(() => setPlayer());
-    //        //Debug.Log(i);
-    //    }
-    //}
+    public void test()
+    {
+        var s = Resources.Load<Sprite>("avatar2");
+        for (int i = 0; i < 2; i++)
+        {
+            button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject));
+            button[i].name = i.ToString();
+            button[i].GetComponentInChildren<Text>().text = i.ToString();
+            button[i].image.sprite = s;
+            button[i].onClick.AddListener(() => setPlayer());
+        }
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Getchild());
-        //StartCoroutine(test());
+        //test();
     }
 
     public Button CreateButton(Button buttonPrefab, GameObject parent)
@@ -81,17 +69,26 @@ public class mangeplayer : MonoBehaviour
     {
         AuthManger.Instance.LogOut();
     }
-    public void AddChild() {
+    public void AddChild()
+    {
         AuthManger.Instance.AddChildren(childname.text, int.Parse(chilage.text));
+        button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject));
+        button[button.Count - 1].name = childname.text;
+        button[button.Count - 1].GetComponentInChildren<Text>().text = childname.text;
+        var s = Resources.Load<Sprite>("avatar1");
+        button[button.Count - 1].image.sprite = s;
+        button[button.Count - 1].onClick.AddListener(() => setPlayer());
         //OpenGAME
-        UnityEngine.SceneManagement.SceneManager.LoadScene("HomePage");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("HomePage");
     }
     private void setPlayer()
     {
-        string name =UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
+        string name = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
         Debug.Log(name);
-        foreach (Children child in childrens) {
-            if (child.Name == name) {
+        foreach (Children child in childrens)
+        {
+            if (child.Name == name)
+            {
                 AuthManger.Instance.children = child;
             }
         }
