@@ -11,6 +11,7 @@ public class MathTowerController : MonoBehaviour
     [SerializeField] private GameObject[] wrongBarrier;
     static bool[] completeStatus = { false, false, false, false, false };
     MathTowerUiManager uiManager;
+    private int stars;
     Scene scene;
 
     private void Start()
@@ -33,8 +34,9 @@ public class MathTowerController : MonoBehaviour
             // Update Question
             uiManager.UpdateQuestion(1);
             // Animate Barrier Based on Level
-            if (scene.name == "Level-1" || scene.name == "Level-3" || scene.name == "Level-4" || scene.name == "Level-5")
+            if (scene.name == "Math-Level-1" || scene.name == "Math-Level-3" || scene.name == "Math-Level-4" || scene.name == "Math-Level-5")
             {
+                stars++;
                 barrier.GetComponent<Animator>().Play("ScalingToRight");
             }
             else
@@ -52,8 +54,9 @@ public class MathTowerController : MonoBehaviour
         if (barrier.name == "5")
         {
             uiManager.UpdateQuestion(2);
-            if (scene.name == "Level-1" || scene.name == "Level-3" || scene.name == "Level-5")
+            if (scene.name == "Math-Level-1" || scene.name == "Math-Level-3" || scene.name == "Math-Level-5")
             {
+                stars++;
                 barrier.GetComponent<Animator>().Play("ScalingToLeft");
             }
             else
@@ -68,8 +71,9 @@ public class MathTowerController : MonoBehaviour
     {
         if (barrier.name == "8")
         {
-            if (scene.name == "Level-1" || scene.name == "Level-2" || scene.name == "Level-5")
+            if (scene.name == "Math-Level-1" || scene.name == "Math-Level-2" || scene.name == "Math-Level-5")
             {
+                stars++;
                 barrier.GetComponent<Animator>().Play("ScalingToLeft");
             }
             else
@@ -77,8 +81,8 @@ public class MathTowerController : MonoBehaviour
                 barrier.GetComponent<Animator>().Play("ScalingToRight");
             }
             Destroy(wrongBarrier[2]);
-            StartCoroutine(uiManager.FinishingLevel());
-            UpdateLevels();
+            //StartCoroutine(uiManager.FinishingLevel());
+            StartCoroutine(UpdateLevels());
         }
     }
 
@@ -87,15 +91,17 @@ public class MathTowerController : MonoBehaviour
         GameObject barrierChild = barrier.transform.GetChild(0).gameObject;
         barrierChild.SetActive(false);
     }
-    void UpdateLevels()
+    IEnumerator UpdateLevels()
     {
+        yield return StartCoroutine(uiManager.FinishingLevel());
+        uiManager.UpdateStars(Timer.second, isActive:uiManager.isActive);
         if (!completeStatus[GameManager.instance.mathTowerCurrentLevel])
         {
             completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
-            GameManager.instance.mathTowerNextLevel++;
-            //Debug.Log("level " + (GameManager.instance.mathTowerNextLevel + 1) + " is unlocked");
+            //int level= int.Parse(scene.name[^1].ToString())-1;
+            //Debug.Log($"level mathtower {level}");
+            GameManager.instance.UpdateData(GameName:"math",level: GameManager.instance.mathTowerCurrentLevel, stars:stars);// ToDO stares
         }
-
 
     }
 }

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/database/Scenes/database/FirebaseLogin.unity
+    guid: 07020c8fc917ce448bfb264687aa7ede
+  - enabled: 1
+    path: Assets/database/Scenes/database/choosePlayer.unity
+    guid: 5c5a7825f98a9774ab1d311db15617d6
+  - enabled: 1
     path: Assets/MainApp/Scenes/HomePage.unity
     guid: f1aa18c58d58d1340ad3769ddd91dd3d
   - enabled: 1
@@ -21,31 +27,31 @@ EditorBuildSettings:
     path: Assets/MainApp/Scenes/AchivementPage.unity
     guid: 5ac5f953b88d3d64a8f37d9ee16f92e9
   - enabled: 1
-    path: "Assets/MainApp/Scenes/\u0650ShopPage.unity"
+    path: Assets/MainApp/Scenes/ShopPage.unity
     guid: ff56a6c0523aded498207352b218adfe
   - enabled: 1
-    path: Assets/Games/Animals/Scenes/HomePage.unity
+    path: Assets/Games/Animals/Scenes/Animals-HomePage.unity
     guid: 108a338563fd5b4439bd69ac88bd1996
   - enabled: 1
-    path: Assets/Games/Animals/Scenes/Story.unity
+    path: Assets/Games/Animals/Scenes/Animals-Story.unity
     guid: 31881d1d9ae35ad409b01a551317878c
   - enabled: 1
-    path: Assets/Games/Animals/Scenes/Level-1.unity
+    path: Assets/Games/Animals/Scenes/Animals-Level-1.unity
     guid: 781060402be5a4a468f24fcb6b68bca8
   - enabled: 1
-    path: Assets/Games/Animals/Scenes/Level-2.unity
+    path: Assets/Games/Animals/Scenes/Animals-Level-2.unity
     guid: 96451c3210e7d9741aed30eb0e0a16d0
   - enabled: 1
-    path: Assets/Games/Animals/Scenes/Level-3.unity
+    path: Assets/Games/Animals/Scenes/Animals-Level-3.unity
     guid: eeb2e333e5192fa43af3a166eb059272
   - enabled: 1
-    path: Assets/Games/Animals/Scenes/Level-4.unity
+    path: Assets/Games/Animals/Scenes/Animals-Level-4.unity
     guid: b46ce794e4f08024cb9074ba8316ffe9
   - enabled: 1
-    path: Assets/Games/Animals/Scenes/Level-5.unity
+    path: Assets/Games/Animals/Scenes/Animals-Level-5.unity
     guid: e46a42853a2ea554090608fad8de5595
   - enabled: 1
-    path: Assets/Games/MathTower/Scenes/HomePage.unity
+    path: Assets/Games/MathTower/Scenes/Math-HomePage.unity
     guid: 84e9f981e81a3524a993f41922a24573
   - enabled: 0
     path: 
@@ -63,19 +69,19 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Games/MathTower/Scenes/Level-1.unity
+    path: Assets/Games/MathTower/Scenes/Math-Level-1.unity
     guid: b5813fff3148bd940ab63ed4d03d0842
   - enabled: 1
-    path: Assets/Games/MathTower/Scenes/Level-2.unity
+    path: Assets/Games/MathTower/Scenes/Math-Level-2.unity
     guid: 73a30c0b83a836b42b013309a0d37bcf
   - enabled: 1
-    path: Assets/Games/MathTower/Scenes/Level-3.unity
+    path: Assets/Games/MathTower/Scenes/Math-Level-3.unity
     guid: 506771061ba726841a1165b707b8f946
   - enabled: 1
-    path: Assets/Games/MathTower/Scenes/Level-4.unity
+    path: Assets/Games/MathTower/Scenes/Math-Level-4.unity
     guid: e06a4bfdecfcc564181cf0e2825f10c9
   - enabled: 1
-    path: Assets/Games/MathTower/Scenes/Level-5.unity
+    path: Assets/Games/MathTower/Scenes/Math-Level-5.unity
     guid: 156328a5f1ce5c341b86205685285934
   - enabled: 0
     path: 

@@ -18,25 +18,25 @@ public class AnimalsUiManager : MonoBehaviour
         congrates.gameObject.SetActive(false);
         confetti.enabled = false;
     }
-    public void UpdateStars(int second)
+
+    public void UpdateStars(int stars)
     {
-        if (second >= 40)
+        if (stars  == 3)
         {
             _starsImg.sprite = _spriteImg[3];
-            Stars.instance.starsNumber += 3;
+            //Stars.instance.starsNumber += 3;
         }
-        else if (second >= 20)
+        else if (stars == 2)
         {
             _starsImg.sprite = _spriteImg[2];
-            Stars.instance.starsNumber += 2;
+            //Stars.instance.starsNumber += 2;
         }
         else
         {
             _starsImg.sprite = _spriteImg[1];
-            Stars.instance.starsNumber += 1;
+            //Stars.instance.starsNumber += 1;
         }
     }
-
     public void StopTimer()
     {
         Timer.SetPaused(false);

@@ -130,8 +130,10 @@ public class DateDaysController : MonoBehaviour
         if (!completeStatus[GameManager.instance.CalendarCurrentLevel] )
         {
             completeStatus[GameManager.instance.CalendarCurrentLevel] = true;
-            GameManager.instance.CalendarNextLevel++;
-            Debug.Log("level " + (GameManager.instance.CalendarNextLevel + 1) + " is unlocked");
+            GameManager.instance.UpdateData(GameName: "Calendar",
+                level: GameManager.instance.CalendarCurrentLevel,
+                stars: StarCounter);
+          
         }
         
         

@@ -26,7 +26,7 @@ public class MainPageController : MonoBehaviour
         animationController = GameObject.Find("AnimationController").GetComponent<AnimationController>();
         Avatar = GameObject.FindGameObjectWithTag("avatar").transform;
         updateLevels(); // -------------->>> LevelProgress
-        StartCoroutine(animationController.destroyAnimation("LevelLoader", 1.1f));
+        StartCoroutine(animationController.destroyAnimation("LevelLoader", 2.9f));
 
 
     }
@@ -74,14 +74,14 @@ public class MainPageController : MonoBehaviour
            LevelButtons[i].interactable = true;
            
         }
-        if (GameManager.instance.CalendarNextLevel < 5)
+        if (GameManager.instance.CalendarNextLevel < 4)
         {
             slider[0].value = GameManager.instance.CalendarNextLevel - 1 ;
         }
         else
         {
             slider[0].value = 5;
-            slider[1].value = GameManager.instance.CalendarNextLevel - 5;
+            slider[1].value = GameManager.instance.CalendarNextLevel - 4;
         }
     }
 

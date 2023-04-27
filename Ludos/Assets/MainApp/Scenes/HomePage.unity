@@ -469,15 +469,15 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 897165190}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1791543488}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: Navigate
-        m_Mode: 3
+        m_MethodName: NavToShop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -837,8 +837,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1791543488}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: Navigate
-        m_Mode: 3
+        m_MethodName: NavToSettingsPage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1076,8 +1076,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1791543488}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: Navigate
-        m_Mode: 3
+        m_MethodName: NavToAchivments
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1225,8 +1225,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1791543488}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: Navigate
-        m_Mode: 3
+        m_MethodName: NavToGamePage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
