@@ -61,6 +61,7 @@ public class Navigation : MonoBehaviour
         SceneManager.LoadScene("Calendar-HomePage");
     }
     public void LogOut() {
+        AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
         AuthManger.Instance.LogOut();
     }
 
