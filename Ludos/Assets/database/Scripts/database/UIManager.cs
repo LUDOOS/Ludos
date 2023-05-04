@@ -87,7 +87,7 @@ public class UIManager : MonoBehaviour
     }
     public void OpenGAME()
     {
-        SceneManager.LoadScene("HomePage");
+        SceneManager.LoadScene("GamesPage");
     }
     public void OpenSelectplayer()
     {

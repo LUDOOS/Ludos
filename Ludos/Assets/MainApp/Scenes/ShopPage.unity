@@ -285,7 +285,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 263182164}
         m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: NavToHome
+        m_MethodName: NavToGamePage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
