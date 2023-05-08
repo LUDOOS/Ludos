@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Firebase.Extensions;
+using Firebase.Firestore;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class mangeplayer : MonoBehaviour
 {
+    [SerializeField] 
+    private GameObject childrenPanel;
+    [SerializeField] 
+    private GameObject LoadingScreen;
+    [SerializeField]
+    private GameObject reload;
     [SerializeField]
     private List<Button> button;
     [SerializeField]
     private Button buttonPrefab;
     [SerializeField]
     private GameObject parentButtonGameObject;
-    private List<Children> childrens;
+    private List<Children> childrens =  new List<Children>();
     [SerializeField]
     InputField childname;
     [SerializeField]
@@ -20,22 +28,46 @@ public class mangeplayer : MonoBehaviour
     string ss;
 
 
-    public IEnumerator Getchild()
+    public void Getchild()
     {
-        var x = AuthManger.Instance.GetChildren();
-        yield return new WaitForSeconds(0.5F);
-        childrens = x;
-        for (int i = 0; i < childrens.Count; i++)
-        {
-            button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject));
-            button[i].name = childrens[i].Name;
-            button[i].GetComponentInChildren<Text>().text = childrens[i].Name;
-            ss = childrens[i].Avatar;
-            var s = Resources.Load<Sprite>(ss);
-            button[i].image.sprite = s;
-            button[i].onClick.AddListener(() => setPlayer());
+        
+         Query x = AuthManger.Instance.GetChildren();
+        
+         x.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+         {
+            
+             if (task.IsCompleted)
+             {
+                 
 
-        }
+                 QuerySnapshot AllQuerySnapshot = task.Result;
+                 foreach (DocumentSnapshot documentSnapshot in AllQuerySnapshot.Documents)
+                 {
+                     int i = int.Parse(documentSnapshot.Id)-1;
+                     Debug.LogFormat($"Document data for document: {documentSnapshot.Id}");
+                     childrens.Add(documentSnapshot.ConvertTo<Children>());
+                     button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject));
+                     button[i].name = childrens[i].Name;
+                     button[i].GetComponentInChildren<Text>().text = childrens[i].Name;
+                     ss = childrens[i].Avatar;
+                     var s = Resources.Load<Sprite>(ss);
+                     button[i].image.sprite = s;
+                     button[i].onClick.AddListener(() => setPlayer());
+                 }
+                 LoadingScreen.SetActive(false);
+                 reload.SetActive(false);
+                 childrenPanel.SetActive(true);
+             }
+             else if (task.Exception != null)
+             {
+                 LoadingScreen.SetActive(false);
+                 childrenPanel.SetActive(false);
+                 reload.SetActive(true);
+                 Debug.LogWarning(message: $"Failed to register task with {task.Exception}");
+             }
+         });
+             
+       
     }
     public void test()
     {
@@ -54,7 +86,7 @@ public class mangeplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Getchild());
+        Getchild();
         //test();
     }
 
@@ -93,6 +125,6 @@ public class mangeplayer : MonoBehaviour
             }
         }
         //OpenGAME
-        UnityEngine.SceneManagement.SceneManager.LoadScene("HomePage");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GamesPage");
     }
 }

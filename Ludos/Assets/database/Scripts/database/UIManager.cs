@@ -8,11 +8,12 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [SerializeField]
-    private GameObject loginPanel;
-
-    [SerializeField]
-    private GameObject registrationPanel;
+    [Header("Panels")]
+    public GameObject loginPanel;
+    
+    public GameObject loadingScreen;
+    
+    public GameObject registrationPanel;
 
     //Login variables
     [Space]
@@ -23,8 +24,7 @@ public class UIManager : MonoBehaviour
     private InputField passwordLoginField;
     [SerializeField]
     private Text warningLoginText;
-    [SerializeField]
-    private Text confirmLoginText;
+
 
     //Register variables
     [Space]
@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
             emailLoginField.text = "i2@ludos.com";
             passwordLoginField.text = "test123";
             warningLoginText.text = "";
-            confirmLoginText.text = "";
+            //confirmLoginText.text = "";
         }
     }
 
@@ -66,7 +66,8 @@ public class UIManager : MonoBehaviour
     public void Login()
     {
         //Call the login coroutine passing the email and password
-        AuthManger.Instance.Login(emailLoginField.text, passwordLoginField.text,warningLoginText,confirmLoginText);
+        AuthManger.Instance.Login(emailLoginField.text, passwordLoginField.text,warningLoginText);
+      
     }
     //Function for the register button
     public void Register()

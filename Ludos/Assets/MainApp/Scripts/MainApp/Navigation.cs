@@ -8,21 +8,22 @@ public class Navigation : MonoBehaviour
 
     public Animator animator;
     
-    IEnumerator loadScene(string index)
-    {
-        animator.SetTrigger("Start");
-
-        yield return new WaitForSeconds(1f);
-
-        SceneManager.LoadScene(index);
-    }
+    //IEnumerator loadScene(string index)
+    // {
+    //     animator.SetTrigger("Start");
+    //
+    //     yield return new WaitForSeconds(1f);
+    //
+    //     SceneManager.LoadScene(index);
+    // }
 
     /// <MainPages>
 
 
     public void NavToGamePage()
     {
-        StartCoroutine(loadScene("GamesPage"));
+        //StartCoroutine(loadScene("GamesPage"));
+        SceneManager.LoadScene("GamesPage");
     }
 
     public void NavToSettingsPage()

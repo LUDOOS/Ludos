@@ -84,6 +84,8 @@ public class AnimalsController : MonoBehaviour
             completeStatus[GameManager.instance.animalsCurrentLevel] = true;
             GameManager.instance.UpdateData(GameName: "animals", level: GameManager.instance.animalsCurrentLevel, stars: stars);
         }
+
+        stars = 0;
     }
 
 }

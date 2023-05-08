@@ -84,7 +84,7 @@ public class AuthManger : MonoBehaviour
             if (signedIn)
             {
                 Debug.Log("Signed in " + firebaseUser.UserId);
-                SceneManager.LoadScene("choosePlayer");
+                
             }
         }
     }
@@ -216,10 +216,10 @@ public class AuthManger : MonoBehaviour
         }
     }
     //Function for the login button
-    public void Login(string _email, string _password, Text _warningLoginText, Text _confirmLoginText)
+    public void Login(string _email, string _password, Text _warningLoginText)
     {
         //Call the login coroutine passing the email and password
-        StartCoroutine(LoginAsync(_email, _password, _warningLoginText, _confirmLoginText));
+        StartCoroutine(LoginAsync(_email, _password, _warningLoginText));
     }
     //Function for the register button
     public void Register(string _email, string _password, string _Verifypassword, string _username, Text _warningRegisterText)
@@ -227,7 +227,7 @@ public class AuthManger : MonoBehaviour
         //Call the register coroutine passing the email, password, and username
         StartCoroutine(RegisterAsync(_email, _password, _Verifypassword, _username, _warningRegisterText));
     }
-    private IEnumerator LoginAsync(string _email, string _password, Text warningLoginText, Text confirmLoginText)
+    private IEnumerator LoginAsync(string _email, string _password, Text warningLoginText)
     {
         //Call the Firebase firebaseAuth signin function passing the email and password
         var LoginTask = firebaseAuth.SignInWithEmailAndPasswordAsync(_email, _password);
@@ -259,12 +259,20 @@ public class AuthManger : MonoBehaviour
                 case AuthError.UserNotFound:
                     message = "Account does not exist";
                     break;
+                case AuthError.Failure:
+                    UIManager.Instance.loginPanel.SetActive(true);
+                    message = "Login Failed";
+                    break;
             }
             warningLoginText.text = message;
             Debug.LogWarning(message);
         }
         else
         {
+            UIManager.Instance.loginPanel.SetActive(false);
+            UIManager.Instance.loadingScreen.SetActive(true);
+            warningLoginText.text = "";
+            yield return new WaitForSeconds(2.2f);
             //firebaseUser is now logged in
             //Now get the result
             firebaseUser = LoginTask.Result;
@@ -276,8 +284,7 @@ public class AuthManger : MonoBehaviour
             AuthStateChanged(this, null);
             UIManager.Instance.OpenSelectplayer();
             Debug.LogFormat("firebaseUser signed is successfully: {0} ({1})", firebaseUser.DisplayName, firebaseUser.Email);
-            warningLoginText.text = "";
-            confirmLoginText.text = "Logged In....";
+            SceneManager.LoadScene("choosePlayer");
         }
     }
     private IEnumerator RegisterAsync(string _email, string _password, string _Verifypassword, string _username, Text warningRegisterText)
@@ -415,59 +422,13 @@ public class AuthManger : MonoBehaviour
         AuthStateChanged(this, null);
         UnityEngine.SceneManagement.SceneManager.LoadScene("FirebaseLogin");
     }
-    public List<Children> GetChildren()
+    public Query GetChildren()
     {
         List<Children> childrens = new List<Children>();
         Query AllQuery = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children");
-        AllQuery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCompleted)
-            {
-                QuerySnapshot AllQuerySnapshot = task.Result;
-                foreach (DocumentSnapshot documentSnapshot in AllQuerySnapshot.Documents)
-                {
-                    //Debug.LogFormat($"Document data for document: {documentSnapshot.Id}");
-                    childrens.Add(documentSnapshot.ConvertTo<Children>());
-                }
-            }
-            else if (task.Exception != null)
-            {
-                Debug.LogWarning(message: $"Failed to register task with {task.Exception}");
-            }
-        });
-        return childrens;
+        return AllQuery;
     }
-    public List<shopitem> Getshopitems()
-    {
-        List<shopitem> items = new List<shopitem>();
-        Query AllQuery = firebaseFirestore.Collection("store_Item").Document("avatar").Collection("items");
-        AllQuery.GetSnapshotAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCompleted)
-            {
-                QuerySnapshot AllQuerySnapshot = task.Result;
-                foreach (DocumentSnapshot documentSnapshot in AllQuerySnapshot.Documents)
-                {
-                    Debug.LogFormat($"Document data for document: {documentSnapshot.Id}");
-                    items.Add(documentSnapshot.ConvertTo<shopitem>());
-                }
-            }
-            else if (task.Exception != null)
-            {
-                Debug.LogWarning(message: $"Failed to register task with {task.Exception}");
-            }
-        });
-        return items;
-    }
-
-    // public void OnApplicationPause(bool pauseStatus)
-    // {
-    //     if (pauseStatus)
-    //     {
-    //         SendChildrenData(children.ID);
-    //     }
-    // }
-
+    
     public void OnDestroy()
     {
         SendChildrenData(children.ID);
