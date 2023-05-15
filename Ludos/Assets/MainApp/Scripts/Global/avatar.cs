@@ -1,10 +1,17 @@
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class avatar : MonoBehaviour
 {
+    [SerializeField] private Slider progress;
     private void Awake()
     {
+        if (progress != null)
+        {
+            progress.value = AuthManger.Instance.children.achievedStars;
+        }
+
         Sprite s = Resources.Load<Sprite>(AuthManger.Instance.children.Avatar);
         string name = AuthManger.Instance.children.Name;
         if (gameObject.GetComponent<UnityEngine.UI.Image>() != null)

@@ -1085,18 +1085,6 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 597797848439092174, guid: 94d9c26ba2740a547bc97b46ed0ec705, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 597797848439092174, guid: 94d9c26ba2740a547bc97b46ed0ec705, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 597797848439092174, guid: 94d9c26ba2740a547bc97b46ed0ec705, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.3000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 597797848439092174, guid: 94d9c26ba2740a547bc97b46ed0ec705, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1144,30 +1132,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 688720826, guid: 94d9c26ba2740a547bc97b46ed0ec705, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94d9c26ba2740a547bc97b46ed0ec705, type: 3}
 --- !u!224 &688720824 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 597797848439092174, guid: 94d9c26ba2740a547bc97b46ed0ec705, type: 3}
   m_PrefabInstance: {fileID: 688720823}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &688720825 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 597797847280791596, guid: 94d9c26ba2740a547bc97b46ed0ec705, type: 3}
-  m_PrefabInstance: {fileID: 688720823}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &688720826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688720825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf08b63a956a41048a152f461e826c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &907373556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,6 +1882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf08b63a956a41048a152f461e826c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: {fileID: 0}
 --- !u!1 &1434422472
 GameObject:
   m_ObjectHideFlags: 0

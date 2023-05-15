@@ -19,7 +19,9 @@ public struct Children
     //Firestore Property to store total_stars
     [FirestoreProperty]
     public int Total_stars { get; set; }
-    //Firestore Property to store Achievements 
+    [FirestoreProperty]
+    public int  achievedStars { get; set; }
+    //Firestore Property to store Achieved stars
     [FirestoreProperty]
     public IList Achievements { get; set; }
     //Firestore Property to store store_Items 
@@ -36,22 +38,26 @@ public struct Children
     public IList Animals { get; set; }
 
     //Firestore Property to store Animals 
-    [FirestoreProperty]
-    public IList completionState { get; set; }
 
-    public Children(int ID,string Avatar, string Name, int Age, int Total_stars, IList Achievements, IList StoreItems, IList Math, IList Calendar, IList Animals,IList completionState) {
-        this.ID = ID;
-        this.Avatar = Avatar;
-        this.Name = Name;
-        this.Age = Age;
-        this.Total_stars = Total_stars;
-        this.Achievements = Achievements;
-        this.StoreItems = StoreItems;
-        this.Math = Math;
-        this.completionState = completionState;
-        this.Calendar = Calendar;
-        this.Animals = Animals;
+    
+
+    public Children(int id, string avatar, string name, int age, int totalStars, int achievedStars, 
+        IList achievements, IList storeItems, IList math, IList calendar, IList animals)
+    {
+        ID = id;
+        Avatar = avatar;
+        Name = name;
+        Age = age;
+        Total_stars = totalStars;
+        this.achievedStars = achievedStars;
+        Achievements = achievements;
+        StoreItems = storeItems;
+        Math = math;
+        Calendar = calendar;
+        Animals = animals;
+        
     }
+
     public int getTotalstars(IList game)
     {
         int total = 0;

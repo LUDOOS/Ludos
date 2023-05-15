@@ -53,64 +53,81 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateData(string GameName, int level, int stars)
     {
-        switch (GameName)
+        if (stars <= 3)
         {
-            case "math":
-            case "Math":
-                if (AuthManger.Instance.children.Math.Count == level) {
-                    AuthManger.Instance.children.Math.Add(stars);
-                    mathTowerNextLevel++;
-                    //mathTowerCurrentLevel++;
-                    AuthManger.Instance.children.Total_stars += stars;
-                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
-                }
-                else if (System.Convert.ToInt32(AuthManger.Instance.children.Math[level]) < stars)
-                {
-                    //Debug.Log(System.Convert.ToInt32(AuthManger.Instance.children.Math[level]));
-                    int temp =stars - System.Convert.ToInt32(AuthManger.Instance.children.Math[level]);
-                    AuthManger.Instance.children.Total_stars += temp;
-                    AuthManger.Instance.children.Math[level] = stars;
-                    AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
-                }
-                break;
-            case "animals":
-            case "Animals":
-                if (AuthManger.Instance.children.Animals.Count == level)
-                {
-                    AuthManger.Instance.children.Animals.Add(stars);
-                    animalsNextLevel++;
-                    //animalsCurrentLevel++;
-                    AuthManger.Instance.children.Total_stars += stars;
-                    //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
-                }
-                else if (System.Convert.ToInt32(AuthManger.Instance.children.Animals[level])< stars)
-                {
-                    int temp = stars - System.Convert.ToInt32(AuthManger.Instance.children.Animals[level]);
-                    AuthManger.Instance.children.Total_stars += temp;
-                    AuthManger.Instance.children.Animals[level] = stars;
-                    //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
-                }
-                break;
-            case "calendar":
-            case "Calendar":
-                if (AuthManger.Instance.children.Calendar.Count == level)
-                {
-                    CalendarNextLevel++;
-                    AuthManger.Instance.children.Total_stars += stars;
-                    AuthManger.Instance.children.Calendar.Add(stars);
-                   // AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
-                }
-                else if (System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level] )< stars)
-                {
-                    int temp = stars - System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level]);
-                    AuthManger.Instance.children.Total_stars += temp;
-                    AuthManger.Instance.children.Calendar[level] = stars;
-                    //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
-                }
-                break;
-            default:
-                Debug.LogError("Game Manager class :: UpdateData GameName does not match");
-                break;
+            switch (GameName)
+            {
+                case "math":
+                case "Math":
+                    if (AuthManger.Instance.children.Math.Count == level)
+                    {
+                        AuthManger.Instance.children.Math.Add(stars);
+                        mathTowerNextLevel++;
+                        //mathTowerCurrentLevel++;
+                        AuthManger.Instance.children.Total_stars += stars;
+                        AuthManger.Instance.children.achievedStars += stars;
+                        AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                    }
+                    else if (System.Convert.ToInt32(AuthManger.Instance.children.Math[level]) < stars)
+                    {
+                        //Debug.Log(System.Convert.ToInt32(AuthManger.Instance.children.Math[level]));
+                        int temp = stars - System.Convert.ToInt32(AuthManger.Instance.children.Math[level]);
+                        AuthManger.Instance.children.Total_stars += temp;
+                        AuthManger.Instance.children.achievedStars += temp;
+                        AuthManger.Instance.children.Math[level] = stars;
+                        AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                    }
+
+                    break;
+                case "animals":
+                case "Animals":
+                    if (AuthManger.Instance.children.Animals.Count == level)
+                    {
+                        AuthManger.Instance.children.Animals.Add(stars);
+                        animalsNextLevel++;
+                        //animalsCurrentLevel++;
+                        AuthManger.Instance.children.Total_stars += stars;
+                        AuthManger.Instance.children.achievedStars += stars;
+                        //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                    }
+                    else if (System.Convert.ToInt32(AuthManger.Instance.children.Animals[level]) < stars)
+                    {
+                        int temp = stars - System.Convert.ToInt32(AuthManger.Instance.children.Animals[level]);
+                        AuthManger.Instance.children.Total_stars += temp;
+                        AuthManger.Instance.children.achievedStars += temp;
+                        AuthManger.Instance.children.Animals[level] = stars;
+                        //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                    }
+
+                    break;
+                case "calendar":
+                case "Calendar":
+                    if (AuthManger.Instance.children.Calendar.Count == level)
+                    {
+                        CalendarNextLevel++;
+                        AuthManger.Instance.children.Total_stars += stars;
+                        AuthManger.Instance.children.achievedStars += stars;
+                        AuthManger.Instance.children.Calendar.Add(stars);
+                        // AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                    }
+                    else if (System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level]) < stars)
+                    {
+                        int temp = stars - System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level]);
+                        AuthManger.Instance.children.Total_stars += temp;
+                        AuthManger.Instance.children.achievedStars += temp;
+                        AuthManger.Instance.children.Calendar[level] = stars;
+                        //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
+                    }
+
+                    break;
+                default:
+                    Debug.LogError("Game Manager class :: UpdateData GameName does not match");
+                    break;
+            }
+        }
+        else
+        {
+            //TODO make the child suffer
         }
     }
 }

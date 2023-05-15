@@ -135,20 +135,20 @@ public class AuthManger : MonoBehaviour
                Debug.LogFormat("children {0} add  Failed: ({1})", children.Name, firebaseUser.Email);
            }
        });
-       //object Avatar set Defalet 1
-       // cetriate child data
+       //object Avatar set Default 1
+       // create child data
         children = new Children(
-            ID: parent.NumberOfChildrens,
-            Avatar: "avatar1",
-            Name: ChildName,
-            Age: ChildAge,
-            Total_stars: 0,
-            Achievements: new ArrayList(),
-            StoreItems: new ArrayList() { "avatar1" },
-            Math: new ArrayList(),
-            Calendar: new ArrayList(),
-            Animals: new ArrayList(),
-            completionState: new ArrayList() { false , false, false});
+            id: parent.NumberOfChildrens,
+            avatar: "avatar1",
+            name: ChildName,
+            age: ChildAge,
+            totalStars: 0,
+            achievedStars:0,
+            achievements: new ArrayList(),
+            storeItems: new ArrayList() { "avatar1" },
+            math: new ArrayList(),
+            calendar: new ArrayList(),
+            animals: new ArrayList());
 
         var ChildrenRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children").Document(parent.NumberOfChildrens.ToString());
         ChildrenRef.SetAsync(children).ContinueWithOnMainThread(task =>

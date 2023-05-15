@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Firebase.Extensions;
 using Firebase.Firestore;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 public class mangeplayer : MonoBehaviour
 {
@@ -47,22 +49,24 @@ public class mangeplayer : MonoBehaviour
                      Debug.LogFormat($"Document data for document: {documentSnapshot.Id}");
                      childrens.Add(documentSnapshot.ConvertTo<Children>());
                      button.Add(CreateButton(buttonPrefab: buttonPrefab, parent: parentButtonGameObject));
-                     button[i].name = childrens[i].Name;
-                     button[i].GetComponentInChildren<Text>().text = childrens[i].Name;
+                     button[i].name = childrens[i].ID.ToString();
+                     Text[] textarr = button[i].GetComponentsInChildren<Text>();
+                     textarr[0].text = childrens[i].Name;
+                     textarr[2].text = $"{Math.Round((childrens[i].achievedStars / 54f),3) * 100} %";
                      ss = childrens[i].Avatar;
                      var s = Resources.Load<Sprite>(ss);
                      button[i].image.sprite = s;
                      button[i].onClick.AddListener(() => setPlayer());
                  }
                  LoadingScreen.SetActive(false);
-                 reload.SetActive(false);
+                
                  childrenPanel.SetActive(true);
              }
              else if (task.Exception != null)
              {
                  LoadingScreen.SetActive(false);
                  childrenPanel.SetActive(false);
-                 reload.SetActive(true);
+                 
                  Debug.LogWarning(message: $"Failed to register task with {task.Exception}");
              }
          });
@@ -119,7 +123,7 @@ public class mangeplayer : MonoBehaviour
         Debug.Log(name);
         foreach (Children child in childrens)
         {
-            if (child.Name == name)
+            if (child.ID.ToString() == name)
             {
                 AuthManger.Instance.children = child;
             }

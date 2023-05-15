@@ -44,13 +44,13 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         CreateInstance();
-        if (emailLoginField.text == "" && passwordLoginField.text == "") {
-            //Login
-            emailLoginField.text = "i2@ludos.com";
-            passwordLoginField.text = "test123";
-            warningLoginText.text = "";
-            //confirmLoginText.text = "";
-        }
+        // if (emailLoginField.text == "" && passwordLoginField.text == "") {
+        //     //Login
+        //     emailLoginField.text = "i2@ludos.com";
+        //     passwordLoginField.text = "test123";
+        //     warningLoginText.text = "";
+        //     //confirmLoginText.text = "";
+        // }
     }
 
     private void CreateInstance()
