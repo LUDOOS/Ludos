@@ -72,7 +72,7 @@ public class AnimalsController : MonoBehaviour
         _uiManager.confetti.enabled = true;
         _uiManager.UpdateStars(stars);
         _uiManager.StopTimer();
-        _uiManager.congrates.gameObject.SetActive(true);
+        _uiManager.congrats.gameObject.SetActive(true);
         
     }
 

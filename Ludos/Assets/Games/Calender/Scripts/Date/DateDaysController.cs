@@ -10,7 +10,7 @@ public class DateDaysController : MonoBehaviour
     private int StarCounter = 0;
     public Image img;
     public Sprite [] sprites;
-    public TextMeshProUGUI txt;
+    // public TextMeshProUGUI txt;
     AnimationController animationController;
     AudioController audioController;
     static bool[] completeStatus = { false,false,false, false }; // -------------->>> LevelProgress
@@ -103,22 +103,22 @@ public class DateDaysController : MonoBehaviour
         if (StarCounter == 3)
         {
             img.sprite = sprites[3];
-            txt.text = "Well Done You got Them All Right !";
+            //txt.text = "Well Done You got Them All Right !";
         }
         else if (StarCounter == 2)
         {
             img.sprite = sprites[2];
-            txt.text = "Good Job You got 2 correctly !!";
+           // txt.text = "Good Job You got 2 correctly !!";
         }
         else if (StarCounter == 1)
         {
             img.sprite = sprites[1];
-            txt.text = "Good Job You only Got One Right";
+            //txt.text = "Good Job You only Got One Right";
         }
         else if (StarCounter == 0)
         {
             img.sprite = sprites[0];
-            txt.text = "You should rewatch the Story Video";
+            //txt.text = "You should rewatch the Story Video";
         }
 
         

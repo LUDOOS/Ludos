@@ -11,8 +11,8 @@ public class MathTowerUiManager : MonoBehaviour
     [SerializeField] public Button textBackground;
     [SerializeField] Text _question;
     [SerializeField] Sprite[] _spriteImg;
-    [SerializeField] Image _starsImg;
-    [SerializeField] public Image congrates;
+    [SerializeField] public Image starsImg;
+    [SerializeField] public Image congrats;
     [SerializeField] public RawImage confetti;
     [SerializeField] public RawImage _video;
     string[] _questionText;
@@ -28,7 +28,7 @@ public class MathTowerUiManager : MonoBehaviour
         getQuestion();
         _video.GetComponent<VideoPlayer>().loopPointReached += EndReached;
         _question.text = _questionText[0];
-        congrates.gameObject.SetActive(false);
+        congrats.gameObject.SetActive(false);
         confetti.gameObject.SetActive(false);
         timer.SetDuration(60).Begin();
         Timer.SetPaused(true);
@@ -85,18 +85,18 @@ public class MathTowerUiManager : MonoBehaviour
         {
             if (second >= 45)
             {
-                _starsImg.sprite = _spriteImg[3];
+                starsImg.sprite = _spriteImg[3];
                 //stars = 3;
                 
             }
             else if (second >= 30)
             {
-                _starsImg.sprite = _spriteImg[2];
+                starsImg.sprite = _spriteImg[2];
                 //stars = 2;
             }
             else
             {
-                _starsImg.sprite = _spriteImg[1];
+                starsImg.sprite = _spriteImg[1];
                 //stars = 1;
             }
             //Stars.instance.starsNumber = stars;
@@ -111,7 +111,7 @@ public class MathTowerUiManager : MonoBehaviour
         Timer.SetPaused(true);
         yield return new WaitForSeconds(0.3f);
         // finishing level Screen
-        congrates.gameObject.SetActive(true);
+        congrats.gameObject.SetActive(true);
         //UpdateStars(Timer.second, isActive);
         isActive = true;
         // confetti is the finishing video
