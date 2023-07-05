@@ -52,7 +52,7 @@ public class mangeplayer : MonoBehaviour
                      button[i].name = childrens[i].ID.ToString();
                      Text[] textarr = button[i].GetComponentsInChildren<Text>();
                      textarr[0].text = childrens[i].Name;
-                     textarr[2].text = $"{Math.Round((childrens[i].achievedStars / 54f),3) * 100} %";
+                     textarr[2].text = $"{Math.Round((childrens[i].achievedStars / 54f),3) * 100}%";
                      ss = childrens[i].Avatar;
                      var s = Resources.Load<Sprite>(ss);
                      button[i].image.sprite = s;

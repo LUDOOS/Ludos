@@ -11,7 +11,6 @@ public class SeasonController : MonoBehaviour
     private int StarCounter = 0;
     public Image img;
     public Sprite[] sprites;
-    public TextMeshProUGUI txt;
     AnimationController animationController;
     AudioController audioController;
     static bool[] completeStatus = { false, false, false, false }; // -------------->>> LevelProgress
@@ -23,7 +22,7 @@ public class SeasonController : MonoBehaviour
         { new Vector3(-0.7f, 0, -10),new Vector3(-0.7f, 0f, 0) },
         { new Vector3(6f, 0, -10),new Vector3(6, 0f, 0) }, //Second Question Pos
         { new Vector3(11.68f, 0, -10),new Vector3(11.68f, 0f, 0) }, //third Question Page Pos
-        { new Vector3(16.4f, 0, -10),new Vector3(16.34f, 2.71f, 0) }
+        { new Vector3(16.4f, 0, -10),new Vector3(16.55f, 3.52f, 0) }
     };
     // Start is called before the first frame update
     void Start()
@@ -107,22 +106,22 @@ public class SeasonController : MonoBehaviour
         if (StarCounter == 3)
         {
             img.sprite = sprites[3];
-            txt.text = "Well Done You got Them All Right !";
+            
         }
         else if (StarCounter == 2)
         {
             img.sprite = sprites[2];
-            txt.text = "Good Job You got 2 correctly !!";
+            
         }
         else if (StarCounter == 1)
         {
             img.sprite = sprites[1];
-            txt.text = "Good Job You only Got One Right";
+            
         }
         else if (StarCounter == 0)
         {
             img.sprite = sprites[0];
-            txt.text = "You should rewatch the Story Video";
+            
         }
 
 

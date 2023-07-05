@@ -577,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3051095499396799256, guid: c6430995de4172d4cb03ac4652744ed8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3051095499396799257, guid: c6430995de4172d4cb03ac4652744ed8, type: 3}
       propertyPath: m_Pivot.x
@@ -589,7 +589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3051095499396799257, guid: c6430995de4172d4cb03ac4652744ed8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3051095499396799257, guid: c6430995de4172d4cb03ac4652744ed8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -977,7 +977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &350581754
 RectTransform:
   m_ObjectHideFlags: 0

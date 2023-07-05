@@ -92,6 +92,7 @@ public class UIManager : MonoBehaviour
     }
     public void OpenSelectplayer()
     {
+        //yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("choosePlayer");
     }
     public void Openlogin()
@@ -99,5 +100,8 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("FirebaseLogin");
         OpenLoginPanel();
     }
+
+
+    
 
 }
