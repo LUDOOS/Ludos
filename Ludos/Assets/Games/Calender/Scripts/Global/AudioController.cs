@@ -8,7 +8,6 @@ public class AudioController :MonoBehaviour
     public AudioSource audioSource;
     private void Start()
     {
-      
         audioSource.PlayOneShot(audioclips[0]);
     }
     public void ChangeClip(int clipNumber)

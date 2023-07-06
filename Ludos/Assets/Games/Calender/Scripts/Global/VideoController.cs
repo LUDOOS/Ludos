@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.Video;
 
 public class VideoController : MonoBehaviour
 {
     bool ended = false;
-    public string nextSceneName;
+    public int nextSceneNumber;
     MainPageSceneManager sceneManager;
     [SerializeField] private VideoPlayer StoryVideo ;
      void Start()
@@ -28,17 +29,22 @@ public class VideoController : MonoBehaviour
     }
 
     public void loadStory() {
-        if (nextSceneName.Equals("Seasons-lv1"))
+        // if (nextSceneName.Equals("Seasons-lv1"))
+        // {
+        //     if (GameManager.instance.CalendarCurrentLevel >= 4)
+        //         sceneManager.LoadDays(nextSceneName);
+        //     else {
+        //         sceneManager.GoToMainPage();
+        //     }
+        // }
+        // else {
+        //     sceneManager.changeScene(nextSceneName);
+        // }
+        if (SceneManager.GetActiveScene().name.Equals("Date-Story"))
         {
-            if (GameManager.instance.CalendarCurrentLevel >= 4)
-                sceneManager.changeScene(nextSceneName);
-            else {
-                sceneManager.changeScene("MainPage");
-            }
+            sceneManager.LoadDaysStory(nextSceneNumber);
         }
-        else {
-            sceneManager.changeScene(nextSceneName);
-        }
+        else sceneManager.LoadDays(nextSceneNumber);
     }
 
 }

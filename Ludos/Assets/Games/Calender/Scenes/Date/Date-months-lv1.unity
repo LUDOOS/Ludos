@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7157408902878668264, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1544.5221
+      value: -1543.41
       objectReference: {fileID: 0}
     - target: {fileID: 7157408902878668264, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -217,6 +217,34 @@ PrefabInstance:
     - target: {fileID: 7157408902878668265, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
       propertyPath: m_Name
       value: Congrats
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157408903399831370, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157408903399831370, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 673249039}
+    - target: {fileID: 7157408903399831370, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadDaysStory
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157408903399831370, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157408903729919722, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157408903729919722, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 673249039}
+    - target: {fileID: 7157408903729919722, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainPage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 609ce1b9002ee5345837af2b6e8cf02f, type: 3}
@@ -757,10 +785,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 673249039}
         m_TargetAssemblyTypeName: MainPageSceneManager, Assembly-CSharp
-        m_MethodName: changeScene
-        m_Mode: 5
+        m_MethodName: GoToMainPage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -25,11 +25,9 @@ public class DateDaysController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         mainCam = GameObject.Find("MainCamParent").GetComponent<CameraLerp>();
         audioController = GameObject.Find("Audio Source").GetComponent<AudioController>();
         animationController = GameObject.Find("AnimationController").GetComponent<AnimationController>();
-
     }
 
 
@@ -91,40 +89,34 @@ public class DateDaysController : MonoBehaviour
         updateFinalPage();
         UpdateLevels(); // -------------->>> LevelProgress
         StartCoroutine(mainCam.LerpFromTo(pageLocations[3,0], 2f,1.2f));
-        StartCoroutine(mainCam.LerpFromTo("avatarParent", pageLocations[3, 1], 1.5f, 1.2f));
+        //StartCoroutine(mainCam.LerpFromTo("avatarParent", pageLocations[3, 1], 1.5f, 1.2f));
         audioController.audioSource.Stop();
         //audioController.ChangeClip(1);
     }
 
 
    
-     void updateFinalPage() {
-        if (StarCounter == 3)
-        {
-            img.sprite = sprites[3];
-          
-        }
-        else if (StarCounter == 2)
-        {
-            img.sprite = sprites[2];
-           
-        }
-        else if (StarCounter == 1)
-        {
-            img.sprite = sprites[1];
-            
-        }
-        else if (StarCounter == 0)
-        {
-            img.sprite = sprites[0];
-            
-        }
-
-        
-    }
+     void updateFinalPage()
+     {
+         switch (StarCounter)
+         {
+             case 3:
+                 img.sprite = sprites[3];
+                 break;
+             case 2:
+                 img.sprite = sprites[2];
+                 break;
+             case 1:
+                 img.sprite = sprites[1];
+                 break;
+             case 0:
+                 img.sprite = sprites[0];
+                 break;
+         }
+     }
 
     //&& GameManager.instance.nextLevel != GameManager.instance.CurrentLevel
-    void UpdateLevels() // -------------->>> LevelProgress
+    private void UpdateLevels() // -------------->>> LevelProgress
     {
         if (!completeStatus[GameManager.instance.CalendarCurrentLevel] )
         {
@@ -137,7 +129,7 @@ public class DateDaysController : MonoBehaviour
         
         
     }
-    void disableKeys(Button b1 , Button b2) {
+   private void disableKeys(Button b1 , Button b2) {
         b1.interactable = false;
         b2.interactable = false;
         

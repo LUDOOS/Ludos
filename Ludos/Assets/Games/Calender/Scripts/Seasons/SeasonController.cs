@@ -94,7 +94,7 @@ public class SeasonController : MonoBehaviour
         updateFinalPage();
         UpdateLevels(); // -------------->>> LevelProgress
         StartCoroutine(mainCam.LerpFromTo(pageLocations[3, 0], 2f, 1.2f));
-        StartCoroutine(mainCam.LerpFromTo("avatarParent", pageLocations[3, 1], 1.5f, 1.2f));
+        //StartCoroutine(mainCam.LerpFromTo("avatarParent", pageLocations[3, 1], 1.5f, 1.2f));
         audioController.audioSource.Stop();
         //audioController.ChangeClip(1);
     }
@@ -103,41 +103,34 @@ public class SeasonController : MonoBehaviour
 
     public void updateFinalPage()
     {
-        if (StarCounter == 3)
+        switch (StarCounter)
         {
-            img.sprite = sprites[3];
-            
+            case 3:
+                img.sprite = sprites[3];
+                break;
+            case 2:
+                img.sprite = sprites[2];
+                break;
+            case 1:
+                img.sprite = sprites[1];
+                break;
+            case 0:
+                img.sprite = sprites[0];
+                break;
         }
-        else if (StarCounter == 2)
-        {
-            img.sprite = sprites[2];
-            
-        }
-        else if (StarCounter == 1)
-        {
-            img.sprite = sprites[1];
-            
-        }
-        else if (StarCounter == 0)
-        {
-            img.sprite = sprites[0];
-            
-        }
-
-
     }
         void UpdateLevels() // -------------->>> LevelProgress
     {
             if (!completeStatus[GameManager.instance.CalendarCurrentLevel-4] && GameManager.instance.CalendarNextLevel != GameManager.instance.CalendarCurrentLevel)
             {
                 completeStatus[GameManager.instance.CalendarCurrentLevel-4] = true;
-            GameManager.instance.UpdateData(GameName: "Calendar",
+                GameManager.instance.UpdateData(GameName: "Calendar",
                 level: GameManager.instance.CalendarCurrentLevel ,
                 stars: StarCounter);
-        }
+            }
 
 
-        }
+    }
         void disableKeys(Button b1, Button b2)
         {
             b1.interactable = false;

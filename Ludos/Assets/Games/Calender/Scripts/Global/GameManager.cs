@@ -25,15 +25,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //CalendarCurrentLevel = AuthManger.Instance.children.Calendar.Count;
         CalendarNextLevel = AuthManger.Instance.children.Calendar.Count + 1 ;
         CalendarStars = 0;
-
-        //mathTowerCurrentLevel = AuthManger.Instance.children.Math.Count ;
+        
         mathTowerNextLevel = AuthManger.Instance.children.Math.Count + 1;
         mathTowerStars = 0;
-
-        // animalsCurrentLevel = AuthManger.Instance.children.Animals.Count;
+        
         animalsNextLevel = AuthManger.Instance.children.Animals.Count + 1;
         animalsStars = 0;
         //under test
@@ -63,14 +60,12 @@ public class GameManager : MonoBehaviour
                     {
                         AuthManger.Instance.children.Math.Add(stars);
                         mathTowerNextLevel++;
-                        //mathTowerCurrentLevel++;
                         AuthManger.Instance.children.Total_stars += stars;
                         AuthManger.Instance.children.achievedStars += stars;
                         AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                     }
                     else if (System.Convert.ToInt32(AuthManger.Instance.children.Math[level]) < stars)
                     {
-                        //Debug.Log(System.Convert.ToInt32(AuthManger.Instance.children.Math[level]));
                         int temp = stars - System.Convert.ToInt32(AuthManger.Instance.children.Math[level]);
                         AuthManger.Instance.children.Total_stars += temp;
                         AuthManger.Instance.children.achievedStars += temp;
@@ -85,10 +80,8 @@ public class GameManager : MonoBehaviour
                     {
                         AuthManger.Instance.children.Animals.Add(stars);
                         animalsNextLevel++;
-                        //animalsCurrentLevel++;
                         AuthManger.Instance.children.Total_stars += stars;
                         AuthManger.Instance.children.achievedStars += stars;
-                        //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                     }
                     else if (System.Convert.ToInt32(AuthManger.Instance.children.Animals[level]) < stars)
                     {
@@ -96,7 +89,6 @@ public class GameManager : MonoBehaviour
                         AuthManger.Instance.children.Total_stars += temp;
                         AuthManger.Instance.children.achievedStars += temp;
                         AuthManger.Instance.children.Animals[level] = stars;
-                        //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                     }
 
                     break;
@@ -108,7 +100,6 @@ public class GameManager : MonoBehaviour
                         AuthManger.Instance.children.Total_stars += stars;
                         AuthManger.Instance.children.achievedStars += stars;
                         AuthManger.Instance.children.Calendar.Add(stars);
-                        // AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                     }
                     else if (System.Convert.ToInt32(AuthManger.Instance.children.Calendar[level]) < stars)
                     {
@@ -116,7 +107,6 @@ public class GameManager : MonoBehaviour
                         AuthManger.Instance.children.Total_stars += temp;
                         AuthManger.Instance.children.achievedStars += temp;
                         AuthManger.Instance.children.Calendar[level] = stars;
-                        //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                     }
 
                     break;

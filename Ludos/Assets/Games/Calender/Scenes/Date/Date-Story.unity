@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0042d999ef863e45890171285cb7b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: date-Story1
+  nextSceneNumber: 1
   StoryVideo: {fileID: 30844260}
 --- !u!1 &528775441
 GameObject:

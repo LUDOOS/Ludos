@@ -21,7 +21,6 @@ public class CameraLerp : MonoBehaviour
             mainCamPos.position = Vector3.Lerp(mainCamPos.position, pos2, t / duration);
             yield return 0;
         }
-        Debug.Log(pos2.x + "" + pos2.y);
         mainCamPos.position = pos2;
     }
     public IEnumerator LerpFromTo(string gameObjectName,Vector3 pos2, float duration, float delay)
@@ -33,7 +32,6 @@ public class CameraLerp : MonoBehaviour
             temp.position = Vector3.Lerp(temp.position, pos2, t / duration);
             yield return 0;
         }
-        Debug.Log(pos2.x + "" + pos2.y);
         temp.position = pos2;
     }
 }

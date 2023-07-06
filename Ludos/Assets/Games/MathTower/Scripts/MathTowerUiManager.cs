@@ -47,6 +47,12 @@ public class MathTowerUiManager : MonoBehaviour
         isFinished = true;
     }
 
+    public void SkipVideo()
+    {
+        DestroyImmediate(GameObject.Find("Video"));
+        Timer.SetPaused(false);
+    }
+
     private void getQuestion()
     {
         if (scene.name == "Math-Level-1")
