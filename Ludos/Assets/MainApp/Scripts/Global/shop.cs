@@ -1,9 +1,12 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 public class shop : MonoBehaviour
 {
@@ -53,11 +56,13 @@ public class shop : MonoBehaviour
             {
                 GetChildWithName(items[i], "buy").GetComponentInChildren<Text>().text = "set";
                 GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
+                GetChildWithName(items[i], "price").SetActive(false);
             }
             else
             {
                 GetChildWithName(items[i], "buy").GetComponentInChildren<Text>().text = "set";
                 GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
+                GetChildWithName(items[i], "price").SetActive(false);
                 items[i].GetComponentInChildren<Button>().interactable = false;
             }
 
@@ -82,6 +87,7 @@ public class shop : MonoBehaviour
                 //more op
                 GetChildWithName(GO, "buy").GetComponentInChildren<Text>().text = "set";
                 GetChildWithName(GO, "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
+                GetChildWithName(GO, "price").SetActive(false);
                // AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
             }
             else
@@ -98,13 +104,15 @@ public class shop : MonoBehaviour
         GameObject GO = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.parent
             .gameObject;
 
-        GameObject temp = items.Where(obj => obj.name == AuthManger.Instance.children.Avatar)
-            .SingleOrDefault();
+        GameObject temp = items.Where(obj => obj.name == AuthManger.Instance.children.Avatar).SingleOrDefault();
         temp.GetComponentInChildren<Button>().interactable = true;
+       
+        //DestroyImmediate(temp.GetComponentInChildren<Text>());
         //GetChildWithName(temp, "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
         AuthManger.Instance.children.Avatar = GO.name;
         //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
         GetChildWithName(GO, "buy").GetComponent<Button>().interactable = false;
+        GetChildWithName(GO, "avatar").GetComponent<Image>().color = new Color(207, 207, 207);
     }
 
     void Awake()

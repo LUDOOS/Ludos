@@ -2893,9 +2893,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1377309566}
-        m_TargetAssemblyTypeName: MainPageCameraController, Assembly-CSharp
-        m_MethodName: moveToMainPage
+      - m_Target: {fileID: 1017896573}
+        m_TargetAssemblyTypeName: MainPageSceneManager, Assembly-CSharp
+        m_MethodName: GoToGamesPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
