@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AnimalsMenu : MonoBehaviour
+public class AnimalPageController : MonoBehaviour
 {
     public Button[] LevelButtons;
     [SerializeField] Slider slider;
@@ -22,3 +22,4 @@ public class AnimalsMenu : MonoBehaviour
         slider.value = GameManager.instance.animalsNextLevel;
     }
 }
+

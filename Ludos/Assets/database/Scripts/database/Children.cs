@@ -1,5 +1,6 @@
 using Firebase.Firestore;
 using System.Collections;
+using Unity.Mathematics;
 
 [FirestoreData]
 public struct Children
@@ -58,20 +59,33 @@ public struct Children
         
     }
 
-    public int getTotalstars(IList game)
+    public bool isFirstGame()
     {
-        int total = 0;
-        for (int i = 1; i < game.Count; i++)
+        return achievedStars == 0;
+    }
+
+    public int getTotalStars(string gameName)
+    {
+        int stars = 0;
+        switch (gameName.ToLower())
         {
-            if (game[i] != null)
-            {
-                total += (int)game[i];
-            }
-            else
-            {
-                return total;
-            }
+            case "math":
+                stars = calculateTotalStars(Math, stars);
+                break;
+            case "calendar":
+                stars = calculateTotalStars(Calendar, stars);
+                break;
+            case "animals":
+                stars = calculateTotalStars(Animals, stars);
+                break;
         }
-        return total;
+        return stars;
+    }
+
+    private int calculateTotalStars(IList gameList , int stars)
+    {
+        foreach (int level in gameList) stars += level;
+
+        return stars ;
     }
 }

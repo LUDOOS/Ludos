@@ -8,7 +8,7 @@ public class MainPageSceneManager : MonoBehaviour
    
     public void GoToMainPage () => SceneManager.LoadScene("Calendar-HomePage");
     
-    public void GoToGamesPage (int level) => SceneManager.LoadScene("GamesPage");
+    public void GoToGamesPage () => SceneManager.LoadScene("GamesPage");
         
     public void LoadDays(int level)
     {

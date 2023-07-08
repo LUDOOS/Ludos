@@ -55,13 +55,13 @@ public class shop : MonoBehaviour
             else if (items[i].name != AuthManger.Instance.children.Avatar)
             {
                 GetChildWithName(items[i], "buy").GetComponentInChildren<Text>().text = "set";
-                GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
+                GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() => setAvatar());
                 GetChildWithName(items[i], "price").SetActive(false);
             }
             else
             {
                 GetChildWithName(items[i], "buy").GetComponentInChildren<Text>().text = "set";
-                GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
+                GetChildWithName(items[i], "buy").GetComponent<Button>().onClick.AddListener(() => setAvatar());
                 GetChildWithName(items[i], "price").SetActive(false);
                 items[i].GetComponentInChildren<Button>().interactable = false;
             }
@@ -86,29 +86,31 @@ public class shop : MonoBehaviour
                 AuthManger.Instance.children.StoreItems.Add(GO.name);
                 //more op
                 GetChildWithName(GO, "buy").GetComponentInChildren<Text>().text = "set";
-                GetChildWithName(GO, "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
+                GetChildWithName(GO, "buy").GetComponent<Button>().onClick.AddListener(() => setAvatar());
                 GetChildWithName(GO, "price").SetActive(false);
                // AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
             }
             else
             {
-                //TODO error not enough stars 
-                Debug.Log("not enough stars ");
+                _ShowAndroidToastMessage("Not enough stars");
             }
         }
     }
 
 
-    private void sethandeler()
+   // previously named setHandler
+    private void setAvatar()
     {
         GameObject GO = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.parent
             .gameObject;
 
         GameObject temp = items.Where(obj => obj.name == AuthManger.Instance.children.Avatar).SingleOrDefault();
         temp.GetComponentInChildren<Button>().interactable = true;
-       
-        //DestroyImmediate(temp.GetComponentInChildren<Text>());
-        //GetChildWithName(temp, "buy").GetComponent<Button>().onClick.AddListener(() => sethandeler());
+
+        Image avatarImg = GetChildWithName(GO, "avatar").GetComponent<Image>();
+        avatarImg.color = new Color(0.5f,0.5f,0.5f,1);
+        
+        //GetChildWithName(temp, "buy").GetComponent<Button>().onClick.AddListener(() => setAvatar());
         AuthManger.Instance.children.Avatar = GO.name;
         //AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
         GetChildWithName(GO, "buy").GetComponent<Button>().interactable = false;
@@ -121,7 +123,21 @@ public class shop : MonoBehaviour
         //StartCoroutine(Getshopitems());
         loadShop_Avatars();
     }
+    private void _ShowAndroidToastMessage(string message)
+    {
+        AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject unityActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
 
+        if (unityActivity != null)
+        {
+            AndroidJavaClass toastClass = new AndroidJavaClass("android.widget.Toast");
+            unityActivity.Call("runOnUiThread", new AndroidJavaRunnable(() =>
+            {
+                AndroidJavaObject toastObject = toastClass.CallStatic<AndroidJavaObject>("makeText", unityActivity, message, 0);
+                toastObject.Call("show");
+            }));
+        }
+    }
 
 }
 

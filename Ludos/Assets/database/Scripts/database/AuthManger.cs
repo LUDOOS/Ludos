@@ -129,7 +129,7 @@ public class AuthManger : MonoBehaviour
 
         var parentRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId);
 
-        parent = new Parent(firebaseUser.DisplayName, NumberOfChildrens: 0, firebaseUser.Email);
+        parent = new Parent(firebaseUser.DisplayName, numberOfChildren: 0, firebaseUser.Email);
 
         parentRef.SetAsync(parent).ContinueWithOnMainThread(task =>
         {
@@ -151,7 +151,7 @@ public class AuthManger : MonoBehaviour
     //TODO shall we do method for parent : Async ,Delete ,Update still we dont need username And email 
     public void AddChildren(string ChildName, int ChildAge)
     {
-        parent.NumberOfChildrens++; //  update number of children for parent 
+        parent.NumberOfChildren++; //  update number of children for parent 
         var parentnRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId);
         parentnRef.SetAsync(parent).ContinueWithOnMainThread(task =>
         {
@@ -168,7 +168,7 @@ public class AuthManger : MonoBehaviour
         //object Avatar set Default 1
         // create child data
         children = new Children(
-            id: parent.NumberOfChildrens,
+            id: parent.NumberOfChildren,
             avatar: "avatar1",
             name: ChildName,
             age: ChildAge,
@@ -181,7 +181,7 @@ public class AuthManger : MonoBehaviour
             animals: new ArrayList());
 
         var ChildrenRef = firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children")
-            .Document(parent.NumberOfChildrens.ToString());
+            .Document(parent.NumberOfChildren.ToString());
         ChildrenRef.SetAsync(children).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
@@ -210,9 +210,9 @@ public class AuthManger : MonoBehaviour
 
     public void DeleteChildrenData(int childID)
     {
-        if (parent.NumberOfChildrens > 0)
+        if (parent.NumberOfChildren > 0)
         {
-            parent.NumberOfChildrens--;
+            parent.NumberOfChildren--;
             firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).Collection("children")
                 .Document(childID.ToString()).DeleteAsync();
             firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).SetAsync(parent)

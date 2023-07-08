@@ -41,9 +41,6 @@ public class Navigation : MonoBehaviour
         SceneManager.LoadScene("ShopPage");
     }
 
-    public void NavToHome() {
-        SceneManager.LoadScene("HomePage");
-    }
     /// </MainPages>
 
     ///<Games>

@@ -26,7 +26,7 @@ public class MainPageController : MonoBehaviour
         animationController = GameObject.Find("AnimationController").GetComponent<AnimationController>();
         Avatar = GameObject.FindGameObjectWithTag("avatar").transform;
         updateLevels(); // -------------->>> LevelProgress
-        StartCoroutine(animationController.destroyAnimation("LevelLoader", 2.9f));
+        StartCoroutine(animationController.destroyAnimation("LevelLoader", 2.85f));
 
 
     }
