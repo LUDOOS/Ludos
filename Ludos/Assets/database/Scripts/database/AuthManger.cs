@@ -174,7 +174,7 @@ public class AuthManger : MonoBehaviour
             age: ChildAge,
             totalStars: 0,
             achievedStars: 0,
-            achievements: new ArrayList(),
+            achievements: new ArrayList(){false,false,false,false,false},
             storeItems: new ArrayList() { "avatar1" },
             math: new ArrayList(),
             calendar: new ArrayList(),
@@ -486,6 +486,13 @@ public class AuthManger : MonoBehaviour
         firebaseAuth.StateChanged -= AuthStateChanged;
         firebaseAuth = null;
     }
+
+    public void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus && firebaseAuth.CurrentUser != null && firebaseUser != null) SendChildrenData(children.ID);
+        
+    }
+
     public IEnumerator delay(float seconds , string op)
     {
         
