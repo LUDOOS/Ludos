@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &175731076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,6 +1078,7 @@ MonoBehaviour:
   congrats: {fileID: 1309247815}
   confetti: {fileID: 1701054926}
   _video: {fileID: 175731076}
+  stars: 0
   isActive: 0
   timer: {fileID: 1365588874}
 --- !u!114 &723334752
@@ -3402,7 +3403,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1164793138}
         m_TargetAssemblyTypeName: MovementController, Assembly-CSharp
         m_MethodName: jump
         m_Mode: 1
@@ -3611,7 +3612,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1164793138}
         m_TargetAssemblyTypeName: MovementController, Assembly-CSharp
         m_MethodName: rightMove
         m_Mode: 1
@@ -4763,7 +4764,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1164793138}
         m_TargetAssemblyTypeName: MovementController, Assembly-CSharp
         m_MethodName: leftMove
         m_Mode: 1

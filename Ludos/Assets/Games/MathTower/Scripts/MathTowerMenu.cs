@@ -15,10 +15,10 @@ public class MathTowerMenu : MonoBehaviour
 
     void UpdateLevels()
     {
-        for (int i = 0; i < GameManager.instance.mathTowerNextLevel; i++)
+        for (int i = 0; i < GameManager.instance.mathTowerNextLevel-1; i++)
         {
             LevelButtons[i].interactable = true;
         }
-        slider.value = GameManager.instance.mathTowerNextLevel;
+        slider.value = GameManager.instance.mathTowerNextLevel-1;
     }
 }

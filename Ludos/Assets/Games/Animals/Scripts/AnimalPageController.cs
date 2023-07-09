@@ -15,11 +15,12 @@ public class AnimalPageController : MonoBehaviour
 
     void UpdateLevels()
     {
-        for (int i = 0; i < GameManager.instance.animalsNextLevel; i++)
+        for (int i = 0; i < GameManager.instance.animalsNextLevel ; i++)
         {
-            LevelButtons[i].interactable = true;
+            if (i < 5) LevelButtons[i].interactable = true;
+           
         }
-        slider.value = GameManager.instance.animalsNextLevel;
+        slider.value = GameManager.instance.animalsNextLevel ;
     }
 }
 

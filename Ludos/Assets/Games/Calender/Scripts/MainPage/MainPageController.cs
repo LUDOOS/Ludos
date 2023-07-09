@@ -69,7 +69,7 @@ public class MainPageController : MonoBehaviour
     void updateLevels() // -------------->>> LevelProgress
     {
         Debug.Log("updating");
-        for (int i = 0; i < GameManager.instance.CalendarNextLevel; i++)
+        for (int i = 0; i < GameManager.instance.CalendarNextLevel-1; i++)
         {
            LevelButtons[i].interactable = true;
            

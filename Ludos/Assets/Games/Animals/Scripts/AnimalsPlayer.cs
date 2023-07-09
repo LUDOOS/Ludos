@@ -7,11 +7,15 @@ public class AnimalsPlayer : MonoBehaviour
 {
     Vector3 _move;
     [SerializeField] AudioClip _clip;
-    AudioHandler _handler;
+    [SerializeField] AudioHandler _handler;
+    
     // Start is called before the first frame update
     void Start()
     {
-        _handler = GameObject.Find("Background").GetComponent<AudioHandler>();
+        if (_handler == null)
+        {
+            Debug.Log("not here");
+        }
         _move = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         StartCoroutine(PlayOpeningAudio());
     }

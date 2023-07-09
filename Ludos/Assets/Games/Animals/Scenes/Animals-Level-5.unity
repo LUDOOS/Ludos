@@ -515,7 +515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3c9ced6de90db4e917c4d30e724a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clip: {fileID: 0}
+  _clip: {fileID: 8300000, guid: cf062fdeb259000488cba8da7ae45a1e, type: 3}
+  _handler: {fileID: 1011084118}
 --- !u!4 &264679915
 Transform:
   m_ObjectHideFlags: 0
@@ -1488,7 +1489,7 @@ GameObject:
   - component: {fileID: 1011084119}
   - component: {fileID: 1011084118}
   m_Layer: 0
-  m_Name: Background
+  m_Name: hamada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

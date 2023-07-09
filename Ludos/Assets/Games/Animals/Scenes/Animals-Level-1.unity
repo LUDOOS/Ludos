@@ -561,6 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: cf062fdeb259000488cba8da7ae45a1e, type: 3}
+  _handler: {fileID: 1011084119}
 --- !u!4 &264679915
 Transform:
   m_ObjectHideFlags: 0
@@ -1529,7 +1530,7 @@ GameObject:
   - component: {fileID: 1011084118}
   - component: {fileID: 1011084119}
   m_Layer: 0
-  m_Name: Background
+  m_Name: hamada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

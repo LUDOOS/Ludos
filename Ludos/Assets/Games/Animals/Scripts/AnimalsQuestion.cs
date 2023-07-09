@@ -10,7 +10,7 @@ public class AnimalsQuestion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _handler = GameObject.Find("Background").GetComponent<AudioHandler>();
+        _handler = GameObject.Find("hamada").GetComponent<AudioHandler>();
     }
 
     private void OnMouseUpAsButton()

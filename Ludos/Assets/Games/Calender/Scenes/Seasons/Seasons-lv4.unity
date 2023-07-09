@@ -1879,12 +1879,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c8ab67ac505a70540ba9fbf7102b335b, type: 3}
   - {fileID: 21300000, guid: 4cd4e2eadf459654485dcb1cf7a397b1, type: 3}
   answerButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1405112253}
+  - {fileID: 366208729}
+  - {fileID: 1983841540}
+  - {fileID: 1944080100}
+  - {fileID: 1110582696}
+  - {fileID: 292963653}
 --- !u!4 &926345271
 Transform:
   m_ObjectHideFlags: 0

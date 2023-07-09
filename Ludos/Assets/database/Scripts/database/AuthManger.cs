@@ -174,7 +174,7 @@ public class AuthManger : MonoBehaviour
             age: ChildAge,
             totalStars: 0,
             achievedStars: 0,
-            achievements: new ArrayList(){false,false,false,false,false},
+            achievements: new List<bool>(){false,false,false,false,false},
             storeItems: new ArrayList() { "avatar1" },
             math: new ArrayList(),
             calendar: new ArrayList(),
@@ -277,7 +277,6 @@ public class AuthManger : MonoBehaviour
         var LoginTask = firebaseAuth.SignInWithEmailAndPasswordAsync(_email, _password);
         //Wait until the task completes
         yield return new WaitUntil(predicate: () => LoginTask.IsCompleted);
-
         if (LoginTask.Exception != null)
         {
             //If there are errors handle them
@@ -323,8 +322,6 @@ public class AuthManger : MonoBehaviour
             firebaseUser = LoginTask.Result;
             firebaseFirestore.Collection("parent").Document(firebaseUser.UserId).GetSnapshotAsync()
                 .ContinueWithOnMainThread(task => { parent = task.Result.ConvertTo<Parent>(); });
-            //firebaseAuth.StateChanged += AuthStateChanged;
-            AuthStateChanged(this, null);
             UIManager.Instance.OpenSelectplayer();
             Debug.LogFormat("firebaseUser signed is successfully: {0} ({1})", firebaseUser.DisplayName,
                 firebaseUser.Email);

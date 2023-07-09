@@ -11,7 +11,7 @@ public class MathTowerController : MonoBehaviour
     [SerializeField] private GameObject[] wrongBarrier;
     static bool[] completeStatus = { false, false, false, false, false };
     MathTowerUiManager uiManager;
-    private int stars;
+    private int stars = 0;
     Scene scene;
 
     private void Start()
@@ -36,7 +36,7 @@ public class MathTowerController : MonoBehaviour
             // Animate Barrier Based on Level
             if (scene.name == "Math-Level-1" || scene.name == "Math-Level-3" || scene.name == "Math-Level-4" || scene.name == "Math-Level-5")
             {
-                stars++;
+                //stars++;
                 barrier.GetComponent<Animator>().Play("ScalingToRight");
             }
             else
@@ -56,7 +56,7 @@ public class MathTowerController : MonoBehaviour
             uiManager.UpdateQuestion(2);
             if (scene.name == "Math-Level-1" || scene.name == "Math-Level-3" || scene.name == "Math-Level-5")
             {
-                stars++;
+               // stars++;
                 barrier.GetComponent<Animator>().Play("ScalingToLeft");
             }
             else
@@ -73,7 +73,7 @@ public class MathTowerController : MonoBehaviour
         {
             if (scene.name == "Math-Level-1" || scene.name == "Math-Level-2" || scene.name == "Math-Level-5")
             {
-                stars++;
+                // stars++;
                 barrier.GetComponent<Animator>().Play("ScalingToLeft");
             }
             else
@@ -97,10 +97,11 @@ public class MathTowerController : MonoBehaviour
         uiManager.UpdateStars(Timer.second, isActive:uiManager.isActive);
         if (!completeStatus[GameManager.instance.mathTowerCurrentLevel])
         {
+            Debug.Log(uiManager.stars);
             completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
             //int level= int.Parse(scene.name[^1].ToString())-1;
             //Debug.Log($"level mathtower {level}");
-            GameManager.instance.UpdateData(GameName:"math",level: GameManager.instance.mathTowerCurrentLevel, stars:stars);// ToDO stares
+            GameManager.instance.UpdateData(GameName:"math",level: GameManager.instance.mathTowerCurrentLevel, stars:uiManager.stars);// ToDO stares
         }
 
     }

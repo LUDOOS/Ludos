@@ -3852,7 +3852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.00012207031}
+  m_AnchoredPosition: {x: -11, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1670900755
@@ -4965,5 +4965,6 @@ MonoBehaviour:
   congrats: {fileID: 713132573}
   confetti: {fileID: 2507375}
   _video: {fileID: 1766884792}
+  stars: 0
   isActive: 0
   timer: {fileID: 724776911}

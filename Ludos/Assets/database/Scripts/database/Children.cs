@@ -1,6 +1,8 @@
 using Firebase.Firestore;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEngine;
 
 [FirestoreData]
 public struct Children
@@ -24,7 +26,7 @@ public struct Children
     public int  achievedStars { get; set; }
     //Firestore Property to store Achieved stars
     [FirestoreProperty]
-    public IList Achievements { get; set; }
+    public List<bool> Achievements { get; set; }
     //Firestore Property to store store_Items 
     [FirestoreProperty]
     public IList StoreItems { get; set; }
@@ -43,7 +45,7 @@ public struct Children
     
 
     public Children(int id, string avatar, string name, int age, int totalStars, int achievedStars, 
-        IList achievements, IList storeItems, IList math, IList calendar, IList animals)
+        List<bool> achievements, IList storeItems, IList math, IList calendar, IList animals)
     {
         ID = id;
         Avatar = avatar;
@@ -64,6 +66,12 @@ public struct Children
         return achievedStars == 0;
     }
 
+    public bool FinishedAllGames()
+    {
+        Debug.Log(achievedStars);
+        return achievedStars >= 54;
+    }
+
     public int getTotalStars(string gameName)
     {
         int stars = 0;
@@ -82,10 +90,16 @@ public struct Children
         return stars;
     }
 
-    private int calculateTotalStars(IList gameList , int stars)
+    private int calculateTotalStars(IList gameList  , int stars)
     {
-        foreach (int level in gameList) stars += level;
+        foreach (var level in gameList) stars += System.Convert.ToInt32(level);;
+        
 
         return stars ;
+    }
+
+    public bool CheckUnlocked(int index)
+    {
+        return Achievements[index];
     }
 }

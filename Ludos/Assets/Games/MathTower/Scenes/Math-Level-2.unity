@@ -1192,6 +1192,7 @@ MonoBehaviour:
   congrats: {fileID: 1787641824}
   confetti: {fileID: 196380534}
   _video: {fileID: 1880492047}
+  stars: 0
   isActive: 0
   timer: {fileID: 1244424363}
 --- !u!114 &705711601
@@ -1498,7 +1499,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1164793138}
         m_TargetAssemblyTypeName: MovementController, Assembly-CSharp
         m_MethodName: leftMove
         m_Mode: 1
@@ -3431,7 +3432,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1164793138}
         m_TargetAssemblyTypeName: MovementController, Assembly-CSharp
         m_MethodName: rightMove
         m_Mode: 1
@@ -3564,7 +3565,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1164793138}
         m_TargetAssemblyTypeName: MovementController, Assembly-CSharp
         m_MethodName: jump
         m_Mode: 1
@@ -4512,7 +4513,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880492046}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: bd32c5ea75b2c3e4e8533c3b01c796b7, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 31e49ce9db0411044b72e70118fa8a08, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}

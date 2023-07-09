@@ -18,7 +18,7 @@ public class AnimalsController : MonoBehaviour
     {
         _player = GameObject.Find("Player").GetComponent<AnimalsPlayer>();
         _uiManager = GameObject.Find("Canvas").GetComponent<AnimalsUiManager>();
-        _aHandler = GameObject.Find("Background").GetComponent<AudioHandler>();
+        _aHandler = GameObject.Find("hamada").GetComponent<AudioHandler>();
         scene = SceneManager.GetActiveScene();
     }
 

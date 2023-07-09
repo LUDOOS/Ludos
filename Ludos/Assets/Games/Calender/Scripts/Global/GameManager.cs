@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public VideoPlayer achievementVideoPlayer;
     // todo: calculate starts for each game
 
     public int CalendarCurrentLevel; // -------------->>> LevelProgress
@@ -53,7 +54,12 @@ public class GameManager : MonoBehaviour
     {
         if (AuthManger.Instance.children.isFirstGame())
         {
-            // unlock first achievement
+           UnlockAchievement(0);
+        }
+        else if(AuthManger.Instance.children.FinishedAllGames())
+        {
+            Debug.Log(AuthManger.Instance.children.FinishedAllGames());
+            UnlockAchievement(4);
         }
 
         if (stars <= 3)
@@ -67,7 +73,6 @@ public class GameManager : MonoBehaviour
                         mathTowerNextLevel++;
                         AuthManger.Instance.children.Total_stars += stars;
                         AuthManger.Instance.children.achievedStars += stars;
-                        AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                     }
                     else if (System.Convert.ToInt32(AuthManger.Instance.children.Math[level]) < stars)
                     {
@@ -75,9 +80,8 @@ public class GameManager : MonoBehaviour
                         AuthManger.Instance.children.Total_stars += temp;
                         AuthManger.Instance.children.achievedStars += temp;
                         AuthManger.Instance.children.Math[level] = stars;
-                        AuthManger.Instance.SendChildrenData(AuthManger.Instance.children.ID);
                     }
-                    CheckAndUnlockAchievement(GameName);
+                    CheckAndUnlockAchievement(GameName,1,15);
                     break;
                 case "animals":
                     if (AuthManger.Instance.children.Animals.Count == level)
@@ -94,7 +98,7 @@ public class GameManager : MonoBehaviour
                         AuthManger.Instance.children.achievedStars += temp;
                         AuthManger.Instance.children.Animals[level] = stars;
                     }
-                    CheckAndUnlockAchievement(GameName);
+                    CheckAndUnlockAchievement(GameName,3,15);
                     break;
                 case "calendar":
                     if (AuthManger.Instance.children.Calendar.Count == level)
@@ -111,7 +115,7 @@ public class GameManager : MonoBehaviour
                         AuthManger.Instance.children.achievedStars += temp;
                         AuthManger.Instance.children.Calendar[level] = stars;
                     }
-                    CheckAndUnlockAchievement(GameName,24);
+                    CheckAndUnlockAchievement(GameName,2,24);
                     break;
                 default:
                     Debug.LogError("Game Manager class :: UpdateData GameName does not match");
@@ -125,21 +129,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void CheckAndUnlockAchievement(string gameName)
+
+    
+    private void CheckAndUnlockAchievement(string gameName ,int achievementIndex , int tStars)
     {
-        if (AuthManger.Instance.children.getTotalStars(gameName) == 15)
+        if (AuthManger.Instance.children.getTotalStars(gameName) == tStars && !AuthManger.Instance.children.CheckUnlocked(achievementIndex))
         {
-            //TODO give math achievement 
-            //TODO check for duplicate unlock
+            UnlockAchievement(achievementIndex);
         }
     }
-    
-    private void CheckAndUnlockAchievement(string gameName , int tStars)
+    private void UnlockAchievement(int achievementIndex)
     {
-        if (AuthManger.Instance.children.getTotalStars(gameName) == tStars)
-        {
-            //TODO give math achievement 
-            //TODO check for duplicate unlock
-        }
+        AuthManger.Instance.children.Achievements[achievementIndex] = true;
+        achievementVideoPlayer.clip = Resources.Load<VideoClip>($"achievementVideos/{achievementIndex}");
+        achievementVideoPlayer.transform.parent.gameObject.SetActive(true);
+        achievementVideoPlayer.loopPointReached += EndReached;
+    }
+    void EndReached(UnityEngine.Video.VideoPlayer vp)
+    {
+        achievementVideoPlayer.transform.parent.gameObject.SetActive(false);
     }
 }
