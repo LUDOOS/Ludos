@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public int animalsStars;
 
     public bool achievementIsPlaying = false;
+
+    // private GameObject congrats;
+    private GameObject confetti;
     //private int totalStars;
 
     private void Start()
@@ -55,14 +58,9 @@ public class GameManager : MonoBehaviour
     {
         if (AuthManger.Instance.children.isFirstGame())
         {
-           UnlockAchievement(0);
+           StartCoroutine(UnlockAchievement(0));
         }
-        else if(AuthManger.Instance.children.FinishedAllGames())
-        {
-            Debug.Log(AuthManger.Instance.children.FinishedAllGames());
-            UnlockAchievement(4);
-        }
-
+        
         if (stars <= 3)
         {
             switch (GameName.ToLower())
@@ -115,19 +113,22 @@ public class GameManager : MonoBehaviour
                         AuthManger.Instance.children.Total_stars += temp;
                         AuthManger.Instance.children.achievedStars += temp;
                         AuthManger.Instance.children.Calendar[level] = stars;
-                    }
+                    } 
                     CheckAndUnlockAchievement(GameName,2,24);
+             
                     break;
                 default:
                     Debug.LogError("Game Manager class :: UpdateData GameName does not match");
                     break;
             }
         }
-
-        else
+        
+        if(AuthManger.Instance.children.FinishedAllGames())
         {
-            //TODO delete account if someone hacked the game
+            Debug.Log(AuthManger.Instance.children.FinishedAllGames());
+            StartCoroutine(UnlockAchievement(4));
         }
+        
     }
 
 
@@ -136,12 +137,16 @@ public class GameManager : MonoBehaviour
     {
         if (AuthManger.Instance.children.getTotalStars(gameName) == tStars && !AuthManger.Instance.children.CheckUnlocked(achievementIndex))
         {
-            achievementIsPlaying = true;
-            UnlockAchievement(achievementIndex);
+            StartCoroutine(UnlockAchievement(achievementIndex));
         }
     }
-    private void UnlockAchievement(int achievementIndex)
+    private IEnumerator UnlockAchievement(int achievementIndex)
     {
+        
+        
+        while (achievementIsPlaying) yield return null;
+        enableConfetti(false);
+        achievementIsPlaying = true;
         AuthManger.Instance.children.Achievements[achievementIndex] = true;
         achievementVideoPlayer.clip = Resources.Load<VideoClip>($"achievementVideos/{achievementIndex}");
         achievementVideoPlayer.transform.parent.gameObject.SetActive(true);
@@ -150,5 +155,16 @@ public class GameManager : MonoBehaviour
     void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
         achievementVideoPlayer.transform.parent.gameObject.SetActive(false);
+        achievementIsPlaying = false;
+        enableConfetti(true);
+    }
+
+    private void enableConfetti(bool state)
+    {
+        //congrats = GameObject.Find("Congrats");
+        confetti = GameObject.Find("Confetti");
+        Debug.Log(state);
+        if (confetti != null) confetti.GetComponent<VideoPlayer>().enabled = state;
+        //if (congrats != null) congrats.SetActive(state);
     }
 }

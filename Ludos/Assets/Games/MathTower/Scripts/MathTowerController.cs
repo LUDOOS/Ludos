@@ -11,7 +11,6 @@ public class MathTowerController : MonoBehaviour
     [SerializeField] private GameObject[] wrongBarrier;
     static bool[] completeStatus = { false, false, false, false, false };
     MathTowerUiManager uiManager;
-    private int stars = 0;
     Scene scene;
 
     private void Start()
