@@ -29,14 +29,20 @@ public class AnimalsController : MonoBehaviour
             if (isClicked) 
             {
                 stars++;
+                Debug.Log(stars + " the right animal");
                 isClicked = false;
                 PlayMyAudio('p');
             }
         }
         else if (this.gameObject.name == "FinalAnimal")
         {
-            stars++;
-            PlayMyAudio('s');
+            if (isClicked)
+            {
+                isClicked = false;
+                stars++;
+                Debug.Log(stars + " final animal");
+                PlayMyAudio('s');
+            }
         }
         else
         {

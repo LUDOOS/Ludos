@@ -350,7 +350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &70303812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2208,7 +2208,7 @@ GameObject:
   - component: {fileID: 930356078}
   - component: {fileID: 930356079}
   m_Layer: 5
-  m_Name: Slider (1)
+  m_Name: datesSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2234,8 +2234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 43.44, y: -171.53813}
-  m_SizeDelta: {x: 29.5, y: 182.8292}
+  m_AnchoredPosition: {x: 43.44, y: -171.02882}
+  m_SizeDelta: {x: 29.5, y: 148.8753}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930356079
 MonoBehaviour:
@@ -2284,7 +2284,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 5
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3241,7 +3241,7 @@ GameObject:
   - component: {fileID: 1369952852}
   - component: {fileID: 1369952853}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: seasonSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3315,7 +3315,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2043630805}
   m_Direction: 3
   m_MinValue: 0
-  m_MaxValue: 4
+  m_MaxValue: 5
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:

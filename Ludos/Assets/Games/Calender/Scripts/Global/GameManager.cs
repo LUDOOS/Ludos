@@ -22,11 +22,12 @@ public class GameManager : MonoBehaviour
     public int animalsNextLevel; // -------------->>> LevelProgress
     public int animalsStars;
 
+    public bool achievementIsPlaying = false;
     //private int totalStars;
 
     private void Start()
     {
-        CalendarNextLevel = AuthManger.Instance.children.Calendar.Count + 1;
+        CalendarNextLevel = AuthManger.Instance.children.Calendar.Count + 1 ;
         CalendarStars = 0;
 
         mathTowerNextLevel = AuthManger.Instance.children.Math.Count + 1;
@@ -135,6 +136,7 @@ public class GameManager : MonoBehaviour
     {
         if (AuthManger.Instance.children.getTotalStars(gameName) == tStars && !AuthManger.Instance.children.CheckUnlocked(achievementIndex))
         {
+            achievementIsPlaying = true;
             UnlockAchievement(achievementIndex);
         }
     }

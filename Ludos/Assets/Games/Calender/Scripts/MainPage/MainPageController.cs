@@ -69,19 +69,24 @@ public class MainPageController : MonoBehaviour
     void updateLevels() // -------------->>> LevelProgress
     {
         Debug.Log("updating");
-        for (int i = 0; i < GameManager.instance.CalendarNextLevel-1; i++)
+        for (int i = 0; i < GameManager.instance.CalendarNextLevel ; i++)
         {
-           LevelButtons[i].interactable = true;
+            if (i < 8) LevelButtons[i].interactable = true;
            
         }
-        if (GameManager.instance.CalendarNextLevel < 4)
+        if (GameManager.instance.CalendarNextLevel < 5)
         {
-            slider[0].value = GameManager.instance.CalendarNextLevel - 1 ;
+            slider[0].value = GameManager.instance.CalendarNextLevel - 1  ;
+        }
+        else if( GameManager.instance.CalendarNextLevel < 9)
+        {
+            slider[0].value = 5;
+            slider[1].value = GameManager.instance.CalendarNextLevel - 5;
         }
         else
         {
             slider[0].value = 5;
-            slider[1].value = GameManager.instance.CalendarNextLevel - 4;
+            slider[1].value = 5;
         }
     }
 

@@ -97,12 +97,13 @@ public class MathTowerController : MonoBehaviour
         uiManager.UpdateStars(Timer.second, isActive:uiManager.isActive);
         if (!completeStatus[GameManager.instance.mathTowerCurrentLevel])
         {
-            Debug.Log(uiManager.stars);
+            
             completeStatus[GameManager.instance.mathTowerCurrentLevel] = true;
             //int level= int.Parse(scene.name[^1].ToString())-1;
             //Debug.Log($"level mathtower {level}");
-            GameManager.instance.UpdateData(GameName:"math",level: GameManager.instance.mathTowerCurrentLevel, stars:uiManager.stars);// ToDO stares
+            GameManager.instance.UpdateData(GameName:"math",level: GameManager.instance.mathTowerCurrentLevel, stars:uiManager.stars);
         }
-
+        
+        
     }
 }
